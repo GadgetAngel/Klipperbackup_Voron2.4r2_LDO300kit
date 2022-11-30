@@ -1,0 +1,840 @@
+4 Hour Thermal Profile Test:
+measure_thermal_behavior:
+https://github.com/tanaes/measure_thermal_behavior
+https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers
+
+Frame Thermal Compensation: https://github.com/alchemyEngine/klipper_frame_expansion_comp and https://github.com/Deutherius/TECPac
+Frame Thermal Compensation MACRO: https://github.com/alchemyEngine/klipper_frame_expansion_comp
+Frame Thermal Compensation  Klipper: https://www.klipper3d.org/Config_Reference.html#z_thermal_adjust
+
+Gantry bowing-induced Z-offset correction through relative reference index: https://github.com/Deutherius/Gantry-bowing-induced-Z-offset-correction-through-relative-reference-index
+Virtual Gantry Backers: https://github.com/Deutherius/VGB
+
+https://github.com/EricZimmerman/VoronConfigs/
+
+https://gist.github.com/conlank/7904ba9529a27b03d707d3a6417877df#determine-the-switch_offset-in-klicky-z-calibrationcfg
+
+More accurate probe accuracy test:
+https://github.com/KiloQubit/probe_accuracy
+
+https://github.com/alchemyEngine/measure_thermal_behavior instead of tanaes/measure_thermal_behavior
+https://www.klipper3d.org/Config_Reference.html#z_thermal_adjust
+
+https://forum.vorondesign.com/conversations/welcome-to-voron-forum.556/#convMessage-601
+
+================================================================================================================
+
+######### META DATA #################
+# For data collection organizational purposes only. Useful when sharing dataset.
+USER_ID = 'GadgetAngel#8701'            # e.g. Discord handle
+PRINTER_MODEL = 'voron_v2r2_300'      # e.g. 'voron_v2_350'
+HOME_TYPE = 'microswitch_probe'          # e.g. 'nozzle_pin', 'microswitch_probe', etc.
+PROBE_TYPE = 'euclid'         # e.g. 'klicky', 'omron', 'bltouch', etc.
+X_RAILS = '1x_mgn12_front'            # e.g. '1x_mgn12_front', '2x_mgn9'
+BACKERS = 'Ti_x-steel_y'            # e.g. 'steel_x_y', 'Ti_x-steel_y', 'mgn9_y'
+NOTES = 'using Kailh GM 4.0 on both Euclid probe and Z-sexbolt endstop'              # anything note-worthy about this particular run,
+                        #     no "=" characters
+#####################################
+
+######### CONFIGURATION #############
+BASE_URL = 'http://127.0.0.1:7125'  # Printer URL (e.g. http://192.168.1.15)
+                                    # leave default if running locally on Pi.
+
+BED_TEMPERATURE = 110               # Bed target temperature for measurements.
+
+HE_TEMPERATURE = 245                # Extruder temperature for measurements.
+
+MEASURE_INTERVAL = 1                # Interval between Z measurements [minutes]
+
+N_SAMPLES = 3                       # Number of repeated measurements of Z
+                                    # taken at each MEASURE_INTERVAL.
+
+HOT_DURATION = 3                    # time after bed temp reached to continue
+                                    # measuring [hours]
+
+COOL_DURATION = 0                   # Time to continue measuring after heaters
+                                    # are disabled [hours].
+
+SOAK_TIME = 30                       # Time to wait for bed to heatsoak after
+                                    # reaching BED_TEMPERATURE [minutes].
+
+MEASURE_GCODE = 'G28 Z'             # G-code called on repeated Z measurements,
+                                    # single line command or macro only.
+
+TRAMMING_METHOD = "quad_gantry_level" # One of: "quad_gantry_level", "z_tilt", or None
+
+TRAMMING_CMD = "QUAD_GANTRY_LEVEL"  # Command for QGL/Z-tilt adjustments.
+                                    # e.g. "QUAD_GANTRY_LEVEL", "Z_TILT_ADJUST",
+                                    # "CUSTOM_MACRO", or None.
+
+MESH_CMD = "BED_MESH_CALIBRATE"     # Command to measure bed mesh for gantry/bed
+                                    # bowing/deformation measurements.
+
+# If using the Z_THERMAL_ADJUST module. [True/False]
+Z_THERMAL_ADJUST = True
+
+# Full config section name of the frame temperature sensor (if any). E.g:
+# CHAMBER_SENSOR = "temperature_sensor chamber"
+CHAMBER_SENSOR = "temperature_sensor J_Chamber_ZDragChain_PT100"
+
+# Extra temperature sensors to collect. E.g:
+# EXTRA_SENSORS = {"ambient": "temperature_sensor ambient",
+#                  "mug1": "temperature_sensor coffee"}
+# can be left empty if none to define.
+EXTRA_SENSORS = {"frame-X-Axis": "temperature_sensor L_X-Axis_Frame_Temp",
+                 "frame-Y-Axis": "temperature_sensor M_Y-Axis_Frame_Temp",
+                 "frame-Z-Axis": "z_thermal_adjust",
+                 "chamber-Toolhead": "temperature_sensor K_Chamber_Toolhead_PT100",
+                 "edge-Bed2": "temperature_sensor I_Bed_Temp2",
+                 "exteranl-Air": "temperature_sensor P_External_Ambient_Temp",
+                 "electronic-Case": "temperature_sensor O_Electronic_Case_Temp",
+                 "Rpi": "temperature_fan Out-take_Left_Side_Controller",
+                 "Octopus Pro": "temperature_fan Octopus_Driver_XYEZ_Fans",
+                 "EBB36": "temperature_fan Fan_EBB36_TH"}
+#####################################
+
+Make adjustments to the following sections "[probe]" and "[quad_gantry_level]" and "[bed_mesh]" so I get a tight QGL before the test begins!
+
+See file ~/klipper_config/ACTIVE/CONFIG/PROBE_EUCLIDE(GM).cfg
+[probe]
+See file ~/klipper_config/ACTIVE/CONFIG/VORON24_300.cfg
+[quad_gantry_level]
+See file ~/klipper_config/printer.cfg
+[bed_mesh] - make this like they want for THERMAL_PROFILING
+
+G28
+QUAD_GANTRY_LEVEL
+BED_MESH_CALIBRATE
+
+2:58 PM
+probe at 250.000,25.000 is z=4.335438
+12:58 PM
+probe at 250.000,25.000 is z=4.336688
+12:58 PM
+Gantry-relative probe points:
+0: 10.664562 1: 10.660812 2: 10.663312 3: 10.663312
+12:58 PM
+Actuator Positions:
+z: 10.666941 z1: 10.655879 z2: 10.665933 z3: 10.662032
+12:58 PM
+Average: 10.662696
+12:58 PM
+Making the following Z adjustments:
+stepper_z = -0.004245
+stepper_z1 = 0.006817
+stepper_z2 = -0.003237
+stepper_z3 = 0.000664
+12:58 PM
+Retries: 5/10 Probed points range: 0.003750 tolerance: 0.003750
+
+
+Make adjustments to the following sections "[probe]" and "[quad_gantry_level]" and [bed_mesh] so that match what THERMAL_PROFILE wants!
+See file ~/klipper_config/ACTIVE/CONFIG/PROBE_EUCLIDE(GM).cfg
+[probe]
+See file ~/klipper_config/ACTIVE/CONFIG/VORON24_300.cfg
+[quad_gantry_level]
+See file ~/klipper_config/printer.cfg
+[bed_mesh] - nothing changes here!
+
+clear the console area of previous outputs.
+
+sudo systemctl stop klipper
+created new ~/klipper_logs/klippy.log
+
+sudo systemctl start klipper
+
+shutdown Raspberry pi
+Reboot the Raspberry pi
+
+------------------
+BOOT:
+Output results:
+1:12 PM
+Klipper state: Ready
+1:12 PM
+++++++++++++++++++++++++
+1:12 PM
+Heater_threshold = 110;
+ChamberTEMP_threshold = 50.00;
+FLAG = 0;
+LAST_CHAMBER_TEMP = 0.00;
+current_CHAMBER_TEMP = 24.58;
+OFFSET = 4;
+1:12 PM
+++++++++++++++++++++++++
+1:12 PM
+1:12 PM
+probe: TRIGGERED
+1:12 PM
+echo: Printer online.
+1:12 PM
+echo: "probe: TRIGGERED" = Euclid probe NOT attached.
+1:12 PM
+echo: Z-Offset is set at 4.78mm.
+1:12 PM
+echo: Nozzle diameter is set at 0.4mm.
+1:12 PM
+echo: Pressure Advance is set at 0.055.
+1:12 PM
+echo: Pressure advance Smooth Time is set at 0.03.
+1:12 PM
+echo: Loaded filament profile ABS04 (Generic ABS / 0.4mm Nozzle)
+
+------------------
+-----------
+with the sections that THERMAL_PROFILE wants them set!
+G28
+QUAD_GANTRY_LEVEL
+
+what is the Humidity sensor showing: 28% 20.1.x C
+
+
+What does you room temp device show: 23.0 C
+
+Output results:
+
+1:15 PM
+probe at 250.000,225.000 is z=4.538864
+1:15 PM
+probe at 250.000,25.000 is z=4.540114
+1:15 PM
+Gantry-relative probe points:
+0: 10.459886 1: 10.457386 2: 10.461136 3: 10.459886
+1:15 PM
+Actuator Positions:
+z: 10.461212 z1: 10.452525 z2: 10.465204 z3: 10.458928
+1:15 PM
+Average: 10.459467
+1:15 PM
+Making the following Z adjustments:
+stepper_z = -0.001745
+stepper_z1 = 0.006942
+stepper_z2 = -0.005737
+stepper_z3 = 0.000539
+1:15 PM
+Retries: 4/10 Probed points range: 0.003750 tolerance: 0.007500
+1:16 PM
+probe: TRIGGERED
+
+
+-----------
+
+------------------
+
+Date                           11/27/2022
+Time                           2:06 PM
+extruder                       26.3
+bed                            24.5
+Fan EBB36 TH                   34.7
+Octopus Fan                    30.6 (octopus pro)
+out-take                       37.5 (pi)
+I Bed Tenp2                    26.0
+J ChamberZDrag                 24.6
+K Chamber Tool                 27.6 
+L X-Axis Frame                 24.3
+M Y-Axis Frame                 24.2
+N Z-Axis Frame                 24.4 
+O Electronic Case              19.0 - with range 20-80 other
+P Exteranal Ambient Temp       18.5  - with range 20-80 other
+Q TinyFan PCB                  34.7 - with range 20-80 other
+
+------------------
+wait 6 minutes so the data for exterior temp and case temp start to show up from the TinyPCB board!
+M105
+Output results:
+
+1:19 PM
+M105
+1:19 PM
+B:24.1 /0.0 Case_Temp:19.4 /0.0 ChambZdrag:24.8 /0.0 ChamberToolH:27.3 /0.0 Extr_Air_Temp:18.7 /0.0 Fan_EBB36_TH:34.6 /35.0 IBedT2:25.7 /0.0 Octopus_Driver:31.6 /25.0 Out-take_Left:38.5 /25.0 T0:25.8 /0.0 TinyFanPCB:37.3 /0.0 XFrame:24.2 /0.0 YFrame:24.2 /0.0 ZFrame:24.3 /0.0
+
+
+------------------
+
+------------------
+In SSH windows:
+cd ~/alchemyEngine_measure_thermal_behavior
+M105
+date
+nohup python3 measure_thermal_behavior.py > out.txt &
+
+1:20 PM
+M105
+1:20 PM
+B:24.1 /0.0 Case_Temp:19.3 /0.0 ChambZdrag:24.6 /0.0 ChamberToolH:27.4 /0.0 Extr_Air_Temp:18.6 /0.0 Fan_EBB36_TH:35.1 /35.0 IBedT2:25.7 /0.0 Octopus_Driver:31.7 /25.0 Out-take_Left:38.5 /25.0 T0:25.8 /0.0 TinyFanPCB:36.5 /0.0 XFrame:24.4 /0.0 YFrame:24.1 /0.0 ZFrame:24.4 /0.0
+
+pi@LDO300kit:~/alchemyEngine_measure_thermal_behavior $ date
+Sun 27 Nov 2022 01:20:49 PM EST
+pi@LDO300kit:~/alchemyEngine_measure_thermal_behavior $ nohup python3 measure_thermal_behavior.py > out.txt &
+[1] 1507
+pi@LDO300kit:~/alchemyEngine_measure_thermal_behavior $ nohup: ignoring input and redirecting stderr to stdout
+
+Test begins at 1:20 PM
+
+1:23 PM
+probe at 269.500,247.000 is z=4.730000
+1:23 PM
+Mesh Bed Leveling Complete
+1:23 PM
+Bed Mesh state has been saved to profile [default]
+for the current session. The SAVE_CONFIG command will
+update the printer config file and restart the printer.
+1:23 PM
+probe: TRIGGERED
+
+1:25 PM
+M105
+1:25 PM
+B:54.6 /110.0 Case_Temp:20.1 /0.0 ChambZdrag:24.7 /0.0 ChamberToolH:27.8 /0.0 Extr_Air_Temp:18.2 /0.0 Fan_EBB36_TH:35.0 /35.0 IBedT2:34.7 /0.0 Octopus_Driver:31.6 /25.0 Out-take_Left:39.9 /25.0 T0:244.9 /245.0 TinyFanPCB:36.8 /0.0 XFrame:24.6 /0.0 YFrame:24.3 /0.0 ZFrame:24.5 /0.0
+
+1:25 PM
+INFO_BEDFANS
+1:25 PM
+++++++++++++++++++++++++
+1:25 PM
+Heater_threshold = 110;
+ChamberTEMP_threshold = 50.00;
+FLAG = 0;
+LAST_CHAMBER_TEMP = 24.65;
+current_CHAMBER_TEMP = 25.16;
+OFFSET = 4;
+1:25 PM
+++++++++++++++++++++++++
+1:25 PM
+
+
+bed mesh eneded at: 1:23 PM
+
+bed should reach target at 15minutes: 1:39 PM
+
+
+1:39 PM
+INFO_BEDFANS
+1:39 PM
+++++++++++++++++++++++++
+1:39 PM
+Heater_threshold = 110;
+ChamberTEMP_threshold = 50.00;
+FLAG = 3;
+LAST_CHAMBER_TEMP = 31.12;
+current_CHAMBER_TEMP = 30.95;
+OFFSET = 4;
+1:39 PM
+++++++++++++++++++++++++
+1:39 PM
+1:39 PM
+1:39 PM
+M105
+1:39 PM
+B:110.1 /110.0 Case_Temp:23.9 /0.0 ChambZdrag:31.0 /0.0 ChamberToolH:34.7 /0.0 Extr_Air_Temp:19.8 /0.0 Fan_EBB36_TH:39.8 /35.0 IBedT2:86.2 /0.0 Octopus_Driver:34.1 /25.0 Out-take_Left:41.9 /25.0 T0:245.0 /245.0 TinyFanPCB:39.4 /0.0 XFrame:30.9 /0.0 YFrame:27.0 /0.0 ZFrame:28.3 /0.0
+
+
+Bed reached target at 1:39 PM now waiting 30 minutes before hot bed mesh begins, then probing begins
+HOT Bed mesh should begin at 2:09 PM!
+
+M105
+INFO_BEDFANS
+
+2:09 PM
+M105
+2:09 PM
+B:110.0 /110.0 Case_Temp:30.6 /0.0 ChambZdrag:46.9 /0.0 ChamberToolH:48.1 /0.0 Extr_Air_Temp:23.7 /0.0 Fan_EBB36_TH:52.5 /35.0 IBedT2:93.2 /0.0 Octopus_Driver:41.0 /25.0 Out-take_Left:46.3 /25.0 T0:245.0 /245.0 TinyFanPCB:40.0 /0.0 XFrame:46.4 /0.0 YFrame:36.9 /0.0 ZFrame:40.7 /0.0
+2:09 PM
+INFO_BEDFANS
+2:09 PM
+++++++++++++++++++++++++
+2:09 PM
+Heater_threshold = 110;
+ChamberTEMP_threshold = 50.00;
+FLAG = 3;
+LAST_CHAMBER_TEMP = 47.02;
+current_CHAMBER_TEMP = 46.98;
+OFFSET = 4;
+2:09 PM
+++++++++++++++++++++++++
+2:09 PM
+2:09 PM
+2:09 PM
+M105
+2:09 PM
+B:110.0 /110.0 Case_Temp:30.7 /0.0 ChambZdrag:47.2 /0.0 ChamberToolH:48.1 /0.0 Extr_Air_Temp:23.6 /0.0 Fan_EBB36_TH:52.9 /35.0 IBedT2:93.2 /0.0 Octopus_Driver:41.1 /25.0 Out-take_Left:45.8 /25.0 T0:244.9 /245.0 TinyFanPCB:40.1 /0.0 XFrame:46.4 /0.0 YFrame:36.9 /0.0 ZFrame:40.7 /0.0
+2:09 PM
+INFO_BEDFANS
+2:09 PM
+++++++++++++++++++++++++
+2:09 PM
+Heater_threshold = 110;
+ChamberTEMP_threshold = 50.00;
+FLAG = 3;
+LAST_CHAMBER_TEMP = 46.88;
+current_CHAMBER_TEMP = 46.88;
+OFFSET = 4;
+2:09 PM
+++++++++++++++++++++++++
+2:09 PM
+2:09 PM
+2:09 PM
+probe: TRIGGERED
+2:09 PM
+M105
+2:09 PM
+probe: TRIGGERED
+2:09 PM
+probe: TRIGGERED
+2:09 PM
+probe: TRIGGERED
+2:09 PM
+probe: open
+2:10 PM
+probe at 29.500,7.000 is z=3.575000
+2:10 PM
+probe at 69.500,7.000 is z=3.643750
+2:10 PM
+probe at 109.500,7.000 is z=3.692500
+2:10 PM
+probe at 149.500,7.000 is z=3.726250
+2:10 PM
+probe at 189.500,7.000 is z=3.780000
+2:10 PM
+probe at 229.500,7.000 is z=3.805000
+2:10 PM
+probe at 269.500,7.000 is z=3.857500
+2:10 PM
+probe at 269.500,47.000 is z=4.018750
+2:10 PM
+probe at 229.500,47.000 is z=3.951250
+2:10 PM
+probe at 189.500,47.000 is z=3.898750
+2:10 PM
+probe at 149.500,47.000 is z=3.846250
+2:10 PM
+probe at 109.500,47.000 is z=3.780000
+2:10 PM
+probe at 69.500,47.000 is z=3.717500
+2:10 PM
+probe at 29.500,47.000 is z=3.636250
+2:10 PM
+probe at 29.500,87.000 is z=3.705000
+2:10 PM
+probe at 69.500,87.000 is z=3.793750
+2:10 PM
+probe at 109.500,87.000 is z=3.876250
+2:10 PM
+probe at 149.500,87.000 is z=3.955000
+2:10 PM
+probe at 189.500,87.000 is z=4.042500
+2:10 PM
+probe at 229.500,87.000 is z=4.117500
+2:10 PM
+probe at 269.500,87.000 is z=4.195000
+2:10 PM
+probe at 269.500,127.000 is z=4.378750
+2:10 PM
+probe at 229.500,127.000 is z=4.283750
+2:10 PM
+probe at 189.500,127.000 is z=4.196250
+2:10 PM
+probe at 149.500,127.000 is z=4.085000
+2:10 PM
+probe at 109.500,127.000 is z=3.987500
+2:10 PM
+probe at 69.500,127.000 is z=3.882500
+2:10 PM
+probe at 29.500,127.000 is z=3.768750
+2:10 PM
+probe at 29.500,167.000 is z=3.845000
+2:10 PM
+probe at 69.500,167.000 is z=3.970000
+2:10 PM
+probe at 109.500,167.000 is z=4.087500
+2:10 PM
+probe at 149.500,167.000 is z=4.208750
+2:11 PM
+probe at 189.500,167.000 is z=4.343750
+2:11 PM
+probe at 229.500,167.000 is z=4.441250
+2:11 PM
+probe at 269.500,167.000 is z=4.561250
+2:11 PM
+probe at 269.500,207.000 is z=4.761250
+2:11 PM
+probe at 229.500,207.000 is z=4.638750
+2:11 PM
+probe at 189.500,207.000 is z=4.500000
+2:11 PM
+probe at 149.500,207.000 is z=4.347500
+2:11 PM
+probe at 109.500,207.000 is z=4.206250
+2:11 PM
+probe at 69.500,207.000 is z=4.075000
+2:11 PM
+probe at 29.500,207.000 is z=3.921250
+2:11 PM
+probe at 29.500,247.000 is z=4.002500
+2:11 PM
+probe at 69.500,247.000 is z=4.168750
+2:11 PM
+probe at 109.500,247.000 is z=4.332500
+2:11 PM
+probe at 149.500,247.000 is z=4.492500
+2:11 PM
+probe at 189.500,247.000 is z=4.661250
+2:11 PM
+probe at 229.500,247.000 is z=4.823750
+2:11 PM
+probe at 269.500,247.000 is z=4.986250
+2:11 PM
+Mesh Bed Leveling Complete
+2:11 PM
+Bed Mesh state has been saved to profile [default]
+for the current session. The SAVE_CONFIG command will
+update the printer config file and restart the printer.
+2:11 PM
+probe: TRIGGERED
+2:11 PM
+B:95.2 /0.0 Case_Temp:31.0 /0.0 ChambZdrag:48.2 /0.0 ChamberToolH:48.9 /0.0 Extr_Air_Temp:22.3 /0.0 Fan_EBB36_TH:53.1 /35.0 IBedT2:91.3 /0.0 Octopus_Driver:41.3 /25.0 Out-take_Left:45.8 /25.0 T0:136.4 /0.0 TinyFanPCB:39.2 /0.0 XFrame:45.9 /0.0 YFrame:37.3 /0.0 ZFrame:40.1 /0.0
+2:11 PM
+probe: TRIGGERED
+2:11 PM
+probe: TRIGGERED
+2:11 PM
+probe: TRIGGERED
+2:11 PM
+mcu: stepper_x:54783 stepper_y:43165 stepper_z:714 stepper_z1:1105 stepper_z2:1228 stepper_z3:709
+stepper: stepper_x:506.100000 stepper_y:-100.900000 stepper_z:15.010000 stepper_z1:15.010000 stepper_z2:15.010000 stepper_z3:15.010000
+kinematic: X:202.600000 Y:303.500000 Z:15.010000
+toolhead: X:202.600000 Y:303.500000 Z:15.010000 E:0.000000
+gcode: X:202.600000 Y:303.500000 Z:15.000000 E:0.000000
+gcode base: X:0.000000 Y:0.000000 Z:0.000000 E:0.000000
+gcode homing: X:0.000000 Y:0.000000 Z:0.000000
+2:11 PM
+probe: TRIGGERED
+2:11 PM
+probe: TRIGGERED
+2:11 PM
+probe: TRIGGERED
+2:11 PM
+mcu: stepper_x:54783 stepper_y:43165 stepper_z:713 stepper_z1:1104 stepper_z2:1227 stepper_z3:708
+stepper: stepper_x:506.100000 stepper_y:-100.900000 stepper_z:15.010000 stepper_z1:15.010000 stepper_z2:15.010000 stepper_z3:15.010000
+kinematic: X:202.600000 Y:303.500000 Z:15.010000
+toolhead: X:202.600000 Y:303.500000 Z:15.010000 E:0.000000
+gcode: X:202.600000 Y:303.500000 Z:15.000000 E:0.000000
+gcode base: X:0.000000 Y:0.000000 Z:0.000000 E:0.000000
+gcode homing: X:0.000000 Y:0.000000 Z:0.000000
+2:11 PM
+probe: TRIGGERED
+2:11 PM
+probe: TRIGGERED
+2:11 PM
+probe: TRIGGERED
+2:11 PM
+mcu: stepper_x:54783 stepper_y:43165 stepper_z:713 stepper_z1:1104 stepper_z2:1227 stepper_z3:708
+stepper: stepper_x:506.100000 stepper_y:-100.900000 stepper_z:15.010000 stepper_z1:15.010000 stepper_z2:15.010000 stepper_z3:15.010000
+kinematic: X:202.600000 Y:303.500000 Z:15.010000
+toolhead: X:202.600000 Y:303.500000 Z:15.010000 E:0.000000
+gcode: X:202.600000 Y:303.500000 Z:15.000000 E:0.000000
+gcode base: X:0.000000 Y:0.000000 Z:0.000000 E:0.000000
+gcode homing: X:0.000000 Y:0.000000 Z:0.000000
+
+2:12 PM
+mcu: stepper_x:54783 stepper_y:43165 stepper_z:709 stepper_z1:1100 stepper_z2:1223 stepper_z3:704
+stepper: stepper_x:506.100000 stepper_y:-100.900000 stepper_z:15.010000 stepper_z1:15.010000 stepper_z2:15.010000 stepper_z3:15.010000
+kinematic: X:202.600000 Y:303.500000 Z:15.010000
+toolhead: X:202.600000 Y:303.500000 Z:15.010000 E:0.000000
+gcode: X:202.600000 Y:303.500000 Z:15.000000 E:0.000000
+gcode base: X:0.000000 Y:0.000000 Z:0.000000 E:0.000000
+gcode homing: X:0.000000 Y:0.000000 Z:0.000000
+2:13 PM
+M105
+2:13 PM
+B:91.6 /0.0 Case_Temp:31.1 /0.0 ChambZdrag:48.3 /0.0 ChamberToolH:49.0 /0.0 Extr_Air_Temp:22.7 /0.0 Fan_EBB36_TH:53.0 /35.0 IBedT2:88.6 /0.0 Octopus_Driver:41.2 /25.0 Out-take_Left:46.3 /25.0 T0:103.3 /0.0 TinyFanPCB:38.5 /0.0 XFrame:45.7 /0.0 YFrame:37.2 /0.0 ZFrame:39.8 /0.0
+2:13 PM
+B:91.5 /0.0 Case_Temp:31.1 /0.0 ChambZdrag:48.4 /0.0 ChamberToolH:49.1 /0.0 Extr_Air_Temp:23.2 /0.0 Fan_EBB36_TH:52.8 /35.0 IBedT2:88.5 /0.0 Octopus_Driver:41.2 /25.0 Out-take_Left:45.8 /25.0 T0:102.4 /0.0 TinyFanPCB:38.5 /0.0 XFrame:45.6 /0.0 YFrame:37.3 /0.0 ZFrame:39.8 /0.0
+2:13 PM
+INFO_BEDFANS
+2:13 PM
+++++++++++++++++++++++++
+2:13 PM
+Heater_threshold = 110;
+ChamberTEMP_threshold = 50.00;
+FLAG = 3;
+LAST_CHAMBER_TEMP = 46.88;
+current_CHAMBER_TEMP = 48.75;
+OFFSET = 4;
+2:13 PM
+++++++++++++++++++++++++
+
+
+
+pi@LDO300kit:~/alchemyEngine_measure_thermal_behavior $ cat out.txt
+
+
+
+
+
+M105
+INFO_BEDFANS
+
+
+
+It will continue to takes samples for the next 3 hours starting from 2:11 PM.  So estimate of when
+measurement stops will be 5:11 PM!
+
+
+5:10 PM
+Mesh Bed Leveling Complete
+5:10 PM
+Bed Mesh state has been saved to profile [default]
+for the current session. The SAVE_CONFIG command will
+update the printer config file and restart the printer.
+5:11 PM
+probe: TRIGGERED
+5:11 PM
+SET_HEATER_TEMPERATURE HEATER=heater_bed TARGET=0.0
+5:11 PM
+SET_HEATER_TEMPERATURE HEATER=heater_bed TARGET=0.0
+5:11 PM
+SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0.0
+5:11 PM
+SET_Z_THERMAL_ADJUST enable=1
+5:11 PM
+enable: 1 (enabled)
+temp_coeff: 0.000000 mm/degC
+ref_temp: 25.62 degC
+-------------------
+Current Z temp: 25.56 degC
+Applied Z adjustment: 0.0000 mm
+5:13 PM
+B:27.4 /0.0 Case_Temp:20.5 /0.0 ChambZdrag:27.1 /0.0 ChamberToolH:28.5 /0.0 Extr_Air_Temp:18.8 /0.0 Fan_EBB36_TH:34.9 /35.0 IBedT2:28.5 /0.0 Octopus_Driver:30.9 /25.0 Out-take_Left:40.9 /25.0 T0:28.5 /0.0 TinyFanPCB:32.2 /0.0 XFrame:25.5 /0.0 YFrame:25.4 /0.0 ZFrame:25.5 /0.0
+
+
+pi@LDO300kit:~/alchemyEngine_measure_thermal_behavior $ cat out.txt
+
+
+==========================
+ALL MEASUREMENTS COMPLETE!
+==========================
+pi@
+LDO300kit:~/alchemyEngine_measure_thermal_behavior $
+
+TEST ENDED at x:xx PM 
+
+x:xx PM
+Independent Thermometer reads the air temp of the room is 23.5 C 
+the Independent thermometer inside the chamber readys 22.5 C at 22% humidity
+
+pi@LDO300kit:~/alchemyEngine_measure_thermal_behavior $ cat out.txt
+Starting!
+Homing...DONE
+Gantry/bed already trammed.
+Homing...DONE
+Measuring cold mesh...DONE
+Setting heater targets: Bed=110.0 degC; Tool=245.0 degC
+Parking toolhead at Z=208.0mm for bed heating...DONE
+Waiting for bed to reach 110.0 degC...DONE
+Heatsoaking bed for 30min...DONE
+Measuring cold frame mesh...DONE
+Taking Z measurements for the next 180 min.
+Measuring (#0)...1/3...2/3...3/3...DONE
+Measuring (#1)...1/3...2/3...3/3...DONE
+Measuring (#2)...1/3...2/3...3/3...DONE
+Measuring (#3)...1/3...2/3...3/3...DONE
+Measuring (#4)...1/3...2/3...3/3...DONE
+Measuring (#5)...1/3...2/3...3/3...DONE
+Measuring (#6)...1/3...2/3...3/3...DONE
+Measuring (#7)...1/3...2/3...3/3...DONE
+Measuring (#8)...1/3...2/3...3/3...DONE
+Measuring (#9)...1/3...2/3...3/3...DONE
+Measuring (#10)...1/3...2/3...3/3...DONE
+Measuring (#11)...1/3...2/3...3/3...DONE
+Measuring (#12)...1/3...2/3...3/3...DONE
+Measuring (#13)...1/3...2/3...3/3...DONE
+Measuring (#14)...1/3...2/3...3/3...DONE
+Measuring (#15)...1/3...2/3...3/3...DONE
+Measuring (#16)...1/3...2/3...3/3...DONE
+Measuring (#17)...1/3...2/3...3/3...DONE
+Measuring (#18)...1/3...2/3...3/3...DONE
+Measuring (#19)...1/3...2/3...3/3...DONE
+Measuring (#20)...1/3...2/3...3/3...DONE
+Measuring (#21)...1/3...2/3...3/3...DONE
+Measuring (#22)...1/3...2/3...3/3...DONE
+Measuring (#23)...1/3...2/3...3/3...DONE
+Measuring (#24)...1/3...2/3...3/3...DONE
+Measuring (#25)...1/3...2/3...3/3...DONE
+Measuring (#26)...1/3...2/3...3/3...DONE
+Measuring (#27)...1/3...2/3...3/3...DONE
+Measuring (#28)...1/3...2/3...3/3...DONE
+Measuring (#29)...1/3...2/3...3/3...DONE
+Measuring (#30)...1/3...2/3...3/3...DONE
+Measuring (#31)...1/3...2/3...3/3...DONE
+Measuring (#32)...1/3...2/3...3/3...DONE
+Measuring (#33)...1/3...2/3...3/3...DONE
+Measuring (#34)...1/3...2/3...3/3...DONE
+Measuring (#35)...1/3...2/3...3/3...DONE
+Measuring (#36)...1/3...2/3...3/3...DONE
+Measuring (#37)...1/3...2/3...3/3...DONE
+Measuring (#38)...1/3...2/3...3/3...DONE
+Measuring (#39)...1/3...2/3...3/3...DONE
+Measuring (#40)...1/3...2/3...3/3...DONE
+Measuring (#41)...1/3...2/3...3/3...DONE
+Measuring (#42)...1/3...2/3...3/3...DONE
+Measuring (#43)...1/3...2/3...3/3...DONE
+Measuring (#44)...1/3...2/3...3/3...DONE
+Measuring (#45)...1/3...2/3...3/3...DONE
+Measuring (#46)...1/3...2/3...3/3...DONE
+Measuring (#47)...1/3...2/3...3/3...DONE
+Measuring (#48)...1/3...2/3...3/3...DONE
+Measuring (#49)...1/3...2/3...3/3...DONE
+Measuring (#50)...1/3...2/3...3/3...DONE
+Measuring (#51)...1/3...2/3...3/3...DONE
+Measuring (#52)...1/3...2/3...3/3...DONE
+Measuring (#53)...1/3...2/3...3/3...DONE
+Measuring (#54)...1/3...2/3...3/3...DONE
+Measuring (#55)...1/3...2/3...3/3...DONE
+Measuring (#56)...1/3...2/3...3/3...DONE
+Measuring (#57)...1/3...2/3...3/3...DONE
+Measuring (#58)...1/3...2/3...3/3...DONE
+Measuring (#59)...1/3...2/3...3/3...DONE
+Measuring (#60)...1/3...2/3...3/3...DONE
+Measuring (#61)...1/3...2/3...3/3...DONE
+Measuring (#62)...1/3...2/3...3/3...DONE
+Measuring (#63)...1/3...2/3...3/3...DONE
+Measuring (#64)...1/3...2/3...3/3...DONE
+Measuring (#65)...1/3...2/3...3/3...DONE
+Measuring (#66)...1/3...2/3...3/3...DONE
+Measuring (#67)...1/3...2/3...3/3...DONE
+Measuring (#68)...1/3...2/3...3/3...DONE
+Measuring (#69)...1/3...2/3...3/3...DONE
+Measuring (#70)...1/3...2/3...3/3...DONE
+Measuring (#71)...1/3...2/3...3/3...DONE
+Measuring (#72)...1/3...2/3...3/3...DONE
+Measuring (#73)...1/3...2/3...3/3...DONE
+Measuring (#74)...1/3...2/3...3/3...DONE
+Measuring (#75)...1/3...2/3...3/3...DONE
+Measuring (#76)...1/3...2/3...3/3...DONE
+Measuring (#77)...1/3...2/3...3/3...DONE
+Measuring (#78)...1/3...2/3...3/3...DONE
+Measuring (#79)...1/3...2/3...3/3...DONE
+Measuring (#80)...1/3...2/3...3/3...DONE
+Measuring (#81)...1/3...2/3...3/3...DONE
+Measuring (#82)...1/3...2/3...3/3...DONE
+Measuring (#83)...1/3...2/3...3/3...DONE
+Measuring (#84)...1/3...2/3...3/3...DONE
+Measuring (#85)...1/3...2/3...3/3...DONE
+Measuring (#86)...1/3...2/3...3/3...DONE
+Measuring (#87)...1/3...2/3...3/3...DONE
+Measuring (#88)...1/3...2/3...3/3...DONE
+Measuring (#89)...1/3...2/3...3/3...DONE
+Measuring (#90)...1/3...2/3...3/3...DONE
+Measuring (#91)...1/3...2/3...3/3...DONE
+Measuring (#92)...1/3...2/3...3/3...DONE
+Measuring (#93)...1/3...2/3...3/3...DONE
+Measuring (#94)...1/3...2/3...3/3...DONE
+Measuring (#95)...1/3...2/3...3/3...DONE
+Measuring (#96)...1/3...2/3...3/3...DONE
+Measuring (#97)...1/3...2/3...3/3...DONE
+Measuring (#98)...1/3...2/3...3/3...DONE
+Measuring (#99)...1/3...2/3...3/3...DONE
+Measuring (#100)...1/3...2/3...3/3...DONE
+Measuring (#101)...1/3...2/3...3/3...DONE
+Measuring (#102)...1/3...2/3...3/3...DONE
+Measuring (#103)...1/3...2/3...3/3...DONE
+Measuring (#104)...1/3...2/3...3/3...DONE
+Measuring (#105)...1/3...2/3...3/3...DONE
+Measuring (#106)...1/3...2/3...3/3...DONE
+Measuring (#107)...1/3...2/3...3/3...DONE
+Measuring (#108)...1/3...2/3...3/3...DONE
+Measuring (#109)...1/3...2/3...3/3...DONE
+Measuring (#110)...1/3...2/3...3/3...DONE
+Measuring (#111)...1/3...2/3...3/3...DONE
+Measuring (#112)...1/3...2/3...3/3...DONE
+Measuring (#113)...1/3...2/3...3/3...DONE
+Measuring (#114)...1/3...2/3...3/3...DONE
+Measuring (#115)...1/3...2/3...3/3...DONE
+Measuring (#116)...1/3...2/3...3/3...DONE
+Measuring (#117)...1/3...2/3...3/3...DONE
+Measuring (#118)...1/3...2/3...3/3...DONE
+Measuring (#119)...1/3...2/3...3/3...DONE
+Measuring (#120)...1/3...2/3...3/3...DONE
+Measuring (#121)...1/3...2/3...3/3...DONE
+Measuring (#122)...1/3...2/3...3/3...DONE
+Measuring (#123)...1/3...2/3...3/3...DONE
+Measuring (#124)...1/3...2/3...3/3...DONE
+Measuring (#125)...1/3...2/3...3/3...DONE
+Measuring (#126)...1/3...2/3...3/3...DONE
+Measuring (#127)...1/3...2/3...3/3...DONE
+Measuring (#128)...1/3...2/3...3/3...DONE
+Measuring (#129)...1/3...2/3...3/3...DONE
+Measuring (#130)...1/3...2/3...3/3...DONE
+Measuring (#131)...1/3...2/3...3/3...DONE
+Measuring (#132)...1/3...2/3...3/3...DONE
+Measuring (#133)...1/3...2/3...3/3...DONE
+Measuring (#134)...1/3...2/3...3/3...DONE
+Measuring (#135)...1/3...2/3...3/3...DONE
+Measuring (#136)...1/3...2/3...3/3...DONE
+Measuring (#137)...1/3...2/3...3/3...DONE
+Measuring (#138)...1/3...2/3...3/3...DONE
+Measuring (#139)...1/3...2/3...3/3...DONE
+Measuring (#140)...1/3...2/3...3/3...DONE
+Measuring (#141)...1/3...2/3...3/3...DONE
+Measuring (#142)...1/3...2/3...3/3...DONE
+Measuring (#143)...1/3...2/3...3/3...DONE
+Measuring (#144)...1/3...2/3...3/3...DONE
+Measuring (#145)...1/3...2/3...3/3...DONE
+Measuring (#146)...1/3...2/3...3/3...DONE
+Measuring (#147)...1/3...2/3...3/3...DONE
+Measuring (#148)...1/3...2/3...3/3...DONE
+Measuring (#149)...1/3...2/3...3/3...DONE
+Measuring (#150)...1/3...2/3...3/3...DONE
+Measuring (#151)...1/3...2/3...3/3...DONE
+Measuring (#152)...1/3...2/3...3/3...DONE
+Measuring (#153)...1/3...2/3...3/3...DONE
+Measuring (#154)...1/3...2/3...3/3...DONE
+Measuring (#155)...1/3...2/3...3/3...DONE
+Measuring (#156)...1/3...2/3...3/3...DONE
+Measuring (#157)...1/3...2/3...3/3...DONE
+Measuring (#158)...1/3...2/3...3/3...DONE
+Measuring (#159)...1/3...2/3...3/3...DONE
+Measuring (#160)...1/3...2/3...3/3...DONE
+Measuring (#161)...1/3...2/3...3/3...DONE
+Measuring (#162)...1/3...2/3...3/3...DONE
+Measuring (#163)...1/3...2/3...3/3...DONE
+Measuring (#164)...1/3...2/3...3/3...DONE
+Measuring (#165)...1/3...2/3...3/3...DONE
+Measuring (#166)...1/3...2/3...3/3...DONE
+Measuring (#167)...1/3...2/3...3/3...DONE
+Measuring (#168)...1/3...2/3...3/3...DONE
+Measuring (#169)...1/3...2/3...3/3...DONE
+Measuring (#170)...1/3...2/3...3/3...DONE
+Measuring (#171)...1/3...2/3...3/3...DONE
+Measuring (#172)...1/3...2/3...3/3...DONE
+Measuring (#173)...1/3...2/3...3/3...DONE
+Measuring (#174)...1/3...2/3...3/3...DONE
+Measuring (#175)...1/3...2/3...3/3...DONE
+Measuring (#176)...1/3...2/3...3/3...DONE
+Measuring (#177)...1/3...2/3...3/3...DONE
+Measuring hot mesh...DONEurement in 31s
+Hot measurements complete!
+Writing results to file thermal_quant_GadgetAngel#8701_2022-11-27_13-20-59.json...DONE
+==========================
+ALL MEASUREMENTS COMPLETE!
+==========================
+
+
+------------------------------
+
+processing the data collected:
+
+output plots pertaining to the bed mesh measurements:
+
+     In SSH windows:
+     cd ~/alchemyEngine_measure_thermal_behavior
+     ./process_meshes.py thermal_quant_GadgetAngel#8701_2022-11-27_13-20-59.json
+     
+     
+output plots pertaining to thermal expansion measurements:
+Check temp_coeff_fitting.png to ensure a proper linear fit and the temp_coeff value for the [z_thermal_adjust] configuration section.
+
+     In SSH windows:
+     cd ~/alchemyEngine_measure_thermal_behavior
+     ./process_frame_expansion.py thermal_quant_GadgetAngel#8701_2022-11-27_13-20-59.json

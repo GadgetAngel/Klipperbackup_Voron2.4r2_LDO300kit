@@ -1,0 +1,1451 @@
+Here are the results of the heat soak repeatability probe accuracy test using KiloQubit's probe_accuracy macro at https://github.com/KiloQubit/probe_accuracy
+I swapped out my Omron D2F-5L Microswitchs on my Euclid probe pcb and on my Z-endstop sexbolt pcb!
+
+The test is a 70 minute test starting at room temperature for 5 minutes, heating bed to 110 C and then heat soak for 30 minutes, the turn on extruder for 245 C and heat_soak extruder for 15 minutes, and cooldown for 20 minutes.
+----------------------------------------
+Output from mainsail command console:
+
+8:54 AM
+FIRMWARE_RESTART
+8:55 AM
+Klipper state: Ready
+8:55 AM
+++++++++++++++++++++++++
+8:55 AM
+Heater_threshold = 110;
+ChamberTEMP_threshold = 50.00;
+FLAG = 0;
+LAST_CHAMBER_TEMP = 0.00;
+current_CHAMBER_TEMP = 0.00;
+OFFSET = 4;
+8:55 AM
+++++++++++++++++++++++++
+8:55 AM
+8:55 AM
+probe: TRIGGERED
+8:55 AM
+echo: Printer online.
+8:55 AM
+echo: "probe: TRIGGERED" = Euclid probe NOT attached.
+8:55 AM
+echo: Z-Offset is set at 4.78mm.
+8:55 AM
+echo: Nozzle diameter is set at 0.4mm.
+8:55 AM
+echo: Pressure Advance is set at 0.055.
+8:55 AM
+echo: Pressure advance Smooth Time is set at 0.03.
+8:55 AM
+echo: Loaded filament profile ABS04 (Generic ABS / 0.4mm Nozzle)
+8:55 AM
+B:26.2 /0.0 Case_Temp:0.0 /0.0 ChambZdrag:25.4 /0.0 ChamberToolH:27.9 /0.0 Extr_Air_Temp:0.0 /0.0 Fan_EBB36_TH:35.4 /35.0 IBedT2:27.5 /0.0 Octopus_Driver:32.3 /25.0 Out-take_Left:41.4 /25.0 T0:27.3 /0.0 TinyFanPCB:0.0 /0.0 XFrame:25.4 /0.0 YFrame:24.9 /0.0 ZFrame:24.5 /0.0
+8:57 AM
+G3201
+8:57 AM probe: TRIGGERED
+8:57 AM probe: TRIGGERED
+8:57 AM probe: TRIGGERED
+8:57 AM probe: TRIGGERED
+8:57 AM probe: open
+8:57 AM probe at 50.000,25.000 is z=4.765000
+8:57 AM probe at 50.000,25.000 is z=4.766250
+8:57 AM probe at 50.000,25.000 is z=4.766250
+8:57 AM probe at 50.000,225.000 is z=4.756250
+8:57 AM probe at 50.000,225.000 is z=4.756250
+8:57 AM probe at 50.000,225.000 is z=4.756250
+8:57 AM probe at 250.000,225.000 is z=4.761250
+8:57 AM probe at 250.000,225.000 is z=4.762500
+8:57 AM probe at 250.000,225.000 is z=4.761250
+8:57 AM probe at 250.000,25.000 is z=4.767500
+8:57 AM probe at 250.000,25.000 is z=4.767500
+8:57 AM probe at 250.000,25.000 is z=4.767500
+8:57 AM Gantry-relative probe points:
+        0: 10.233750 1: 10.243750 2: 10.238750 3: 10.232500
+8:57 AM Actuator Positions:
+        z: 10.230940 z1: 10.253876 z2: 10.238573 z3: 10.230599
+8:57 AM Average: 10.238497
+8:57 AM Making the following Z adjustments:
+        stepper_z = 0.007557
+        stepper_z1 = -0.015380
+        stepper_z2 = -0.000076
+        stepper_z3 = 0.007898
+8:57 AM Retries: 0/10 Probed points range: 0.011250 tolerance: 0.003750
+8:57 AM probe at 50.000,25.000 is z=4.760380
+8:57 AM probe at 50.000,25.000 is z=4.760380
+8:57 AM probe at 50.000,25.000 is z=4.761630
+8:57 AM probe at 50.000,225.000 is z=4.761630
+8:57 AM probe at 50.000,225.000 is z=4.761630
+8:57 AM probe at 50.000,225.000 is z=4.761630
+8:58 AM probe at 250.000,225.000 is z=4.761630
+8:58 AM probe at 250.000,225.000 is z=4.761630
+8:58 AM probe at 250.000,225.000 is z=4.760380
+8:58 AM probe at 250.000,25.000 is z=4.762880
+8:58 AM probe at 250.000,25.000 is z=4.761630
+8:58 AM probe at 250.000,25.000 is z=4.761630
+8:58 AM Gantry-relative probe points:
+        0: 10.239620 1: 10.238370 2: 10.238370 3: 10.238370
+8:58 AM Actuator Positions:
+        z: 10.240874 z1: 10.237187 z2: 10.238788 z3: 10.237488
+8:58 AM Average: 10.238584
+8:58 AM Making the following Z adjustments:
+        stepper_z = -0.002290
+        stepper_z1 = 0.001397
+        stepper_z2 = -0.000204
+        stepper_z3 = 0.001096
+8:58 AM Retries: 1/10 Probed points range: 0.001250 tolerance: 0.003750
+8:58 AM probe: TRIGGERED
+8:58 AM echo: Cleaned!
+8:58 AM probe: open
+8:58 AM probe: open
+8:58 AM probe: open
+8:58 AM probe: open
+8:58 AM probe at 202.000,303.500 is z=2.285000
+8:58 AM probe at 202.000,303.500 is z=2.283750
+8:58 AM probe at 202.000,303.500 is z=2.283750
+8:59 AM probe at 207.000,278.500 is z=6.920000
+8:59 AM probe at 207.000,278.500 is z=6.920000
+8:59 AM probe at 207.000,278.500 is z=6.920000
+8:59 AM probe at 149.991,124.991 is z=4.740000
+8:59 AM probe at 149.991,124.991 is z=4.738750
+8:59 AM probe at 149.991,124.991 is z=4.738750
+8:59 AM Z-CALIBRATION: ENDSTOP=2.280 NOZZLE=2.284 SWITCH=6.920 PROBE=4.739 --> OFFSET=-0.036250
+8:59 AM No existing bed mesh found.
+8:59 AM probe: open
+8:59 AM probe: open
+8:59 AM probe at 50.000,25.000 is z=4.750000
+8:59 AM probe at 50.000,25.000 is z=4.751250
+8:59 AM probe at 50.000,25.000 is z=4.751250
+8:59 AM probe at 83.331,25.000 is z=4.761250
+8:59 AM probe at 83.331,25.000 is z=4.761250
+8:59 AM probe at 83.331,25.000 is z=4.762500
+8:59 AM probe at 116.659,25.000 is z=4.757500
+8:59 AM probe at 116.659,25.000 is z=4.757500
+8:59 AM probe at 116.659,25.000 is z=4.758750
+8:59 AM probe at 149.991,25.000 is z=4.757500
+8:59 AM probe at 149.991,25.000 is z=4.757500
+8:59 AM probe at 149.991,25.000 is z=4.757500
+8:59 AM probe at 183.319,25.000 is z=4.756250
+8:59 AM probe at 183.319,25.000 is z=4.757500
+8:59 AM probe at 183.319,25.000 is z=4.757500
+8:59 AM probe at 216.650,25.000 is z=4.751250
+8:59 AM probe at 216.650,25.000 is z=4.751250
+8:59 AM probe at 216.650,25.000 is z=4.752500
+8:59 AM probe at 249.981,25.000 is z=4.753750
+8:59 AM
+probe at 249.981,25.000 is z=4.753750
+8:59 AM
+probe at 249.981,25.000 is z=4.755000
+8:59 AM
+probe at 249.980,58.330 is z=4.755000
+8:59 AM
+probe at 249.980,58.330 is z=4.755000
+8:59 AM
+probe at 249.980,58.330 is z=4.755000
+8:59 AM
+probe at 216.650,58.331 is z=4.753750
+8:59 AM
+probe at 216.650,58.331 is z=4.755000
+8:59 AM
+probe at 216.650,58.331 is z=4.755000
+8:59 AM
+probe at 183.320,58.330 is z=4.757500
+8:59 AM
+probe at 183.320,58.330 is z=4.757500
+8:59 AM
+probe at 183.320,58.330 is z=4.757500
+8:59 AM
+probe at 149.989,58.330 is z=4.755000
+8:59 AM
+probe at 149.989,58.330 is z=4.756250
+8:59 AM
+probe at 149.989,58.330 is z=4.756250
+8:59 AM
+probe at 116.661,58.330 is z=4.757500
+8:59 AM
+probe at 116.661,58.330 is z=4.757500
+8:59 AM
+probe at 116.661,58.330 is z=4.758750
+9:00 AM
+probe at 83.330,58.330 is z=4.762500
+9:00 AM
+probe at 83.330,58.330 is z=4.762500
+9:00 AM
+probe at 83.330,58.330 is z=4.762500
+9:00 AM
+probe at 50.000,58.331 is z=4.753750
+9:00 AM
+probe at 50.000,58.331 is z=4.755000
+9:00 AM
+probe at 50.000,58.331 is z=4.755000
+9:00 AM
+probe at 50.000,91.659 is z=4.750000
+9:00 AM
+probe at 50.000,91.659 is z=4.750000
+9:00 AM
+probe at 50.000,91.659 is z=4.750000
+9:00 AM
+probe at 83.330,91.661 is z=4.756250
+9:00 AM
+probe at 83.330,91.661 is z=4.757500
+9:00 AM
+probe at 83.330,91.661 is z=4.757500
+9:00 AM
+probe at 116.659,91.659 is z=4.753750
+9:00 AM
+probe at 116.659,91.659 is z=4.753750
+9:00 AM
+probe at 116.659,91.659 is z=4.753750
+9:00 AM
+probe at 149.991,91.659 is z=4.752500
+9:00 AM
+probe at 149.991,91.659 is z=4.752500
+9:00 AM
+probe at 149.991,91.659 is z=4.752500
+9:00 AM
+probe at 183.320,91.661 is z=4.755000
+9:00 AM
+probe at 183.320,91.661 is z=4.755000
+9:00 AM
+probe at 183.320,91.661 is z=4.756250
+9:00 AM
+probe at 216.650,91.659 is z=4.756250
+9:00 AM
+probe at 216.650,91.659 is z=4.756250
+9:00 AM
+probe at 216.650,91.659 is z=4.756250
+9:00 AM
+probe at 249.980,91.661 is z=4.755000
+9:00 AM
+probe at 249.980,91.661 is z=4.753750
+9:00 AM
+probe at 249.980,91.661 is z=4.755000
+9:00 AM
+probe at 249.980,124.989 is z=4.751250
+9:00 AM
+probe at 249.980,124.989 is z=4.751250
+9:00 AM
+probe at 249.980,124.989 is z=4.751250
+9:00 AM
+probe at 216.650,124.991 is z=4.752500
+9:00 AM
+probe at 216.650,124.991 is z=4.753750
+9:00 AM
+probe at 216.650,124.991 is z=4.752500
+9:00 AM
+probe at 183.320,124.989 is z=4.751250
+9:00 AM
+probe at 183.320,124.989 is z=4.751250
+9:00 AM
+probe at 183.320,124.989 is z=4.752500
+9:00 AM
+probe at 149.991,124.991 is z=4.746250
+9:00 AM
+probe at 149.991,124.991 is z=4.746250
+9:00 AM
+probe at 149.991,124.991 is z=4.747500
+9:00 AM
+probe at 116.659,124.991 is z=4.746250
+9:00 AM
+probe at 116.659,124.991 is z=4.747500
+9:00 AM
+probe at 116.659,124.991 is z=4.747500
+9:00 AM
+probe at 83.330,124.989 is z=4.753750
+9:00 AM
+probe at 83.330,124.989 is z=4.752500
+9:00 AM
+probe at 83.330,124.989 is z=4.753750
+9:00 AM
+probe at 50.000,124.991 is z=4.743750
+9:00 AM
+probe at 50.000,124.991 is z=4.745000
+9:00 AM
+probe at 50.000,124.991 is z=4.745000
+9:00 AM
+probe at 50.000,158.319 is z=4.740000
+9:00 AM
+probe at 50.000,158.319 is z=4.740000
+9:00 AM
+probe at 50.000,158.319 is z=4.740000
+9:00 AM
+probe at 83.330,158.320 is z=4.751250
+9:00 AM
+probe at 83.330,158.320 is z=4.751250
+9:00 AM
+probe at 83.330,158.320 is z=4.750000
+9:00 AM
+probe at 116.661,158.320 is z=4.742500
+9:00 AM
+probe at 116.661,158.320 is z=4.742500
+9:00 AM
+probe at 116.661,158.320 is z=4.742500
+9:00 AM
+probe at 149.989,158.320 is z=4.740000
+9:00 AM
+probe at 149.989,158.320 is z=4.741250
+9:00 AM
+probe at 149.989,158.320 is z=4.740000
+9:01 AM
+probe at 183.320,158.320 is z=4.741250
+9:01 AM
+probe at 183.320,158.320 is z=4.740000
+9:01 AM
+probe at 183.320,158.320 is z=4.740000
+9:01 AM
+probe at 216.650,158.319 is z=4.742500
+9:01 AM
+probe at 216.650,158.319 is z=4.742500
+9:01 AM
+probe at 216.650,158.319 is z=4.742500
+9:01 AM
+probe at 249.980,158.320 is z=4.737500
+9:01 AM
+probe at 249.980,158.320 is z=4.737500
+9:01 AM
+probe at 249.980,158.320 is z=4.737500
+9:01 AM
+probe at 249.981,191.650 is z=4.740000
+9:01 AM
+probe at 249.981,191.650 is z=4.740000
+9:01 AM
+probe at 249.981,191.650 is z=4.740000
+9:01 AM
+probe at 216.650,191.650 is z=4.741250
+9:01 AM
+probe at 216.650,191.650 is z=4.741250
+9:01 AM
+probe at 216.650,191.650 is z=4.742500
+9:01 AM
+probe at 183.319,191.650 is z=4.741250
+9:01 AM
+probe at 183.319,191.650 is z=4.742500
+9:01 AM
+probe at 183.319,191.650 is z=4.741250
+9:01 AM
+probe at 149.991,191.650 is z=4.742500
+9:01 AM
+probe at 149.991,191.650 is z=4.742500
+9:01 AM
+probe at 149.991,191.650 is z=4.742500
+9:01 AM
+probe at 116.659,191.650 is z=4.742500
+9:01 AM
+probe at 116.659,191.650 is z=4.743750
+9:01 AM
+probe at 116.659,191.650 is z=4.743750
+9:01 AM
+probe at 83.331,191.650 is z=4.753750
+9:01 AM
+probe at 83.331,191.650 is z=4.756250
+9:01 AM
+probe at 83.331,191.650 is z=4.756250
+9:01 AM
+probe at 50.000,191.650 is z=4.745000
+9:01 AM
+probe at 50.000,191.650 is z=4.747500
+9:01 AM
+probe at 50.000,191.650 is z=4.747500
+9:01 AM
+probe at 50.000,224.981 is z=4.757500
+9:01 AM
+probe at 50.000,224.981 is z=4.761250
+9:01 AM
+probe at 50.000,224.981 is z=4.761250
+9:01 AM
+probe at 83.330,224.980 is z=4.767500
+9:01 AM
+probe at 83.330,224.980 is z=4.771250
+9:01 AM
+probe at 83.330,224.980 is z=4.772500
+9:01 AM
+probe at 116.661,224.980 is z=4.757500
+9:01 AM
+probe at 116.661,224.980 is z=4.761250
+9:01 AM
+probe at 116.661,224.980 is z=4.761250
+9:01 AM
+probe at 149.989,224.980 is z=4.750000
+9:01 AM
+probe at 149.989,224.980 is z=4.753750
+9:01 AM
+probe at 149.989,224.980 is z=4.753750
+9:01 AM
+probe at 183.320,224.980 is z=4.755000
+9:01 AM
+probe at 183.320,224.980 is z=4.756250
+9:01 AM
+probe at 183.320,224.980 is z=4.757500
+9:01 AM
+probe at 216.650,224.981 is z=4.755000
+9:01 AM
+probe at 216.650,224.981 is z=4.757500
+9:01 AM
+probe at 216.650,224.981 is z=4.757500
+9:01 AM
+probe at 249.980,224.980 is z=4.758750
+9:01 AM
+probe at 249.980,224.980 is z=4.761250
+9:01 AM
+probe at 249.980,224.980 is z=4.761250
+9:01 AM
+Mesh Bed Leveling Complete
+9:01 AM
+Bed Mesh state has been saved to profile [default]
+for the current session. The SAVE_CONFIG command will
+update the printer config file and restart the printer.
+9:01 AM
+probe: open
+9:01 AM
+Bed Mesh state has been saved to profile [INSITU]
+for the current session. The SAVE_CONFIG command will
+update the printer config file and restart the printer.
+9:01 AM
+echo: Applied INSITU mesh post sampling.
+9:01 AM
+probe: TRIGGERED
+9:02 AM
+ATTACH_PROBE_LOCK
+9:02 AM
+probe: open
+
+
+10:28 AM
+probe at 149.500,130.000 is z=4.878750
+10:28 AM
+probe at 149.500,130.000 is z=4.878750
+10:28 AM
+probe at 149.500,130.000 is z=4.877500
+10:28 AM
+probe at 149.500,130.000 is z=4.877500
+10:28 AM
+probe at 149.500,130.000 is z=4.875000
+10:28 AM
+probe at 149.500,130.000 is z=4.878750
+10:28 AM
+probe at 149.500,130.000 is z=4.878750
+10:28 AM
+probe at 149.500,130.000 is z=4.876250
+10:28 AM
+probe accuracy results: maximum 4.881250, minimum 4.875000, range 0.006250, average 4.877875, median 4.878125, standard deviation 0.001682
+10:28 AM
+B:72.7 /0.0 Case_Temp:22.5 /0.0 ChambZdrag:46.5 /0.0 ChamberToolH:47.0 /0.0 Extr_Air_Temp:21.6 /0.0 Fan_EBB36_TH:49.6 /35.0 IBedT2:70.8 /0.0 Octopus_Driver:29.7 /25.0 Out-take_Left:38.9 /25.0 T0:54.1 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.7 /0.0 YFrame:35.5 /0.0 ZFrame:35.9 /0.0
+10:28 AM
+probe: open
+10:28 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:28 AM
+probe at 149.500,130.000 is z=4.880000
+10:28 AM
+probe at 149.500,130.000 is z=4.877500
+10:28 AM
+probe at 149.500,130.000 is z=4.873750
+10:28 AM
+probe at 149.500,130.000 is z=4.872500
+10:28 AM
+probe at 149.500,130.000 is z=4.875000
+10:28 AM
+probe at 149.500,130.000 is z=4.875000
+10:28 AM
+probe at 149.500,130.000 is z=4.875000
+10:28 AM
+probe at 149.500,130.000 is z=4.875000
+10:28 AM
+probe at 149.500,130.000 is z=4.876250
+10:28 AM
+probe at 149.500,130.000 is z=4.878750
+10:28 AM
+probe accuracy results: maximum 4.880000, minimum 4.872500, range 0.007500, average 4.875875, median 4.875000, standard deviation 0.002169
+10:28 AM
+B:72.5 /0.0 Case_Temp:22.4 /0.0 ChambZdrag:46.6 /0.0 ChamberToolH:46.9 /0.0 Extr_Air_Temp:21.2 /0.0 Fan_EBB36_TH:49.8 /35.0 IBedT2:70.6 /0.0 Octopus_Driver:29.7 /25.0 Out-take_Left:39.9 /25.0 T0:54.0 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.6 /0.0 YFrame:35.5 /0.0 ZFrame:36.0 /0.0
+10:28 AM
+probe: open
+10:28 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:28 AM
+probe at 149.500,130.000 is z=4.878750
+10:28 AM
+probe at 149.500,130.000 is z=4.875000
+10:28 AM
+probe at 149.500,130.000 is z=4.876250
+10:28 AM
+probe at 149.500,130.000 is z=4.877500
+10:28 AM
+probe at 149.500,130.000 is z=4.873750
+10:28 AM
+probe at 149.500,130.000 is z=4.873750
+10:28 AM
+probe at 149.500,130.000 is z=4.875000
+10:28 AM
+probe at 149.500,130.000 is z=4.872500
+10:28 AM
+probe at 149.500,130.000 is z=4.872500
+10:28 AM
+probe at 149.500,130.000 is z=4.868750
+10:28 AM
+probe accuracy results: maximum 4.878750, minimum 4.868750, range 0.010000, average 4.874375, median 4.874375, standard deviation 0.002695
+10:28 AM
+B:72.3 /0.0 Case_Temp:22.0 /0.0 ChambZdrag:46.9 /0.0 ChamberToolH:46.9 /0.0 Extr_Air_Temp:21.3 /0.0 Fan_EBB36_TH:49.7 /35.0 IBedT2:70.4 /0.0 Octopus_Driver:29.7 /25.0 Out-take_Left:39.4 /25.0 T0:53.8 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.6 /0.0 YFrame:35.4 /0.0 ZFrame:35.9 /0.0
+10:28 AM
+probe: open
+10:28 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:28 AM
+probe at 149.500,130.000 is z=4.876250
+10:28 AM
+probe at 149.500,130.000 is z=4.870000
+10:28 AM
+probe at 149.500,130.000 is z=4.872500
+10:28 AM
+probe at 149.500,130.000 is z=4.875000
+10:28 AM
+probe at 149.500,130.000 is z=4.872500
+10:28 AM
+probe at 149.500,130.000 is z=4.873750
+10:28 AM
+probe at 149.500,130.000 is z=4.872500
+10:28 AM
+probe at 149.500,130.000 is z=4.871250
+10:29 AM
+probe at 149.500,130.000 is z=4.873750
+10:29 AM
+probe at 149.500,130.000 is z=4.872500
+10:29 AM
+probe accuracy results: maximum 4.876250, minimum 4.870000, range 0.006250, average 4.873000, median 4.872500, standard deviation 0.001696
+10:29 AM
+B:72.2 /0.0 Case_Temp:22.3 /0.0 ChambZdrag:46.5 /0.0 ChamberToolH:46.8 /0.0 Extr_Air_Temp:21.7 /0.0 Fan_EBB36_TH:49.8 /35.0 IBedT2:70.2 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:40.4 /25.0 T0:53.7 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.6 /0.0 YFrame:35.5 /0.0 ZFrame:35.9 /0.0
+10:29 AM
+probe: open
+10:29 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:29 AM
+probe at 149.500,130.000 is z=4.877500
+10:29 AM
+probe at 149.500,130.000 is z=4.873750
+10:29 AM
+probe at 149.500,130.000 is z=4.870000
+10:29 AM
+probe at 149.500,130.000 is z=4.871250
+10:29 AM
+probe at 149.500,130.000 is z=4.870000
+10:29 AM
+probe at 149.500,130.000 is z=4.866250
+10:29 AM
+probe at 149.500,130.000 is z=4.868750
+10:29 AM
+probe at 149.500,130.000 is z=4.872500
+10:29 AM
+probe at 149.500,130.000 is z=4.867500
+10:29 AM
+probe at 149.500,130.000 is z=4.867500
+10:29 AM
+probe accuracy results: maximum 4.877500, minimum 4.866250, range 0.011250, average 4.870500, median 4.870000, standard deviation 0.003221
+10:29 AM
+B:72.0 /0.0 Case_Temp:22.5 /0.0 ChambZdrag:46.6 /0.0 ChamberToolH:46.8 /0.0 Extr_Air_Temp:20.8 /0.0 Fan_EBB36_TH:49.3 /35.0 IBedT2:70.0 /0.0 Octopus_Driver:29.7 /25.0 Out-take_Left:38.9 /25.0 T0:53.5 /0.0 TinyFanPCB:32.6 /0.0 XFrame:37.6 /0.0 YFrame:35.4 /0.0 ZFrame:35.8 /0.0
+10:29 AM
+probe: open
+10:29 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:29 AM
+probe at 149.500,130.000 is z=4.875000
+10:29 AM
+probe at 149.500,130.000 is z=4.868750
+10:29 AM
+probe at 149.500,130.000 is z=4.866250
+10:29 AM
+probe at 149.500,130.000 is z=4.873750
+10:29 AM
+probe at 149.500,130.000 is z=4.870000
+10:29 AM
+probe at 149.500,130.000 is z=4.867500
+10:29 AM
+probe at 149.500,130.000 is z=4.870000
+10:29 AM
+probe at 149.500,130.000 is z=4.865000
+10:29 AM
+probe at 149.500,130.000 is z=4.868750
+10:29 AM
+probe at 149.500,130.000 is z=4.868750
+10:29 AM
+probe accuracy results: maximum 4.875000, minimum 4.865000, range 0.010000, average 4.869375, median 4.868750, standard deviation 0.002918
+10:29 AM
+B:71.7 /0.0 Case_Temp:21.8 /0.0 ChambZdrag:46.5 /0.0 ChamberToolH:46.7 /0.0 Extr_Air_Temp:22.5 /0.0 Fan_EBB36_TH:49.3 /35.0 IBedT2:69.9 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:39.9 /25.0 T0:53.4 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.5 /0.0 YFrame:35.5 /0.0 ZFrame:35.8 /0.0
+10:29 AM
+probe: open
+10:29 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:29 AM
+probe at 149.500,130.000 is z=4.872500
+10:29 AM
+probe at 149.500,130.000 is z=4.871250
+10:29 AM
+probe at 149.500,130.000 is z=4.870000
+10:29 AM
+probe at 149.500,130.000 is z=4.866250
+10:29 AM
+probe at 149.500,130.000 is z=4.865000
+10:29 AM
+probe at 149.500,130.000 is z=4.871250
+10:29 AM
+probe at 149.500,130.000 is z=4.868750
+10:29 AM
+probe at 149.500,130.000 is z=4.870000
+10:29 AM
+probe at 149.500,130.000 is z=4.865000
+10:29 AM
+probe at 149.500,130.000 is z=4.870000
+10:29 AM
+probe accuracy results: maximum 4.872500, minimum 4.865000, range 0.007500, average 4.869000, median 4.870000, standard deviation 0.002550
+10:29 AM
+B:71.6 /0.0 Case_Temp:22.4 /0.0 ChambZdrag:46.4 /0.0 ChamberToolH:46.7 /0.0 Extr_Air_Temp:20.6 /0.0 Fan_EBB36_TH:49.5 /35.0 IBedT2:69.7 /0.0 Octopus_Driver:29.7 /25.0 Out-take_Left:38.5 /25.0 T0:53.3 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.5 /0.0 YFrame:35.4 /0.0 ZFrame:35.7 /0.0
+10:29 AM
+probe: open
+10:29 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:29 AM
+probe at 149.500,130.000 is z=4.871250
+10:29 AM
+probe at 149.500,130.000 is z=4.863750
+10:29 AM
+probe at 149.500,130.000 is z=4.871250
+10:29 AM
+probe at 149.500,130.000 is z=4.863750
+10:29 AM
+probe at 149.500,130.000 is z=4.865000
+10:29 AM
+probe at 149.500,130.000 is z=4.865000
+10:29 AM
+probe at 149.500,130.000 is z=4.863750
+10:29 AM
+probe at 149.500,130.000 is z=4.867500
+10:29 AM
+probe at 149.500,130.000 is z=4.866250
+10:29 AM
+probe at 149.500,130.000 is z=4.866250
+10:29 AM
+probe accuracy results: maximum 4.871250, minimum 4.863750, range 0.007500, average 4.866375, median 4.865625, standard deviation 0.002707
+10:29 AM
+B:71.4 /0.0 Case_Temp:22.0 /0.0 ChambZdrag:46.4 /0.0 ChamberToolH:46.6 /0.0 Extr_Air_Temp:20.4 /0.0 Fan_EBB36_TH:49.3 /35.0 IBedT2:69.5 /0.0 Octopus_Driver:29.7 /25.0 Out-take_Left:40.4 /25.0 T0:53.2 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.5 /0.0 YFrame:35.5 /0.0 ZFrame:35.7 /0.0
+10:29 AM
+probe: open
+10:29 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:29 AM
+probe at 149.500,130.000 is z=4.863750
+10:29 AM
+probe at 149.500,130.000 is z=4.862500
+10:29 AM
+probe at 149.500,130.000 is z=4.862500
+10:29 AM
+probe at 149.500,130.000 is z=4.863750
+10:29 AM
+probe at 149.500,130.000 is z=4.861250
+10:29 AM
+probe at 149.500,130.000 is z=4.862500
+10:29 AM
+probe at 149.500,130.000 is z=4.861250
+10:29 AM
+probe at 149.500,130.000 is z=4.863750
+10:29 AM
+probe at 149.500,130.000 is z=4.862500
+10:29 AM
+probe at 149.500,130.000 is z=4.862500
+10:29 AM
+probe accuracy results: maximum 4.863750, minimum 4.861250, range 0.002500, average 4.862625, median 4.862500, standard deviation 0.000875
+10:29 AM
+B:71.2 /0.0 Case_Temp:21.4 /0.0 ChambZdrag:46.4 /0.0 ChamberToolH:46.6 /0.0 Extr_Air_Temp:21.5 /0.0 Fan_EBB36_TH:49.4 /35.0 IBedT2:69.3 /0.0 Octopus_Driver:29.7 /25.0 Out-take_Left:40.4 /25.0 T0:53.0 /0.0 TinyFanPCB:32.6 /0.0 XFrame:37.4 /0.0 YFrame:35.4 /0.0 ZFrame:35.7 /0.0
+10:29 AM
+probe: open
+10:29 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:29 AM
+probe at 149.500,130.000 is z=4.868750
+10:29 AM
+probe at 149.500,130.000 is z=4.865000
+10:29 AM
+probe at 149.500,130.000 is z=4.861250
+10:29 AM
+probe at 149.500,130.000 is z=4.862500
+10:29 AM
+probe at 149.500,130.000 is z=4.860000
+10:29 AM
+probe at 149.500,130.000 is z=4.860000
+10:29 AM
+probe at 149.500,130.000 is z=4.860000
+10:29 AM
+probe at 149.500,130.000 is z=4.861250
+10:29 AM
+probe at 149.500,130.000 is z=4.861250
+10:29 AM
+probe at 149.500,130.000 is z=4.861250
+10:29 AM
+probe accuracy results: maximum 4.868750, minimum 4.860000, range 0.008750, average 4.862125, median 4.861250, standard deviation 0.002625
+10:29 AM
+B:71.0 /0.0 Case_Temp:21.7 /0.0 ChambZdrag:46.1 /0.0 ChamberToolH:46.5 /0.0 Extr_Air_Temp:21.6 /0.0 Fan_EBB36_TH:49.2 /35.0 IBedT2:69.1 /0.0 Octopus_Driver:29.5 /25.0 Out-take_Left:40.4 /25.0 T0:52.9 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.4 /0.0 YFrame:35.4 /0.0 ZFrame:35.7 /0.0
+10:29 AM
+probe: open
+10:29 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:29 AM
+probe at 149.500,130.000 is z=4.860000
+10:29 AM
+probe at 149.500,130.000 is z=4.865000
+10:29 AM
+probe at 149.500,130.000 is z=4.867500
+10:29 AM
+probe at 149.500,130.000 is z=4.861250
+10:29 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe at 149.500,130.000 is z=4.861250
+10:30 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe accuracy results: maximum 4.867500, minimum 4.860000, range 0.007500, average 4.861500, median 4.860000, standard deviation 0.002487
+10:30 AM
+B:70.8 /0.0 Case_Temp:22.9 /0.0 ChambZdrag:46.2 /0.0 ChamberToolH:46.5 /0.0 Extr_Air_Temp:20.8 /0.0 Fan_EBB36_TH:49.1 /35.0 IBedT2:68.9 /0.0 Octopus_Driver:29.8 /25.0 Out-take_Left:39.4 /25.0 T0:52.8 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.4 /0.0 YFrame:35.4 /0.0 ZFrame:35.7 /0.0
+10:30 AM
+probe: open
+10:30 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe at 149.500,130.000 is z=4.862500
+10:30 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe at 149.500,130.000 is z=4.862500
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.861250
+10:30 AM
+probe accuracy results: maximum 4.862500, minimum 4.858750, range 0.003750, average 4.860250, median 4.860000, standard deviation 0.001346
+10:30 AM
+B:70.6 /0.0 Case_Temp:21.7 /0.0 ChambZdrag:46.2 /0.0 ChamberToolH:46.4 /0.0 Extr_Air_Temp:22.1 /0.0 Fan_EBB36_TH:49.2 /35.0 IBedT2:68.7 /0.0 Octopus_Driver:29.7 /25.0 Out-take_Left:39.4 /25.0 T0:52.6 /0.0 TinyFanPCB:32.5 /0.0 XFrame:37.4 /0.0 YFrame:35.3 /0.0 ZFrame:35.7 /0.0
+10:30 AM
+probe: open
+10:30 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.870000
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe accuracy results: maximum 4.870000, minimum 4.857500, range 0.012500, average 4.860000, median 4.858750, standard deviation 0.003400
+10:30 AM
+B:70.3 /0.0 Case_Temp:22.0 /0.0 ChambZdrag:46.3 /0.0 ChamberToolH:46.4 /0.0 Extr_Air_Temp:21.1 /0.0 Fan_EBB36_TH:49.1 /35.0 IBedT2:68.6 /0.0 Octopus_Driver:29.7 /25.0 Out-take_Left:39.4 /25.0 T0:52.5 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.3 /0.0 YFrame:35.3 /0.0 ZFrame:35.7 /0.0
+10:30 AM
+probe: open
+10:30 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe accuracy results: maximum 4.858750, minimum 4.857500, range 0.001250, average 4.857625, median 4.857500, standard deviation 0.000375
+10:30 AM
+B:70.1 /0.0 Case_Temp:22.1 /0.0 ChambZdrag:46.2 /0.0 ChamberToolH:46.3 /0.0 Extr_Air_Temp:21.3 /0.0 Fan_EBB36_TH:49.0 /35.0 IBedT2:68.4 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:38.5 /25.0 T0:52.4 /0.0 TinyFanPCB:32.6 /0.0 XFrame:37.2 /0.0 YFrame:35.3 /0.0 ZFrame:35.7 /0.0
+10:30 AM
+probe: open
+10:30 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe at 149.500,130.000 is z=4.861250
+10:30 AM
+probe at 149.500,130.000 is z=4.866250
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.860000
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.858750
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe accuracy results: maximum 4.866250, minimum 4.856250, range 0.010000, average 4.859375, median 4.858750, standard deviation 0.002637
+10:30 AM
+B:69.9 /0.0 Case_Temp:22.7 /0.0 ChambZdrag:46.1 /0.0 ChamberToolH:46.3 /0.0 Extr_Air_Temp:21.0 /0.0 Fan_EBB36_TH:48.9 /35.0 IBedT2:68.2 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:39.9 /25.0 T0:52.3 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.2 /0.0 YFrame:35.3 /0.0 ZFrame:35.7 /0.0
+10:30 AM
+probe: open
+10:30 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe at 149.500,130.000 is z=4.857500
+10:30 AM
+probe accuracy results: maximum 4.857500, minimum 4.856250, range 0.001250, average 4.857375, median 4.857500, standard deviation 0.000375
+10:30 AM
+B:69.7 /0.0 Case_Temp:22.1 /0.0 ChambZdrag:46.2 /0.0 ChamberToolH:46.2 /0.0 Extr_Air_Temp:21.7 /0.0 Fan_EBB36_TH:48.9 /35.0 IBedT2:68.0 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:39.4 /25.0 T0:52.2 /0.0 TinyFanPCB:32.7 /0.0 XFrame:37.2 /0.0 YFrame:35.3 /0.0 ZFrame:35.6 /0.0
+10:30 AM
+probe: open
+10:30 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:30 AM
+probe accuracy results: maximum 4.856250, minimum 4.856250, range 0.000000, average 4.856250, median 4.856250, standard deviation 0.000000
+10:30 AM
+B:69.6 /0.0 Case_Temp:21.1 /0.0 ChambZdrag:45.4 /0.0 ChamberToolH:46.2 /0.0 Extr_Air_Temp:21.5 /0.0 Fan_EBB36_TH:48.9 /35.0 IBedT2:67.9 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:40.4 /25.0 T0:52.0 /0.0 TinyFanPCB:32.5 /0.0 XFrame:37.1 /0.0 YFrame:35.4 /0.0 ZFrame:35.6 /0.0
+10:30 AM
+probe: open
+10:30 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:30 AM
+probe at 149.500,130.000 is z=4.855000
+10:30 AM
+probe at 149.500,130.000 is z=4.855000
+10:30 AM
+probe at 149.500,130.000 is z=4.856250
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.856250
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.856250
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe accuracy results: maximum 4.856250, minimum 4.855000, range 0.001250, average 4.855375, median 4.855000, standard deviation 0.000573
+10:31 AM
+B:69.3 /0.0 Case_Temp:21.6 /0.0 ChambZdrag:45.6 /0.0 ChamberToolH:46.1 /0.0 Extr_Air_Temp:21.8 /0.0 Fan_EBB36_TH:48.7 /35.0 IBedT2:67.7 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:38.9 /25.0 T0:51.9 /0.0 TinyFanPCB:32.5 /0.0 XFrame:37.1 /0.0 YFrame:35.1 /0.0 ZFrame:35.6 /0.0
+10:31 AM
+probe: open
+10:31 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe accuracy results: maximum 4.855000, minimum 4.853750, range 0.001250, average 4.854875, median 4.855000, standard deviation 0.000375
+10:31 AM
+B:69.2 /0.0 Case_Temp:22.0 /0.0 ChambZdrag:45.6 /0.0 ChamberToolH:46.1 /0.0 Extr_Air_Temp:21.5 /0.0 Fan_EBB36_TH:48.8 /35.0 IBedT2:67.5 /0.0 Octopus_Driver:29.5 /25.0 Out-take_Left:39.9 /25.0 T0:51.8 /0.0 TinyFanPCB:32.5 /0.0 XFrame:37.1 /0.0 YFrame:35.2 /0.0 ZFrame:35.6 /0.0
+10:31 AM
+probe: open
+10:31 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.855000
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe accuracy results: maximum 4.855000, minimum 4.853750, range 0.001250, average 4.854375, median 4.854375, standard deviation 0.000625
+10:31 AM
+B:69.0 /0.0 Case_Temp:21.9 /0.0 ChambZdrag:45.6 /0.0 ChamberToolH:46.0 /0.0 Extr_Air_Temp:21.7 /0.0 Fan_EBB36_TH:48.7 /35.0 IBedT2:67.4 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:40.9 /25.0 T0:51.7 /0.0 TinyFanPCB:32.5 /0.0 XFrame:37.1 /0.0 YFrame:35.2 /0.0 ZFrame:35.6 /0.0
+10:31 AM
+probe: open
+10:31 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe accuracy results: maximum 4.853750, minimum 4.852500, range 0.001250, average 4.853625, median 4.853750, standard deviation 0.000375
+10:31 AM
+B:68.8 /0.0 Case_Temp:22.0 /0.0 ChambZdrag:45.7 /0.0 ChamberToolH:46.0 /0.0 Extr_Air_Temp:21.5 /0.0 Fan_EBB36_TH:48.7 /35.0 IBedT2:67.2 /0.0 Octopus_Driver:29.5 /25.0 Out-take_Left:39.9 /25.0 T0:51.6 /0.0 TinyFanPCB:32.4 /0.0 XFrame:37.0 /0.0 YFrame:35.1 /0.0 ZFrame:35.6 /0.0
+10:31 AM
+probe: open
+10:31 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.853750
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe accuracy results: maximum 4.853750, minimum 4.852500, range 0.001250, average 4.852750, median 4.852500, standard deviation 0.000500
+10:31 AM
+B:68.6 /0.0 Case_Temp:21.8 /0.0 ChambZdrag:45.8 /0.0 ChamberToolH:45.9 /0.0 Extr_Air_Temp:21.7 /0.0 Fan_EBB36_TH:48.6 /35.0 IBedT2:67.0 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:39.4 /25.0 T0:51.5 /0.0 TinyFanPCB:32.5 /0.0 XFrame:37.0 /0.0 YFrame:35.2 /0.0 ZFrame:35.6 /0.0
+10:31 AM
+probe: open
+10:31 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:31 AM
+probe at 149.500,130.000 is z=4.851250
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe accuracy results: maximum 4.852500, minimum 4.851250, range 0.001250, average 4.852375, median 4.852500, standard deviation 0.000375
+10:31 AM
+B:68.4 /0.0 Case_Temp:22.0 /0.0 ChambZdrag:45.4 /0.0 ChamberToolH:45.9 /0.0 Extr_Air_Temp:22.3 /0.0 Fan_EBB36_TH:48.5 /35.0 IBedT2:66.8 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:39.9 /25.0 T0:51.4 /0.0 TinyFanPCB:32.5 /0.0 XFrame:37.0 /0.0 YFrame:35.2 /0.0 ZFrame:35.5 /0.0
+10:31 AM
+probe: open
+10:31 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:31 AM
+probe at 149.500,130.000 is z=4.850000
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.851250
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.851250
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.852500
+10:31 AM
+probe at 149.500,130.000 is z=4.851250
+10:31 AM
+probe accuracy results: maximum 4.852500, minimum 4.850000, range 0.002500, average 4.851875, median 4.852500, standard deviation 0.000839
+10:31 AM
+B:68.3 /0.0 Case_Temp:22.0 /0.0 ChambZdrag:45.6 /0.0 ChamberToolH:45.8 /0.0 Extr_Air_Temp:21.4 /0.0 Fan_EBB36_TH:48.8 /35.0 IBedT2:66.6 /0.0 Octopus_Driver:29.4 /25.0 Out-take_Left:38.5 /25.0 T0:51.3 /0.0 TinyFanPCB:32.7 /0.0 XFrame:36.9 /0.0 YFrame:35.2 /0.0 ZFrame:35.4 /0.0
+10:31 AM
+probe: open
+10:31 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:31 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.851250
+10:32 AM
+probe at 149.500,130.000 is z=4.851250
+10:32 AM
+probe at 149.500,130.000 is z=4.851250
+10:32 AM
+probe at 149.500,130.000 is z=4.852500
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.851250
+10:32 AM
+probe at 149.500,130.000 is z=4.851250
+10:32 AM
+probe at 149.500,130.000 is z=4.851250
+10:32 AM
+probe at 149.500,130.000 is z=4.851250
+10:32 AM
+probe accuracy results: maximum 4.852500, minimum 4.850000, range 0.002500, average 4.851125, median 4.851250, standard deviation 0.000673
+10:32 AM
+B:68.1 /0.0 Case_Temp:22.2 /0.0 ChambZdrag:45.4 /0.0 ChamberToolH:45.8 /0.0 Extr_Air_Temp:21.7 /0.0 Fan_EBB36_TH:48.5 /35.0 IBedT2:66.5 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:39.4 /25.0 T0:51.2 /0.0 TinyFanPCB:32.5 /0.0 XFrame:36.9 /0.0 YFrame:35.1 /0.0 ZFrame:35.4 /0.0
+10:32 AM
+probe: open
+10:32 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.851250
+10:32 AM
+probe at 149.500,130.000 is z=4.851250
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.851250
+10:32 AM
+probe at 149.500,130.000 is z=4.851250
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe accuracy results: maximum 4.851250, minimum 4.850000, range 0.001250, average 4.850500, median 4.850000, standard deviation 0.000612
+10:32 AM
+B:67.9 /0.0 Case_Temp:21.8 /0.0 ChambZdrag:45.7 /0.0 ChamberToolH:45.8 /0.0 Extr_Air_Temp:21.4 /0.0 Fan_EBB36_TH:48.3 /35.0 IBedT2:66.3 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:40.4 /25.0 T0:51.0 /0.0 TinyFanPCB:32.7 /0.0 XFrame:36.9 /0.0 YFrame:35.2 /0.0 ZFrame:35.4 /0.0
+10:32 AM
+probe: open
+10:32 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe accuracy results: maximum 4.850000, minimum 4.850000, range 0.000000, average 4.850000, median 4.850000, standard deviation 0.000000
+10:32 AM
+B:67.7 /0.0 Case_Temp:22.2 /0.0 ChambZdrag:45.6 /0.0 ChamberToolH:45.7 /0.0 Extr_Air_Temp:21.1 /0.0 Fan_EBB36_TH:48.5 /35.0 IBedT2:66.1 /0.0 Octopus_Driver:29.5 /25.0 Out-take_Left:39.9 /25.0 T0:50.9 /0.0 TinyFanPCB:32.7 /0.0 XFrame:36.8 /0.0 YFrame:35.1 /0.0 ZFrame:35.4 /0.0
+10:32 AM
+probe: open
+10:32 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe accuracy results: maximum 4.850000, minimum 4.848750, range 0.001250, average 4.849125, median 4.848750, standard deviation 0.000573
+10:32 AM
+B:67.5 /0.0 Case_Temp:21.8 /0.0 ChambZdrag:45.3 /0.0 ChamberToolH:45.6 /0.0 Extr_Air_Temp:20.9 /0.0 Fan_EBB36_TH:48.2 /35.0 IBedT2:66.0 /0.0 Octopus_Driver:29.7 /25.0 Out-take_Left:38.9 /25.0 T0:50.8 /0.0 TinyFanPCB:32.7 /0.0 XFrame:36.9 /0.0 YFrame:35.1 /0.0 ZFrame:35.4 /0.0
+10:32 AM
+probe: open
+10:32 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.850000
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe accuracy results: maximum 4.850000, minimum 4.847500, range 0.002500, average 4.848875, median 4.848750, standard deviation 0.000673
+10:32 AM
+B:67.4 /0.0 Case_Temp:21.7 /0.0 ChambZdrag:45.0 /0.0 ChamberToolH:45.6 /0.0 Extr_Air_Temp:21.5 /0.0 Fan_EBB36_TH:48.5 /35.0 IBedT2:65.8 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:38.9 /25.0 T0:50.7 /0.0 TinyFanPCB:32.6 /0.0 XFrame:36.8 /0.0 YFrame:35.0 /0.0 ZFrame:35.4 /0.0
+10:32 AM
+probe: open
+10:32 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe at 149.500,130.000 is z=4.848750
+10:32 AM
+probe accuracy results: maximum 4.848750, minimum 4.847500, range 0.001250, average 4.848625, median 4.848750, standard deviation 0.000375
+10:32 AM
+B:67.2 /0.0 Case_Temp:22.1 /0.0 ChambZdrag:45.3 /0.0 ChamberToolH:45.5 /0.0 Extr_Air_Temp:21.3 /0.0 Fan_EBB36_TH:48.1 /35.0 IBedT2:65.6 /0.0 Octopus_Driver:29.5 /25.0 Out-take_Left:39.4 /25.0 T0:50.7 /0.0 TinyFanPCB:32.6 /0.0 XFrame:36.8 /0.0 YFrame:35.0 /0.0 ZFrame:35.4 /0.0
+10:32 AM
+probe: open
+10:32 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe at 149.500,130.000 is z=4.847500
+10:32 AM
+probe accuracy results: maximum 4.847500, minimum 4.847500, range 0.000000, average 4.847500, median 4.847500, standard deviation 0.000000
+10:32 AM
+B:67.0 /0.0 Case_Temp:21.9 /0.0 ChambZdrag:45.3 /0.0 ChamberToolH:45.5 /0.0 Extr_Air_Temp:20.9 /0.0 Fan_EBB36_TH:48.2 /35.0 IBedT2:65.4 /0.0 Octopus_Driver:29.4 /25.0 Out-take_Left:39.4 /25.0 T0:50.5 /0.0 TinyFanPCB:32.5 /0.0 XFrame:36.8 /0.0 YFrame:35.0 /0.0 ZFrame:35.4 /0.0
+10:32 AM
+probe: open
+10:33 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe accuracy results: maximum 4.847500, minimum 4.846250, range 0.001250, average 4.847375, median 4.847500, standard deviation 0.000375
+10:33 AM
+B:66.9 /0.0 Case_Temp:22.2 /0.0 ChambZdrag:45.0 /0.0 ChamberToolH:45.4 /0.0 Extr_Air_Temp:21.5 /0.0 Fan_EBB36_TH:48.0 /35.0 IBedT2:65.2 /0.0 Octopus_Driver:29.5 /25.0 Out-take_Left:39.4 /25.0 T0:50.5 /0.0 TinyFanPCB:32.7 /0.0 XFrame:36.8 /0.0 YFrame:35.0 /0.0 ZFrame:35.3 /0.0
+10:33 AM
+probe: open
+10:33 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe accuracy results: maximum 4.847500, minimum 4.846250, range 0.001250, average 4.846875, median 4.846875, standard deviation 0.000625
+10:33 AM
+B:66.7 /0.0 Case_Temp:22.0 /0.0 ChambZdrag:44.9 /0.0 ChamberToolH:45.4 /0.0 Extr_Air_Temp:21.8 /0.0 Fan_EBB36_TH:48.1 /35.0 IBedT2:65.1 /0.0 Octopus_Driver:29.5 /25.0 Out-take_Left:38.9 /25.0 T0:50.4 /0.0 TinyFanPCB:32.7 /0.0 XFrame:36.7 /0.0 YFrame:35.0 /0.0 ZFrame:35.3 /0.0
+10:33 AM
+probe: open
+10:33 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.847500
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe accuracy results: maximum 4.847500, minimum 4.845000, range 0.002500, average 4.846250, median 4.846250, standard deviation 0.000559
+10:33 AM
+B:66.5 /0.0 Case_Temp:22.0 /0.0 ChambZdrag:45.1 /0.0 ChamberToolH:45.3 /0.0 Extr_Air_Temp:21.4 /0.0 Fan_EBB36_TH:48.3 /35.0 IBedT2:65.0 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:38.9 /25.0 T0:50.3 /0.0 TinyFanPCB:32.6 /0.0 XFrame:36.7 /0.0 YFrame:34.9 /0.0 ZFrame:35.3 /0.0
+10:33 AM
+probe: open
+10:33 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.846250
+10:33 AM
+probe accuracy results: maximum 4.846250, minimum 4.845000, range 0.001250, average 4.845875, median 4.846250, standard deviation 0.000573
+10:33 AM
+B:66.3 /0.0 Case_Temp:22.3 /0.0 ChambZdrag:44.8 /0.0 ChamberToolH:45.3 /0.0 Extr_Air_Temp:21.2 /0.0 Fan_EBB36_TH:47.8 /35.0 IBedT2:64.8 /0.0 Octopus_Driver:29.6 /25.0 Out-take_Left:39.4 /25.0 T0:50.2 /0.0 TinyFanPCB:32.6 /0.0 XFrame:36.6 /0.0 YFrame:35.1 /0.0 ZFrame:35.3 /0.0
+10:33 AM
+probe: open
+10:33 AM
+PROBE_ACCURACY at X:149.500 Y:130.000 Z:14.974 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe at 149.500,130.000 is z=4.845000
+10:33 AM
+probe accuracy results: maximum 4.845000, minimum 4.845000, range 0.000000, average 4.845000, median 4.845000, standard deviation 0.000000
+10:33 AM
+TEST_PROBE_ACCURACY: DONE
+
+
+------------------------------
+G3201
+ATTACH_PROBE_LOCK
+MOVE_BED_CENTER
+M105
+INFO_BEDFANS
+ _PROBE_ACCURACY
+ 
+DOCK_PROBE_UNLOCK
+
+---------------------------------
+
+Use ssh to log in to the Raspberry Pi and run the following to start the data collection:
+/home/pi/plotly-env/bin/python3 /home/pi/probe_accuracy/probe_accuracy.py
+
+
+TEST_PROBE_ACCURACY START_IDLE_MINUTES=5 BED_TEMP=110 EXTRUDER_TEMP=245 BED_SOAK_MINUTES=30 EXTRUDER_SOAK_MINUTES=15 DWELL_SECONDS=1 DWELL_LIFT_Z=15 END_IDLE_MINUTES=20
+----------------------------------
+Mon 28 Nov 2022 09:05:51 AM EST
+pi@LDO300kit:~ $ /home/pi/plotly-env/bin/python3 /home/pi/probe_accuracy/probe_accuracy.py
+Recording data, LEAVE THIS SESSION OPEN UNTIL THE SCRIPT SAYS "DONE"!
+
+should finish at 85 minutes (1 hour and 15 minutes) which is 10:20 AM EST
+
+Mon 28 Nov 2022 09:05:51 AM EST
+pi@LDO300kit:~ $ /home/pi/plotly-env/bin/python3 /home/pi/probe_accuracy/probe_accuracy.py
+Recording data, LEAVE THIS SESSION OPEN UNTIL THE SCRIPT SAYS "DONE"!
+DONE, chart is in /tmp/probe_accuracy.html, chart data in /tmp/probe_accuracy.json
+pi@LDO300kit:~ $ date
+Mon 28 Nov 2022 10:36:00 AM EST
+
+
+--------------------------------------------------------
+
+Here is the zip file of the actual data files = probe_accuracy.zip
+The graphs:
+ 1. the graph name is "70min_heat_soak_test_probe_accuracy.html" (70 minutes with heat soak - using Kailh GM 4.0 Micro Switch instead of Omron D2F-5L Microswitch)
+
+ 2. graph (70 minutes with heat soak - using Kailh GM 4.0 Micro Switch instead of Omron Microswitch) in jpg format not html
