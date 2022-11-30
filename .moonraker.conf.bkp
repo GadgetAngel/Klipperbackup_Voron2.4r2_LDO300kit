@@ -1,0 +1,167 @@
+[server]
+host = 0.0.0.0
+port = 7125
+klippy_uds_address = /tmp/klippy_uds
+max_upload_size = 1024
+
+[data_store]
+temperature_store_size = 1200
+gcode_store_size = 1000
+
+[announcements]
+subscriptions = 
+	mainsail
+
+[authorization]
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	192.168.1.0/24
+	FE80::/10
+	::1/128
+	127.0.0.1
+cors_domains = 
+	http://*.lan
+	http://*.local
+	https://my.mainsail.xyz
+	http://my.mainsail.xyz
+	https://app.fluidd.xyz
+	http://app.fluidd.xyz
+	http://192,168.1.154:7990
+	http://192.168.1.154:7991
+	http://192.168.1.154:7136
+
+[database]
+
+[file_manager]
+
+[octoprint_compat]
+enable_ufp = True
+
+[history]
+
+[power tasmota_plug_RGB]
+type = tasmota
+address = 192.168.1.166
+output_id = 1
+off_when_shutdown = True
+off_when_shutdown_delay = 2
+on_when_job_queued = False
+locked_while_printing = False
+restart_klipper_when_powered = False
+
+[power tasmota_plug_RGB2]
+type = tasmota
+address = 192.168.1.167
+output_id = 1
+off_when_shutdown = True
+off_when_shutdown_delay = 3
+on_when_job_queued = False
+locked_while_printing = False
+restart_klipper_when_powered = False
+
+[power tasmota_plug_ESP]
+type = tasmota
+address = 192.168.1.148
+output_id = 3
+off_when_shutdown = True
+off_when_shutdown_delay = 4
+on_when_job_queued = False
+locked_while_printing = False
+restart_klipper_when_powered = False
+
+[power tasmota_plug_ESP2]
+type = tasmota
+address = 192.168.1.148
+output_id = 4
+off_when_shutdown = True
+off_when_shutdown_delay = 5
+on_when_job_queued = False
+locked_while_printing = False
+restart_klipper_when_powered = False
+
+[power tasmota_plug_Pi]
+type = tasmota
+address = 192.168.1.148
+output_id = 1
+off_when_shutdown = True
+off_when_shutdown_delay = 15
+on_when_job_queued = False
+locked_while_printing = False
+restart_klipper_when_powered = False
+
+[power tasmota_plug_EMPTY_HUB]
+type = tasmota
+address = 192.168.1.148
+output_id = 2
+off_when_shutdown = True
+off_when_shutdown_delay = 30
+on_when_job_queued = False
+locked_while_printing = False
+restart_klipper_when_powered = False
+
+[power rp2040]
+type = klipper_device
+object_name = output_pin reset_line_RP2040
+timer = 0.5
+
+[wled Chamber_Lights]
+type = http
+address = 192.168.1.160
+initial_preset = 1
+chain_count = 92
+
+[wled Bottom_Lights]
+type = http
+address = 192.168.1.161
+initial_preset = 1
+chain_count = 126
+
+[update_manager]
+channel = dev
+refresh_interval = 168
+enable_auto_refresh = True
+
+[update_manager client mainsail]
+type = web
+repo = mainsail-crew/mainsail
+path = ~/mainsail
+
+[update_manager fluidd]
+type = web
+channel = stable
+repo = fluidd-core/fluidd
+path = ~/fluidd
+
+[update_manager KlipperScreen]
+type = git_repo
+path = /home/pi/KlipperScreen
+origin = https://github.com/jordanruthe/KlipperScreen.git
+env = /home/pi/.KlipperScreen-env/bin/python
+requirements = scripts/KlipperScreen-requirements.txt
+install_script = scripts/KlipperScreen-install.sh
+managed_services = KlipperScreen
+
+[update_manager led_effect]
+type = git_repo
+path = ~/klipper-led_effect
+origin = https://github.com/julianschill/klipper-led_effect.git
+channel = dev
+is_system_service = False
+
+[update_manager CanBoot]
+type = git_repo
+origin = https://github.com/Arksine/CanBoot.git
+path = ~/CanBoot
+is_system_service = False
+
+[update_manager client z_calibration]
+type = git_repo
+path = ~/klipper_z_calibration
+origin = https://github.com/protoloft/klipper_z_calibration.git
+install_script = install.sh
+managed_services = klipper
+

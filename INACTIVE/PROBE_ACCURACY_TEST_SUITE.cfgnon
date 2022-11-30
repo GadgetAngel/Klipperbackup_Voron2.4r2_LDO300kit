@@ -1,0 +1,9 @@
+[gcode_shell_command probe_accuracy_test_suite]
+command: /usr/bin/python3 /home/pi/probe_accuracy_tests/probe_accuracy_test_suite.py
+timeout: 65
+verbose: True
+
+#PROBE_ACCURACY_TEST_SUITE
+[gcode_macro probe_accuracy_test_suite]
+gcode:
+   #RUN_SHELL_COMMAND CMD=probe_accuracy_test_suite
