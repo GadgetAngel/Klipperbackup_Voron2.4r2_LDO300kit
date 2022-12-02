@@ -25,9 +25,6 @@ camera="auto"
 #
 #camera_usb_options="-r 640x480 -f 10"
 #camera_usb_options="-r 2592x1944 -f 10"
-#camera_usb_options="-r 1920x1080 -f 10"
-#camera_usb_options="-r 1400x1400 -f 10 -rot 180"
-#camera_usb_options="-r 1400x1400 -f 10"
 camera_usb_options="-r 1600x1200 -f 10"
 
 ### Additional webcam devices known to cause problems with -f

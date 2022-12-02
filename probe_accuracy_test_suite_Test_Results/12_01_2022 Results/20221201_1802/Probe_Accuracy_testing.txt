@@ -1,0 +1,707 @@
+
+URL: https://github.com/sporkus/probe_accuracy_tests
+
+python3 /home/pi/probe_accuracy_tests/probe_accuracy_test_suite.py --repeat 40 --export_csv
+
+
+output from console:
+
+
+5:59 PM FIRMWARE_RESTART
+5:59 PM Klipper state: Disconnect
+5:59 PM Klipper state: Ready
+5:59 PM echo: Printer online. ; this also get sent to the UI console output
+5:59 PM probe: TRIGGERED
+5:59 PM probe: TRIGGERED
+5:59 PM echo: "probe: TRIGGERED" = Euclid probe NOT attached (it is in the DOCK).
+5:59 PM echo: Z-Offset is set at 4.78mm.
+5:59 PM echo: Nozzle diameter is set at 0.4mm.
+5:59 PM echo: Pressure Advance is set at 0.055.
+5:59 PM echo: Pressure advance Smooth Time is set at 0.03.
+5:59 PM echo: Loaded filament profile ABS04 (Generic ABS / 0.4mm Nozzle) ; this also get sent to the UI console output
+5:59 PM INFO_BEDFANS <+++++++++++++++++
+Heater_threshold = 110;
+ChamberTEMP_threshold = 50.00;
+FLAG = 0;
+LAST_CHAMBER_TEMP = 0.00;
+current_CHAMBER_TEMP = 24.45;
+OFFSET = 4;
+End of INFO_BEDFANS +++++++++++++++++>
+5:59 PM INFO_FAN_CHECK <++++
+HotEnd Fan min_rpm = 3500;
+HotEnd Fan current_rpm = 0.00;
+HotEnd Fan max_consecutive_stops = 3;
+HotEnd Fan stop_count = 0;
+PartCooling Fan Enabled = 0;
+PartCooling Fan min_rpm = 600;
+PartCooling Fan current_rpm = 0.00;
+PartCooling Fan max_consecutive_stops = 3;
+PartCooling Fan stop_count = 0;
+End of INFO_FAN_CHECK ++++>
+5:59 PM G28
+5:59 PM probe: TRIGGERED
+5:59 PM probe: TRIGGERED
+5:59 PM probe: TRIGGERED
+5:59 PM G32
+5:59 PM probe: TRIGGERED
+6:00 PM probe: TRIGGERED
+6:00 PM probe: TRIGGERED
+6:00 PM probe: TRIGGERED
+6:00 PM probe: open
+6:00 PM probe at 50.000,25.000 is z=4.710000
+6:00 PM probe at 50.000,25.000 is z=4.712500
+6:00 PM probe at 50.000,25.000 is z=4.711250
+6:00 PM probe at 50.000,225.000 is z=4.813750
+6:00 PM probe at 50.000,225.000 is z=4.813750
+6:00 PM probe at 50.000,225.000 is z=4.813750
+6:00 PM probe at 250.000,225.000 is z=4.726250
+6:00 PM probe at 250.000,225.000 is z=4.726250
+6:00 PM probe at 250.000,225.000 is z=4.727500
+6:00 PM probe at 250.000,25.000 is z=4.661250
+6:00 PM probe at 250.000,25.000 is z=4.662500
+6:00 PM probe at 250.000,25.000 is z=4.662500
+6:00 PM Gantry-relative probe points:
+0: 10.288750 1: 10.186250 2: 10.273750 3: 10.337500
+6:00 PM Actuator Positions:
+z: 10.297749 z1: 10.062322 z2: 10.295710 z3: 10.376526
+6:00 PM Average: 10.258077
+6:00 PM Making the following Z adjustments:
+stepper_z = -0.039673
+stepper_z1 = 0.195755
+stepper_z2 = -0.037634
+stepper_z3 = -0.118449
+6:00 PM Retries: 0/10 Probed points range: 0.151250 tolerance: 0.003750
+6:00 PM probe at 50.000,25.000 is z=4.740949
+6:00 PM probe at 50.000,25.000 is z=4.744699
+6:00 PM probe at 50.000,25.000 is z=4.744699
+6:00 PM probe at 50.000,225.000 is z=4.762199
+6:00 PM probe at 50.000,225.000 is z=4.762199
+6:00 PM probe at 50.000,225.000 is z=4.760949
+6:00 PM probe at 250.000,225.000 is z=4.747199
+6:00 PM probe at 250.000,225.000 is z=4.744699
+6:00 PM probe at 250.000,225.000 is z=4.749699
+6:00 PM probe at 250.000,25.000 is z=4.764699
+6:00 PM probe at 250.000,25.000 is z=4.764699
+6:00 PM probe at 250.000,25.000 is z=4.764699
+6:00 PM Gantry-relative probe points:
+0: 10.255301 1: 10.237801 2: 10.252801 3: 10.235301
+6:00 PM Actuator Positions:
+z: 10.277034 z1: 10.207043 z2: 10.283378 z3: 10.213719
+6:00 PM Average: 10.245293
+6:00 PM Making the following Z adjustments:
+stepper_z = -0.031741
+stepper_z1 = 0.038251
+stepper_z2 = -0.038084
+stepper_z3 = 0.031574
+6:00 PM Retries: 1/10 Probed points range: 0.020000 tolerance: 0.003750
+6:00 PM probe at 50.000,25.000 is z=4.733084
+6:00 PM probe at 50.000,25.000 is z=4.734334
+6:00 PM probe at 50.000,25.000 is z=4.734334
+6:00 PM probe at 50.000,225.000 is z=4.738084
+6:00 PM probe at 50.000,225.000 is z=4.735584
+6:01 PM probe at 50.000,225.000 is z=4.736834
+6:01 PM probe at 250.000,225.000 is z=4.744334
+6:01 PM probe at 250.000,225.000 is z=4.744334
+6:01 PM probe at 250.000,225.000 is z=4.744334
+6:01 PM probe at 250.000,25.000 is z=4.746834
+6:01 PM probe at 250.000,25.000 is z=4.746834
+6:01 PM probe at 250.000,25.000 is z=4.745584
+6:01 PM Gantry-relative probe points:
+0: 10.265666 1: 10.263166 2: 10.255666 3: 10.253166
+6:01 PM Actuator Positions:
+z: 10.274098 z1: 10.264099 z2: 10.254754 z3: 10.244803
+6:01 PM Average: 10.259439
+6:01 PM Making the following Z adjustments:
+stepper_z = -0.014659
+stepper_z1 = -0.004661
+stepper_z2 = 0.004684
+stepper_z3 = 0.014636
+6:01 PM Retries: 2/10 Probed points range: 0.012500 tolerance: 0.003750
+6:01 PM probe at 50.000,25.000 is z=4.738409
+6:01 PM probe at 50.000,25.000 is z=4.739659
+6:01 PM probe at 50.000,25.000 is z=4.739659
+6:01 PM probe at 50.000,225.000 is z=4.742159
+6:01 PM probe at 50.000,225.000 is z=4.738409
+6:01 PM probe at 50.000,225.000 is z=4.739659
+6:01 PM probe at 250.000,225.000 is z=4.738409
+6:01 PM probe at 250.000,225.000 is z=4.737159
+6:01 PM probe at 250.000,225.000 is z=4.737159
+6:01 PM probe at 250.000,25.000 is z=4.739659
+6:01 PM probe at 250.000,25.000 is z=4.739659
+6:01 PM probe at 250.000,25.000 is z=4.739659
+6:01 PM Gantry-relative probe points:
+0: 10.260341 1: 10.260341 2: 10.262841 3: 10.260341
+6:01 PM Actuator Positions:
+z: 10.260741 z1: 10.258117 z2: 10.266569 z3: 10.259219
+6:01 PM Average: 10.261162
+6:01 PM Making the following Z adjustments:
+stepper_z = 0.000420
+stepper_z1 = 0.003045
+stepper_z2 = -0.005408
+stepper_z3 = 0.001943
+6:01 PM Retries: 3/10 Probed points range: 0.002500 tolerance: 0.003750
+6:01 PM probe: TRIGGERED
+
+
+6:04 PM echo: 10/40 repeatability ; this also get sent to the UI console output
+6:04 PM probe: open
+6:04 PM probe: open
+6:04 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:04 PM probe at 150.000,153.000 is z=4.732908
+6:04 PM probe at 150.000,153.000 is z=4.732908
+6:04 PM probe at 150.000,153.000 is z=4.732908
+6:04 PM probe at 150.000,153.000 is z=4.732908
+6:04 PM probe at 150.000,153.000 is z=4.732908
+6:04 PM probe at 150.000,153.000 is z=4.732908
+6:04 PM probe at 150.000,153.000 is z=4.732908
+6:04 PM probe at 150.000,153.000 is z=4.731658
+6:04 PM probe at 150.000,153.000 is z=4.732908
+6:04 PM probe at 150.000,153.000 is z=4.732908
+6:04 PM probe accuracy results: maximum 4.732908, minimum 4.731658, range 0.001250, average 4.732783, median 4.732908, standard deviation 0.000375
+6:04 PM probe: open
+6:04 PM echo: 11/40 repeatability ; this also get sent to the UI console output
+6:04 PM probe: open
+6:04 PM probe: open
+6:04 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe accuracy results: maximum 4.734158, minimum 4.734158, range 0.000000, average 4.734158, median 4.734158, standard deviation 0.000000
+6:04 PM probe: open
+6:04 PM echo: 12/40 repeatability ; this also get sent to the UI console output
+6:04 PM probe: open
+6:04 PM probe: open
+6:04 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe at 150.000,153.000 is z=4.732908
+6:04 PM probe at 150.000,153.000 is z=4.732908
+6:04 PM probe at 150.000,153.000 is z=4.734158
+6:04 PM probe accuracy results: maximum 4.734158, minimum 4.732908, range 0.001250, average 4.733908, median 4.734158, standard deviation 0.000500
+6:04 PM probe: open
+6:04 PM echo: 13/40 repeatability ; this also get sent to the UI console output
+6:04 PM probe: open
+6:04 PM probe: open
+6:04 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:04 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe accuracy results: maximum 4.735408, minimum 4.734158, range 0.001250, average 4.735283, median 4.735408, standard deviation 0.000375
+6:05 PM probe: open
+6:05 PM echo: 14/40 repeatability ; this also get sent to the UI console output
+6:05 PM probe: open
+6:05 PM probe: open
+6:05 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.732908
+6:05 PM probe at 150.000,153.000 is z=4.732908
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe at 150.000,153.000 is z=4.732908
+6:05 PM probe at 150.000,153.000 is z=4.732908
+6:05 PM probe at 150.000,153.000 is z=4.732908
+6:05 PM probe at 150.000,153.000 is z=4.732908
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe at 150.000,153.000 is z=4.732908
+6:05 PM probe accuracy results: maximum 4.735408, minimum 4.732908, range 0.002500, average 4.733408, median 4.732908, standard deviation 0.000829
+6:05 PM probe: open
+6:05 PM echo: 15/40 repeatability ; this also get sent to the UI console output
+6:05 PM probe: open
+6:05 PM probe: open
+6:05 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe accuracy results: maximum 4.735408, minimum 4.735408, range 0.000000, average 4.735408, median 4.735408, standard deviation 0.000000
+6:05 PM probe: open
+6:05 PM echo: 16/40 repeatability ; this also get sent to the UI console output
+6:05 PM probe: open
+6:05 PM probe: open
+6:05 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe at 150.000,153.000 is z=4.734158
+6:05 PM probe accuracy results: maximum 4.734158, minimum 4.734158, range 0.000000, average 4.734158, median 4.734158, standard deviation 0.000000
+6:05 PM probe: open
+6:05 PM echo: 17/40 repeatability ; this also get sent to the UI console output
+6:05 PM probe: open
+6:05 PM probe: open
+6:05 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.736658
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.736658
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.736658
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:05 PM probe at 150.000,153.000 is z=4.736658
+6:05 PM probe accuracy results: maximum 4.736658, minimum 4.735408, range 0.001250, average 4.735908, median 4.735408, standard deviation 0.000612
+6:05 PM probe: open
+6:05 PM echo: 18/40 repeatability ; this also get sent to the UI console output
+6:05 PM probe: open
+6:05 PM probe: open
+6:05 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:05 PM probe at 150.000,153.000 is z=4.736658
+6:05 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe accuracy results: maximum 4.736658, minimum 4.735408, range 0.001250, average 4.735533, median 4.735408, standard deviation 0.000375
+6:06 PM probe: open
+6:06 PM echo: 19/40 repeatability ; this also get sent to the UI console output
+6:06 PM probe: open
+6:06 PM probe: open
+6:06 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe accuracy results: maximum 4.736658, minimum 4.735408, range 0.001250, average 4.736533, median 4.736658, standard deviation 0.000375
+6:06 PM probe: open
+6:06 PM echo: 20/40 repeatability ; this also get sent to the UI console output
+6:06 PM probe: open
+6:06 PM probe: open
+6:06 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.734158
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe accuracy results: maximum 4.736658, minimum 4.734158, range 0.002500, average 4.735408, median 4.735408, standard deviation 0.000559
+6:06 PM probe: open
+6:06 PM echo: 21/40 repeatability ; this also get sent to the UI console output
+6:06 PM probe: open
+6:06 PM probe: open
+6:06 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe accuracy results: maximum 4.736658, minimum 4.735408, range 0.001250, average 4.735658, median 4.735408, standard deviation 0.000500
+6:06 PM probe: open
+6:06 PM echo: 22/40 repeatability ; this also get sent to the UI console output
+6:06 PM probe: open
+6:06 PM probe: open
+6:06 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:06 PM probe accuracy results: maximum 4.736658, minimum 4.735408, range 0.001250, average 4.735783, median 4.735408, standard deviation 0.000573
+6:06 PM probe: open
+6:06 PM echo: 23/40 repeatability ; this also get sent to the UI console output
+6:06 PM probe: open
+6:06 PM probe: open
+6:06 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:06 PM probe at 150.000,153.000 is z=4.736658
+6:06 PM probe at 150.000,153.000 is z=4.735408
+6:07 PM probe at 150.000,153.000 is z=4.737908
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.735408
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe accuracy results: maximum 4.737908, minimum 4.735408, range 0.002500, average 4.736533, median 4.736658, standard deviation 0.000673
+6:07 PM probe: open
+6:07 PM echo: 24/40 repeatability ; this also get sent to the UI console output
+6:07 PM probe: open
+6:07 PM probe: open
+6:07 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:07 PM probe at 150.000,153.000 is z=4.737908
+6:07 PM probe at 150.000,153.000 is z=4.737908
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.737908
+6:07 PM probe at 150.000,153.000 is z=4.737908
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe accuracy results: maximum 4.737908, minimum 4.736658, range 0.001250, average 4.737158, median 4.736658, standard deviation 0.000612
+6:07 PM probe: open
+6:07 PM echo: 25/40 repeatability ; this also get sent to the UI console output
+6:07 PM probe: open
+6:07 PM probe: open
+6:07 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.735408
+6:07 PM probe at 150.000,153.000 is z=4.735408
+6:07 PM probe at 150.000,153.000 is z=4.735408
+6:07 PM probe at 150.000,153.000 is z=4.735408
+6:07 PM probe at 150.000,153.000 is z=4.735408
+6:07 PM probe accuracy results: maximum 4.736658, minimum 4.735408, range 0.001250, average 4.736033, median 4.736033, standard deviation 0.000625
+6:07 PM probe: open
+6:07 PM echo: 26/40 repeatability ; this also get sent to the UI console output
+6:07 PM probe: open
+6:07 PM probe: open
+6:07 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.735408
+6:07 PM probe at 150.000,153.000 is z=4.735408
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe accuracy results: maximum 4.736658, minimum 4.735408, range 0.001250, average 4.736408, median 4.736658, standard deviation 0.000500
+6:07 PM probe: open
+6:07 PM echo: 27/40 repeatability ; this also get sent to the UI console output
+6:07 PM probe: open
+6:07 PM probe: open
+6:07 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.737908
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe at 150.000,153.000 is z=4.736658
+6:07 PM probe accuracy results: maximum 4.737908, minimum 4.736658, range 0.001250, average 4.736783, median 4.736658, standard deviation 0.000375
+6:07 PM probe: open
+6:07 PM echo: 28/40 repeatability ; this also get sent to the UI console output
+6:07 PM probe: open
+6:07 PM probe: open
+6:07 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:07 PM probe at 150.000,153.000 is z=4.739158
+6:07 PM probe at 150.000,153.000 is z=4.737908
+6:07 PM probe at 150.000,153.000 is z=4.737908
+6:07 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe accuracy results: maximum 4.739158, minimum 4.737908, range 0.001250, average 4.738033, median 4.737908, standard deviation 0.000375
+6:08 PM probe: open
+6:08 PM echo: 29/40 repeatability ; this also get sent to the UI console output
+6:08 PM probe: open
+6:08 PM probe: open
+6:08 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe accuracy results: maximum 4.737908, minimum 4.737908, range 0.000000, average 4.737908, median 4.737908, standard deviation 0.000000
+6:08 PM probe: open
+6:08 PM echo: 30/40 repeatability ; this also get sent to the UI console output
+6:08 PM probe: open
+6:08 PM probe: open
+6:08 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe accuracy results: maximum 4.737908, minimum 4.737908, range 0.000000, average 4.737908, median 4.737908, standard deviation 0.000000
+6:08 PM probe: open
+6:08 PM echo: 31/40 repeatability ; this also get sent to the UI console output
+6:08 PM probe: open
+6:08 PM probe: open
+6:08 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:08 PM probe at 150.000,153.000 is z=4.739158
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.739158
+6:08 PM probe at 150.000,153.000 is z=4.739158
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe accuracy results: maximum 4.739158, minimum 4.737908, range 0.001250, average 4.738283, median 4.737908, standard deviation 0.000573
+6:08 PM probe: open
+6:08 PM echo: 32/40 repeatability ; this also get sent to the UI console output
+6:08 PM probe: open
+6:08 PM probe: open
+6:08 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.736658
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.736658
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.736658
+6:08 PM probe at 150.000,153.000 is z=4.736658
+6:08 PM probe accuracy results: maximum 4.737908, minimum 4.736658, range 0.001250, average 4.737408, median 4.737908, standard deviation 0.000612
+6:08 PM probe: open
+6:08 PM echo: 33/40 repeatability ; this also get sent to the UI console output
+6:08 PM probe: open
+6:08 PM probe: open
+6:08 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:08 PM probe at 150.000,153.000 is z=4.739158
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:08 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe accuracy results: maximum 4.739158, minimum 4.737908, range 0.001250, average 4.738033, median 4.737908, standard deviation 0.000375
+6:09 PM probe: open
+6:09 PM echo: 34/40 repeatability ; this also get sent to the UI console output
+6:09 PM probe: open
+6:09 PM probe: open
+6:09 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:09 PM probe at 150.000,153.000 is z=4.740408
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe accuracy results: maximum 4.740408, minimum 4.739158, range 0.001250, average 4.739283, median 4.739158, standard deviation 0.000375
+6:09 PM probe: open
+6:09 PM echo: 35/40 repeatability ; this also get sent to the UI console output
+6:09 PM probe: open
+6:09 PM probe: open
+6:09 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe accuracy results: maximum 4.739158, minimum 4.737908, range 0.001250, average 4.738658, median 4.739158, standard deviation 0.000612
+6:09 PM probe: open
+6:09 PM echo: 36/40 repeatability ; this also get sent to the UI console output
+6:09 PM probe: open
+6:09 PM probe: open
+6:09 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe accuracy results: maximum 4.739158, minimum 4.739158, range 0.000000, average 4.739158, median 4.739158, standard deviation 0.000000
+6:09 PM probe: open
+6:09 PM echo: 37/40 repeatability ; this also get sent to the UI console output
+6:09 PM probe: open
+6:09 PM probe: open
+6:09 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe at 150.000,153.000 is z=4.737908
+6:09 PM probe accuracy results: maximum 4.739158, minimum 4.737908, range 0.001250, average 4.738033, median 4.737908, standard deviation 0.000375
+6:09 PM probe: open
+6:09 PM echo: 38/40 repeatability ; this also get sent to the UI console output
+6:09 PM probe: open
+6:09 PM probe: open
+6:09 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:09 PM probe at 150.000,153.000 is z=4.740408
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:09 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe accuracy results: maximum 4.740408, minimum 4.739158, range 0.001250, average 4.739283, median 4.739158, standard deviation 0.000375
+6:10 PM probe: open
+6:10 PM echo: 39/40 repeatability ; this also get sent to the UI console output
+6:10 PM probe: open
+6:10 PM probe: open
+6:10 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:10 PM probe at 150.000,153.000 is z=4.740408
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe accuracy results: maximum 4.740408, minimum 4.739158, range 0.001250, average 4.739283, median 4.739158, standard deviation 0.000375
+6:10 PM probe: open
+6:10 PM echo: 40/40 repeatability ; this also get sent to the UI console output
+6:10 PM probe: open
+6:10 PM probe: open
+6:10 PM PROBE_ACCURACY at X:150.000 Y:153.000 Z:15.000 (samples=10 retract=1.500 speed=10.0 lift_speed=10.0)
+6:10 PM probe at 150.000,153.000 is z=4.737908
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.737908
+6:10 PM probe at 150.000,153.000 is z=4.737908
+6:10 PM probe at 150.000,153.000 is z=4.739158
+6:10 PM probe at 150.000,153.000 is z=4.737908
+6:10 PM probe at 150.000,153.000 is z=4.737908
+6:10 PM probe at 150.000,153.000 is z=4.737908
+6:10 PM probe at 150.000,153.000 is z=4.737908
+6:10 PM probe at 150.000,153.000 is z=4.737908
+6:10 PM probe accuracy results: maximum 4.739158, minimum 4.737908, range 0.001250, average 4.738158, median 4.737908, standard deviation 0.000500
+6:10 PM probe: open
+6:10 PM probe: TRIGGERED
+
+
+Last login: Thu Dec  1 12:33:11 2022
+pi@LDO300kit:~ $ python3 /home/pi/probe_accuracy_tests/probe_accuracy_test_suite.py --repeat 40 --export_csv
+
+Take 40 probe_accuracy tests to check for repeatability
+Test number: 40...39...38...37...36...35...34...33...32...31...30...29...28...27...26...25...24...23...22...21...20...19...18...17...16...15...14...13...12...11...10...9...8...7...6...5...4...3...2...1...Done
+                           min       max     first      last      mean       std  count    range    drift
+test
+01: center 10samples  4.726658  4.727908  4.727908  4.726658  4.727533  0.000604     10  0.00125 -0.00125
+02: center 10samples  4.727908  4.729158  4.729158  4.729158  4.729033  0.000395     10  0.00125  0.00000
+03: center 10samples  4.729158  4.729158  4.729158  4.729158  4.729158  0.000000     10  0.00000  0.00000
+04: center 10samples  4.727908  4.729158  4.729158  4.729158  4.728408  0.000645     10  0.00125  0.00000
+05: center 10samples  4.729158  4.730408  4.729158  4.729158  4.729533  0.000604     10  0.00125  0.00000
+06: center 10samples  4.730408  4.731658  4.730408  4.730408  4.730533  0.000395     10  0.00125  0.00000
+07: center 10samples  4.730408  4.731658  4.731658  4.731658  4.731158  0.000645     10  0.00125  0.00000
+08: center 10samples  4.730408  4.731658  4.731658  4.731658  4.731408  0.000527     10  0.00125  0.00000
+09: center 10samples  4.731658  4.734158  4.734158  4.732908  4.732908  0.000589     10  0.00250 -0.00125
+10: center 10samples  4.731658  4.732908  4.732908  4.732908  4.732783  0.000395     10  0.00125  0.00000
+11: center 10samples  4.734158  4.734158  4.734158  4.734158  4.734158  0.000000     10  0.00000  0.00000
+12: center 10samples  4.732908  4.734158  4.734158  4.734158  4.733908  0.000527     10  0.00125  0.00000
+13: center 10samples  4.734158  4.735408  4.735408  4.734158  4.735283  0.000395     10  0.00125 -0.00125
+14: center 10samples  4.732908  4.735408  4.735408  4.732908  4.733408  0.000874     10  0.00250 -0.00250
+15: center 10samples  4.735408  4.735408  4.735408  4.735408  4.735408  0.000000     10  0.00000  0.00000
+16: center 10samples  4.734158  4.734158  4.734158  4.734158  4.734158  0.000000     10  0.00000  0.00000
+17: center 10samples  4.735408  4.736658  4.735408  4.736658  4.735908  0.000645     10  0.00125  0.00125
+18: center 10samples  4.735408  4.736658  4.736658  4.735408  4.735533  0.000395     10  0.00125 -0.00125
+19: center 10samples  4.735408  4.736658  4.736658  4.736658  4.736533  0.000395     10  0.00125  0.00000
+20: center 10samples  4.734158  4.736658  4.735408  4.735408  4.735408  0.000589     10  0.00250  0.00000
+21: center 10samples  4.735408  4.736658  4.736658  4.735408  4.735658  0.000527     10  0.00125 -0.00125
+22: center 10samples  4.735408  4.736658  4.736658  4.735408  4.735783  0.000604     10  0.00125 -0.00125
+23: center 10samples  4.735408  4.737908  4.736658  4.736658  4.736533  0.000710     10  0.00250  0.00000
+24: center 10samples  4.736658  4.737908  4.737908  4.736658  4.737158  0.000645     10  0.00125 -0.00125
+25: center 10samples  4.735408  4.736658  4.736658  4.735408  4.736033  0.000659     10  0.00125 -0.00125
+26: center 10samples  4.735408  4.736658  4.736658  4.736658  4.736408  0.000527     10  0.00125  0.00000
+27: center 10samples  4.736658  4.737908  4.736658  4.736658  4.736783  0.000395     10  0.00125  0.00000
+28: center 10samples  4.737908  4.739158  4.739158  4.737908  4.738033  0.000395     10  0.00125 -0.00125
+29: center 10samples  4.737908  4.737908  4.737908  4.737908  4.737908  0.000000     10  0.00000  0.00000
+30: center 10samples  4.737908  4.737908  4.737908  4.737908  4.737908  0.000000     10  0.00000  0.00000
+31: center 10samples  4.737908  4.739158  4.739158  4.737908  4.738283  0.000604     10  0.00125 -0.00125
+32: center 10samples  4.736658  4.737908  4.737908  4.736658  4.737408  0.000645     10  0.00125 -0.00125
+33: center 10samples  4.737908  4.739158  4.739158  4.737908  4.738033  0.000395     10  0.00125 -0.00125
+34: center 10samples  4.739158  4.740408  4.740408  4.739158  4.739283  0.000395     10  0.00125 -0.00125
+35: center 10samples  4.737908  4.739158  4.739158  4.737908  4.738658  0.000645     10  0.00125 -0.00125
+36: center 10samples  4.739158  4.739158  4.739158  4.739158  4.739158  0.000000     10  0.00000  0.00000
+37: center 10samples  4.737908  4.739158  4.737908  4.737908  4.738033  0.000395     10  0.00125  0.00000
+38: center 10samples  4.739158  4.740408  4.740408  4.739158  4.739283  0.000395     10  0.00125 -0.00125
+39: center 10samples  4.739158  4.740408  4.740408  4.739158  4.739283  0.000395     10  0.00125 -0.00125
+40: center 10samples  4.737908  4.739158  4.737908  4.737908  4.738158  0.000527     10  0.00125  0.00000
+
+Your probe config uses median of 3 sample(s) over 40 tests
+Below is the statistics on your median Z values, using different probe samples
+       mean       min       max       std     range  sample_count
+0  4.735564  4.727908  4.740408  0.003481  0.012500             1
+1  4.735361  4.727908  4.739783  0.003395  0.011875             2
+2  4.735220  4.727908  4.739158  0.003392  0.011250             3
+3  4.735220  4.727908  4.739158  0.003377  0.011250             4
+4  4.735189  4.727908  4.739158  0.003384  0.011250             5
+5  4.735174  4.727908  4.739158  0.003366  0.011250             6
+6  4.735158  4.727908  4.739158  0.003352  0.011250             7
+7  4.735127  4.727908  4.739158  0.003358  0.011250             8
+8  4.735127  4.727908  4.739158  0.003331  0.011250             9
+9  4.735111  4.727908  4.739158  0.003325  0.011250            10
+--------------------------------------------------------------------------------
+pi@LDO300kit:~ $
