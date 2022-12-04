@@ -1,19 +1,15 @@
 #.................................................................................................................
-# SET_LOGO_LEDS - required parameters: R{%} G{%} B{%} W{%}/ Usage: SET_LOGO_LEDS R=1 B=0 G=0 W=0
-#   set the Stealthburner LOGO leds to Red Green Blue White Values
+# _SET_SB_LEDS - required parameters: R{0.0} G{0.0} B{0.0} W{0.0} LED{string} IDX{"1,2"} TRANSMIT {1,0}/ 
+#          Usage: _SET_SB_LEDS R=1 G=0 B=0 W=0 LED="sb_leds" IDX="17,18" TRANSMIT=1
+#   set the "sb_leds" to Red Green Blue White Value using index number of IDX and decide to transmit or not to transmit
 #.................................................................................................................
 # Required variable(s) to be set. Add the following to your global variable dictionary block as:
 #
-# [gcode_macro _SB_VARS]
-#  variable_logo_led_name
-#  variable_logo_logo_idx
-#
+## ---NONE---
 #.................................................................................................................
 # Required external macro(s) used by this macro.
 #
-# _general_Debug
-# _SET_SB_LEDS
-#
+## ---NONE---
 #.................................................................................................................
 
 #.................................................................................................................
@@ -22,18 +18,17 @@
 #      
 #.................................................................................................................
 
-# SET_LOGO_LEDS R=1 B=0 G=0 W=0
-[gcode_macro _SET_LOGO_LEDS]
+[gcode_macro _SET_SB_LEDS]
 gcode:
-    _general_Debug msg="_SET_LOGO_LEDS - entering"
-
     {% set r = params.R|default(0)|float %}
     {% set g = params.G|default(0)|float %}
     {% set b = params.B|default(0)|float %}
     {% set w = params.W|default(0)|float %}
-    {% set led = printer["gcode_macro _SB_VARS"].logo_led_name %}
-    {% set idx = printer["gcode_macro _SB_VARS"].logo_idx %}
-    
-    _SET_SB_LEDS LED={led} R={r} G={g} B={b} W={w} IDX="{idx}"
-    _general_Debug msg="_SET_LOGO_LEDS - exiting"
-    
+    {% set led = params.LED|string %}
+    {% set idx = (params.IDX|string).split(',') %}
+    {% set transmit_last = params.TRANSMIT|default(1) %}
+
+    {% for led_index in idx %}
+        {% set transmit=transmit_last if loop.last else 0 %}
+        #SET_LED LED={led} RED={r} GREEN={g} BLUE={b} WHITE={w} INDEX={led_index} TRANSMIT={transmit}
+    {% endfor %}
