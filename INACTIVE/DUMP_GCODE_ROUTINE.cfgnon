@@ -1,0 +1,68 @@
+#.................................................................................................................
+# Full credit to this macro belongs to 'Mental', this origin can be found at the following forum link:
+#   https://github.com/richardjm/voronpi-klipper-backup/blob/master/macros.d/dump_parameters.cfg
+#.................................................................................................................
+# DUMP_GCODE_ROUTINE / Usage: DUMP_GCODE_ROUTINE S="M190"
+# Dump all Klipper parameters to terminal, helps find names and values of variables for use in macros
+#.................................................................................................................
+# Required variable(s) to be set. Add the following to your global variable dictionary block as:
+#
+# ---NONE---
+#.................................................................................................................
+# Required external macro(s) used by this macro set.
+#
+# ---NONE---
+#.................................................................................................................
+
+###############################################################################
+#          DUMP_GCODE_ROUTINE
+###############################################################################
+
+[gcode_macro DUMP_GCODE_ROUTINE]
+description: Dumps a list of all the current userdefined GCODE macros that contains the searched cmd string to terminal, helps find gcode macros which contains the searched command
+gcode:
+  {% set search = params.S|lower %}
+  {% set dowant1 = ['configfile'] %}
+  {% set dowant2 = 'config' %} 
+  {% set dowant3 = "'gcode_macro " %} 
+  {% set dowant4 = 'gcode' %}     
+    {% set ns = namespace(output = '') %}
+    {% for item in printer %}
+        {% for item2 in printer[item] %}
+            {% for item3 in printer[item][item2]|lower %}
+                {% for item4 in printer [item][item2][item3]|lower %}
+                    #printer.configfile.config.'gcode_macro _FAN_STOPPAGE_ROUTINE'.gcode 
+                    {% if item is in dowant1 and item2 is in dowant2 and item3 is in dowant3 and item4 is in dowant4 %}
+                        
+                        #{% set gcode_name = item3.split() %}
+                        
+                        #{% set ns.path = ['printer.', item, '.', item2, ".'", item3, "'.", item4, "[%s]" % (printer[item][item2][item3][item4]), ''] %} 
+                        
+                        {% set param = 'printer.', item, '.', item2, "['", item3, "'].", item4, "%s" % (printer[item][item2][item3][item4]) %}
+                        {% set ns.output = ns.output +  param + "\n\n" %}                        
+
+                        #{% if printer[item][item2][item3][item4].items() %}
+                            #{% for childkey, child in printer[item][item2][item3][item4].items() recursive %}
+                                #{% set ns.path = ns.path[:loop.depth|int + 1] %}
+                                
+                                #{% if ' ' in childkey %}
+                                    #{% set null = ns.path.append("['%s']" % (childkey)) %}
+                                #{% else %}
+                                   #{% set null = ns.path.append("..%s" % (childkey)) %}
+                                #{% endif %} 
+
+                                #{% if child is mapping  %}
+                                    #{ loop(child.items()) }
+                                #{% else %}
+                                    #{% if search in ns.path|lower %}
+                                      #{ action_respond_info("%s : %s" % (ns.path|join, child)) }   
+                                    #{% endif %} 
+                                #{% endif %} 
+                            #{% endfor %}
+                        #{% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    {action_respond_info(ns.output)}
