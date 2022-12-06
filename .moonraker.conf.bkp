@@ -48,8 +48,7 @@ enable_ufp = True
 type = tasmota
 address = 192.168.1.166
 output_id = 1
-off_when_shutdown = True
-off_when_shutdown_delay = 2
+off_when_shutdown = False
 on_when_job_queued = False
 locked_while_printing = False
 restart_klipper_when_powered = False
@@ -58,38 +57,43 @@ restart_klipper_when_powered = False
 type = tasmota
 address = 192.168.1.167
 output_id = 1
-off_when_shutdown = True
-off_when_shutdown_delay = 3
+off_when_shutdown = False
 on_when_job_queued = False
 locked_while_printing = False
 restart_klipper_when_powered = False
 
 [power tasmota_plug_ESP]
 type = tasmota
-address = 192.168.1.148
-output_id = 3
-off_when_shutdown = True
-off_when_shutdown_delay = 4
+address = 192.168.1.149
+output_id = 1
+off_when_shutdown = False
 on_when_job_queued = False
 locked_while_printing = False
 restart_klipper_when_powered = False
 
 [power tasmota_plug_ESP2]
 type = tasmota
-address = 192.168.1.148
-output_id = 4
-off_when_shutdown = True
-off_when_shutdown_delay = 5
+address = 192.168.1.150
+output_id = 1
+off_when_shutdown = False
+on_when_job_queued = False
+locked_while_printing = False
+restart_klipper_when_powered = False
+
+[power tasmota_plug_IR]
+type = tasmota
+address = 192.168.1.151
+output_id = 1
+off_when_shutdown = False
 on_when_job_queued = False
 locked_while_printing = False
 restart_klipper_when_powered = False
 
 [power tasmota_plug_Pi]
 type = tasmota
-address = 192.168.1.148
+address = 192.168.1.168
 output_id = 1
-off_when_shutdown = True
-off_when_shutdown_delay = 15
+off_when_shutdown = False
 on_when_job_queued = False
 locked_while_printing = False
 restart_klipper_when_powered = False
@@ -98,8 +102,7 @@ restart_klipper_when_powered = False
 type = tasmota
 address = 192.168.1.148
 output_id = 2
-off_when_shutdown = True
-off_when_shutdown_delay = 30
+off_when_shutdown = False
 on_when_job_queued = False
 locked_while_printing = False
 restart_klipper_when_powered = False
