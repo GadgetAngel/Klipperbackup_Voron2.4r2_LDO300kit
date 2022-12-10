@@ -169,3 +169,9 @@ origin = https://github.com/protoloft/klipper_z_calibration.git
 install_script = install.sh
 managed_services = klipper
 
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+install_script = tools/install.sh
+
