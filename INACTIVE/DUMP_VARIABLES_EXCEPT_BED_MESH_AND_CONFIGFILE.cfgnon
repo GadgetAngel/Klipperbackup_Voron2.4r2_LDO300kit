@@ -13,6 +13,50 @@
 #
 # ---NONE---
 #.................................................................................................................
+#
+# List of name1 in printer:
+# webhooks.
+# configfile.
+#   config
+#   settings
+# mcu.
+# mcu EBBCan
+# mcu rpi
+# mcu tinyfan
+# heaters
+# gcode_move
+# bed_mesh
+# display_status
+# tmc2209 extruder
+# fan
+# heater_fan xxx
+# temperature_fan xxx
+# controller_fan xxx
+# temperature_host xxx
+# fan_generic xxx
+# heater_bed
+# idle_timeout
+# neopixel xxxx
+# output_pin xxxx
+# pause_resume
+# probe
+# quad_gantry_level
+# save_variables
+# filament_motion_sensor xxxx
+# tmc2209 xxx
+# temperature_sensor xxx
+# print_stats
+# virtual_sdcard
+# query_endstops
+# z_calibration
+# z_thermal_adjust
+# gcode_macro xxxx
+# firmware_retraction
+# motion_report
+# system_stats
+# manual_probe
+# toolhead
+# extruder
 
 ###############################################################################
 #          DUMP_VARIABLES_EXCEPT_BED_MESH_AND_CONFIGFILE

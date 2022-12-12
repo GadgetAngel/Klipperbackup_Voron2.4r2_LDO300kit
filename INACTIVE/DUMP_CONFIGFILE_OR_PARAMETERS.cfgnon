@@ -1,0 +1,310 @@
+#.................................................................................................................
+# DUMP_CONFIGFILE_OR_PARAMETERS - optional parameters: 
+#                   P{'parameter_group'} 
+#                   C{'name_of_item_in_config'} - search in printer[configfile].config.{C} -> Filter results based on name (only show varables with exact matches to this string)
+#                   S{'name_of_item_in_settings'} - search in printer[configfile].settings.{S} -> Filter results based on name (nly show varables with exact matches to this string)
+#                   NAME=('string') - search in printer[NAME] or print[*].NAME -> Filter results based on name (only show varables with names containing this string)
+#                   VALUE=('string') - search in printer[*][*].VALUE -> Filter results based on value (only show values containing this value) 
+#                   COMMAND=('string') - lists all your user defined g-code macros that use a command string that you specify in the parmeter COMMAND
+
+# / Usage: DUMP_CONFIGFILE_OR_PARAMETERS P='gcode_macro _Probe_Variables'
+#        DUMP_CONFIGFILE_OR_PARAMETERS C='temperature_sensor M_Y-Axis_Frame_Temp'
+#        DUMP_CONFIGFILE_OR_PARAMETERS C='mcu EBBCan'
+#        DUMP_CONFIGFILE_OR_PARAMETERS P='mcu EBBCan'
+#        DUMP_CONFIGFILE_OR_PARAMETERS C='probe'
+#        DUMP_CONFIGFILE_OR_PARAMETERS S='probe'
+#        DUMP_CONFIGFILE_OR_PARAMETERS S='306'
+#        DUMP_CONFIGFILE_OR_PARAMETERS
+#        DUMP_CONFIGFILE_OR_PARAMETERS NAME="speed" VALUE=0.0
+#        DUMP_CONFIGFILE_OR_PARAMETERS NAME='config'
+#        DUMP_CONFIGFILE_OR_PARAMETERS VALUE=None
+#
+# Note of caution about the CASE of the characters: Since this search does not cause the printer object string to all lower case then you MUST
+#       watch the case of each letter of the string you are searching for.  So if you want M190 and you wrote m190 they
+#       are two different searches!
+#
+# Use:
+# - DUMP_CONFIGFILE_OR_PARAMETERS                       print all parameters expect configfile
+# - DUMP_CONFIGFILE_OR_PARAMETERS P='gcode_macro _TEST' print the defined parameter group
+# - DUMP_CONFIGFILE_OR_PARAMETERS C='printer'           print the user defined printer.[configfile].config values
+# - DUMP_CONFIGFILE_OR_PARAMETERS S='printer'           print the defined printer.[configfile].settings values
+#
+#.................................................................................................................
+# Required variable(s) to be set. Add the following to your global variable dictionary block as:
+#
+# ---NONE---
+#.................................................................................................................
+# Required external macro(s) used by this macro set.
+#
+# ---NONE---  {action_respond_info("printer[%s] = %s" % ())}
+#.................................................................................................................
+#.................................................................................................................
+#
+## URL Resources:  https://jinja.palletsprojects.com/en/2.11.x/templates/#for, see "Inside of a for-loop block, you can access some special variables:"
+#                  https://book.pythontips.com/en/latest/for_-_else.html#else-clause
+#   
+#.................................................................................................................
+#
+# use ls -la /tmp/printer to find out which device /tmp/printer points to.
+# output:
+#     /tmp/printer -> /dev/pts/1
+# to save the output from the UI console ssh over to pi:
+# sudo cat /dev/pts/1 | tee /home/pi/UI/console_jtm10.txt
+#   to exit CTRL-C
+#
+###############################################################################
+#          DUMP_CONFIGFILE_OR_PARAMETERS
+###############################################################################
+# List of name1 in printer:
+# webhooks.
+# configfile.
+#   config
+#   settings
+# mcu.
+# mcu EBBCan
+# mcu rpi
+# mcu tinyfan
+# heaters
+# gcode_move
+# bed_mesh
+# display_status
+# tmc2209 extruder
+# fan
+# heater_fan xxx
+# temperature_fan xxx
+# controller_fan xxx
+# temperature_host xxx
+# fan_generic xxx
+# heater_bed
+# idle_timeout
+# neopixel xxxx
+# output_pin xxxx
+# pause_resume
+# probe
+# quad_gantry_level
+# save_variables
+# filament_motion_sensor xxxx
+# tmc2209 xxx
+# temperature_sensor xxx
+# print_stats
+# virtual_sdcard
+# query_endstops
+# z_calibration
+# z_thermal_adjust
+# gcode_macro xxxx
+# firmware_retraction
+# motion_report
+# system_stats
+# manual_probe
+# toolhead
+# extruder
+#
+#.................................................................................................................
+#
+#DUMP_CONFIGFILE_OR_PARAMETERS P="tmc2209 stepper_z3"
+#printer['tmc2209 stepper_z3'].mcu_phase_offset = 125
+#printer.name1 = tmc2209 stepper_z3
+#printer.name1.name2 = mcu_phase_offset
+#printer.name1.name2.value = 125
+#
+#DUMP_CONFIGFILE_OR_PARAMETERS C="gcode_macro current_normal" - will not work because the gcode name in configfile.config is the actual string type in so it is = "gcode_macro CURRENT_NORMAL" 
+#DUMP_CONFIGFILE_OR_PARAMETERS S="gcode_macro CURRENT_NORMAL" - will not work because the gcode name in configfile.settings is in all lowercase  = "gcode_macro current_normal" 
+#
+#DUMP_CONFIGFILE_OR_PARAMETERS C="gcode_macro CURRENT_NORMAL"
+#printer.configfile.config = {'gcode_macro CURRENT_NORMAL': {'gcode': '\n_general_Debug msg="CURRENT_NORMAL - entering"}}
+#printer.name1 = configfile
+#printer.name1.path = config
+#printer.name1.path.items() = {'gcode_macro CURRENT_NORMAL': {'gcode': '\n_general_Debug msg="CURRENT_NORMAL - entering"}}
+#printer.name1.path.name2 = gcode_macro CURRENT_NORMAL
+#printer.name1.path.name2.items() = {'gcode': '\n_general_Debug msg="CURRENT_NORMAL - entering"}
+#printer.name1.path.name2.name3 = gcode
+#printer.name1.path.name2.name3.value = {'\n_general_Debug msg="CURRENT_NORMAL - entering"...}
+#
+#DUMP_CONFIGFILE_OR_PARAMETERS S="extruder"
+#printer.configfile.settings['extruder'].full_steps_per_rotation = 200
+#printer.name1 = configfile
+#printer.name1.path = settings
+#printer.name1.path.items() = {['extruder'].full_steps_per_rotation = 200}
+#printer.name1.path.name2 = extruder
+#printer.name1.path.name2.items() = {full_steps_per_rotation = 200}
+#printer.name1.path.name2.name3 = full_steps_per_rotation
+#printer.name1.path.name2.name3.value = 200
+#
+#DUMP_CONFIGFILE_OR_PARAMETERS S="99"
+# print out the configfile.settings branch
+#
+#DUMP_CONFIGFILE_OR_PARAMETERS S="gcode_macro current_normal"
+#printer.name1 = configfile
+#printer.name1.path = settings
+#printer.name1.path.items() = {'gcode_macro current_normal': {'gcode': '\n_general_Debug msg="CURRENT_NORMAL - entering"}}
+#printer.name1.path.name2 = gcode_macro current_normal
+#printer.name1.path.name2.items() = {'gcode': '\n_general_Debug msg="CURRENT_NORMAL - entering"}
+#printer.name1.path.name2.name3 = gcode
+#printer.name1.path.name2.name3.value = {'\n_general_Debug msg="CURRENT_NORMAL - entering"...}
+#
+#DUMP_CONFIGFILE_OR_PARAMETERS C="temperature_sensor O_Electronic_Case_Temp"
+#printer.configfile.config['temperature_sensor O_Electronic_Case_Temp'].min_temp : -200...}
+#printer.name1 = configfile
+#printer.name1.path = config
+#printer.name1.path.items() = {'temperature_sensor O_Electronic_Case_Temp'].min_temp : -200...}
+#printer.name1.path.name2 = temperature_sensor O_Electronic_Case_Temp
+#printer.name1.path.name2.items() = {min_temp : -200...}
+#printer.name1.path.name2.name3 = min_temp
+#printer.name1.path.name2.name3.value = -200
+#
+#DUMP_CONFIGFILE_OR_PARAMETERS NAME='config' - provided a list of all printer[*config*] values
+#  OUTPUT:
+#printer['configfile'].save_config_pending_items = {}
+#printer['configfile'].warnings = []
+#printer['configfile'].save_config_pending = False
+#printer['gcode_macro DUMP_CONFIGFILE_ONLY'] = {}
+#printer['gcode_macro DUMP_CONFIGFILE_OR_PARAMETERS'] = {}
+#printer['gcode_macro DUMP_VARIABLES_EXCEPT_BED_MESH_AND_CONFIGFILE'] = {}
+#------------------------
+#printer.name1 = gcode_macro DUMP_VARIABLES_EXCEPT_BED_MESH_AND_CONFIGFILE
+#printer.NAME = gcode_macro DUMP_VARIABLES_EXCEPT_BED_MESH_AND_CONFIGFILE, it contains "config"
+#
+#DUMP_CONFIGFILE_OR_PARAMETERS VALUE=None - provide a list of printer[*].* = None
+#   OUTPUT:
+#printer['tmc2209 extruder'].drv_status = None
+#printer['temperature_fan Fan_EBB36_TH'].rpm = None
+#printer['heater_fan Nevermore'].rpm = None
+#printer['fan_generic Bedfan_Left'].rpm = None
+#---------------------
+#printer.name1 = fan_generic Bedfan_Left
+#printer.name1.name2 = rpm
+#printer.name1.name2.VALUE = None
+#
+##printer['configfile'].config = {'gcode_macro CURRENT_NORMAL': {'gcode': '\n_general_Debug msg="CURRENT_NORMAL - entering"}} COMMAND=m190
+#printer['configfile'].config = {'gcode_macro CURRENT_NORMAL': {'gcode': '\n_general_Debug msg="CURRENT_NORMAL - entering...M190"}}
+#
+# DUMP_CONFIGFILE_OR_PARAMETERS NAME="speed" VALUE=0.0
+# DUMP_CONFIGFILE_OR_PARAMETERS NAME="speed" 
+# DUMP_CONFIGFILE_OR_PARAMETERS VALUE=0.0
+# DUMP_CONFIGFILE_OR_PARAMETERS C="gcode_macro CURRENT_NORMAL"
+# DUMP_CONFIGFILE_OR_PARAMETERS S=EXTRUDER
+# DUMP_CONFIGFILE_OR_PARAMETERS P="tmc2209 stepper_z3"
+# DUMP_CONFIGFILE_OR_PARAMETERS COMMAND="m190"
+# DUMP_CONFIGFILE_OR_PARAMETERS COMMAND=M190
+
+[gcode_macro DUMP_CONFIGFILE_OR_PARAMETERS]
+description: Dump all Klipper parameters located in printer['configfile'].config to terminal, helps find names and values of variables for use in macros
+gcode:
+  {% set variable_search = True if (params.NAME or params.VALUE) else False %}
+  {% set parameter_search = True if (params.C or params.S or params.P) else False %}
+  {% set gcode_command_search = True if params.COMMAND else False %}
+
+  {% if gcode_command_search %}
+      {% set ns = namespace(num=0, delayed_num=0) %}
+  {% elif variable_search %}
+      {% set filter_name = params.NAME|default('')|string|lower %}                       
+      {% set filter_value = params.VALUE|default('')|string|lower %}                     
+      {% set show_cfg = params.SHOW_CFG|default(0)|int %}                                
+  {% endif %}
+  
+  {% if parameter_search or gcode_command_search %}
+      {% set config = True if (params.C or params.S or params.COMMAND) else False %}
+  {% endif %}
+  
+  {% if parameter_search %}
+      {% set path = 'config'   if params.C 
+               else 'settings' if params.S %}
+  {% endif %}
+  
+  {% if gcode_command_search %}  
+      {% set gcode_cmd = params.COMMAND|default('')|string|lower %}
+  {% endif %}
+  
+  {% set search = _dummy2 if params.dummy2
+            {% if parameter_search %}
+                params.C if params.C
+                else (params.S|lower) if params.S
+                else params.P if params.P
+            {% elif gcode_command_search %}
+                else gcode_cmd if params.COMMAND 
+            {% elif variable_search %}
+                else filter_name if params.VALUE is not defined
+                else filter_value.VALUE if params.NAME is not defined 
+                else [filter_name, filter_value] if (params.NAME and params.VALUE) 
+            {% endif %}
+   %}
+  
+  {% set out = [] %}
+  { action_respond_info("search = %s;" % (search)) }
+             
+    {% for name1 in printer|sort %}
+        {% if parameter_search %}
+            {% if config %} ; print the searched printer.configfile[path] parameter
+                {% if name1 is in ['configfile'] %}
+                    {% for name2 in printer[name1][path]|sort %}
+        {% elif variable_search %}
+                    {% for name2 in printer[name1] %}
+                        {% if (show_cfg or not (name1|lower == 'configfile' and name2|lower in ['config', 'settings'])) and (filter_name in name1|lower or filter_name in name2|lower) and filter_value in printer[name1][name2]|string|lower %}
+                            {% set _dummy = out.append("printer['%s'].%s = %s" % (name1, name2, printer[name1][name2])) %}
+                        {% endif %}
+        {% elif gcode_command_search %}
+                    {% for name2 in printer[name1] %}            
+                        {% if ( (name1|lower == 'configfile') and (name2|lower in ['config']) ) %}
+                                {% if printer[name1][name2].items() %}
+                                    {% for name3, value3 in printer[name1][name2].items() %}
+                                        #comment : name3 = gcode_macro print_end; value3 = {'gcode': '\n_general_debug msg="
+                                        {% if "gcode_macro " in name3 or "delayed_gcode" in name3%}
+                                                {% for name4, value4 in value3.items() %}
+                                                     # comment : name4 = gcode; value4={% set message = params.msg %}
+                                                    {% if (("gcode" in name4) and ((gcode_cmd|lower) in (value4|lower))) %}
+                                                          {% if "gcode_macro " in name3 %}
+                                                              {% set ns.num = ns.num + 1 %}
+                                                              {% set _dummy = out.append('G-CODE_________name[%d]: %s' % (ns.num, name3[12:]|upper) ) %}
+                                                          {% elif "delayed_gcode" in name3 %}
+                                                              {% set ns.delayed_num = ns.delayed_num + 1 %}
+                                                              {% set _dummy = out.append("DELAYED_G-CODE_name[%d]: %s" % (ns.delayed_num, name3[14:]|upper) ) %}
+                                                          {% endif %}
+                                                    {% endif %} 
+                                                {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                        {% endif %}
+                    {% endfor %}
+        {% endif %}
+        {% if parameter_search %}
+                        {% if name2 is in [search] %}
+                            {% for name3, value in printer[name1][path][name2].items()|sort %}
+                                {% set _dummy = out.append("printer.configfile.%s['%s'].%s = %s" % 
+                                        (path, name2, name3, value)) %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}  
+        {% elif variable_search %}   
+                    {% else %}
+                        {% if filter_name in name1|lower and filter_value in printer[name1]|string|lower %}
+                            {% set dummy = out.append("printer['%s'] = %s" % (name1, printer[name1])) %}
+                        {% endif %}
+                    {% endfor %}        
+        {% endif %}    
+        {% if parameter_search %}
+            {% else %}
+                {% for name2, value in printer[name1].items()|sort %} ; search for anything expext printer.configfile
+                    {% if search is not defined and name1 is not in ['configfile'] %} ; print all printer. parameter
+                        {% set _dummy = out.append("printer['%s'].%s = %s" % (name1, name2, value)) %}
+                    {% elif search is defined and name1 is in [search] %} ; print the searched printer. parameter
+                        {% set _dummy = out.append("printer['%s'].%s = %s" % (name1, name2, value)) %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            
+        {% endif %}
+    {% endfor %}
+  {% if ( (gcode_command_search) and ( out|length > 0 ) ) %}
+      {action_respond_info("Found a TOTAL of %d occurrances for %s command in USER MACROS." % ((ns.num + ns.delayed_num), gcode_cmd|upper)) }
+      {action_respond_info("Found %d occurrances in G-Code macros & found %d occurrances in DELAYED G-Code macros." % (ns.num, ns.delayed_num)) }
+      {action_respond_info("The following list of G-Code macros contain the command['%s']:" % gcode_cmd)}
+  {% endif %}
+  {% if parameter_search or variable_search or gcode_command_search %}  
+      {% if out|length > 0 %}
+          {action_respond_info(out|join("\n"))}
+      {% else %}
+          {action_respond_info("Nothing found for \"DUMP_PARAMETER %s\"" % rawparams)}
+      {% endif %}    
+  {% endif %}
