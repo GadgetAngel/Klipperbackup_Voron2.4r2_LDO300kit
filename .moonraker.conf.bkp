@@ -24,6 +24,8 @@ trusted_clients =
 	::1/128
 	127.0.0.1
 cors_domains = 
+	http://192.168.1.172
+	http://192.168.1.172/LDO300Kit/ldo300kit.html
 	http://*.lan
 	http://*.local
 	https://my.mainsail.xyz
@@ -33,7 +35,6 @@ cors_domains =
 	http://192,168.1.154:7990
 	http://192.168.1.154:7991
 	http://192.168.1.154:7136
-	http://192.168.1.172
 
 [database]
 
@@ -174,4 +175,16 @@ type = git_repo
 path = ~/crowsnest
 origin = https://github.com/mainsail-crew/crowsnest.git
 install_script = tools/install.sh
+
+[update_manager kiauh]
+type = git_repo
+path = ~/kiauh
+origin = https://github.com/th33xitus/kiauh.git
+is_system_service = False
+
+[mqtt]
+address = 192.168.1.172
+port = 1883
+enable_moonraker_api = True
+instance_name = printer/ldo300kit
 
