@@ -99,15 +99,6 @@ on_when_job_queued = False
 locked_while_printing = False
 restart_klipper_when_powered = False
 
-[power tasmota_plug_EMPTY_HUB]
-type = tasmota
-address = 192.168.1.148
-output_id = 2
-off_when_shutdown = False
-on_when_job_queued = False
-locked_while_printing = False
-restart_klipper_when_powered = False
-
 [power rp2040]
 type = klipper_device
 object_name = output_pin reset_line_RP2040
@@ -182,9 +173,14 @@ path = ~/kiauh
 origin = https://github.com/th33xitus/kiauh.git
 is_system_service = False
 
+[secrets]
+
 [mqtt]
 address = 192.168.1.172
 port = 1883
+username = {secrets.mqtt_credentials.username}
+password = {secrets.mqtt_credentials.password}
+mqtt_protocol = v3.1.1
 enable_moonraker_api = True
 instance_name = printer/ldo300kit
 
