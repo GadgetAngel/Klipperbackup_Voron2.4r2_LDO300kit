@@ -1,12 +1,22 @@
 [server]
 host = 0.0.0.0
 port = 7125
+ssl_port = 7130
 klippy_uds_address = /tmp/klippy_uds
 max_upload_size = 1024
+
+[file_manager]
+queue_gcode_uploads = False
+enable_object_processing = True
+enable_inotify_warnings = True
 
 [data_store]
 temperature_store_size = 1200
 gcode_store_size = 1000
+
+[job_queue]
+load_on_startup = False
+automatic_transition = False
 
 [announcements]
 subscriptions = 
@@ -14,31 +24,19 @@ subscriptions =
 
 [authorization]
 trusted_clients = 
-	10.0.0.0/8
-	127.0.0.0/8
-	169.254.0.0/16
-	172.16.0.0/12
-	192.168.0.0/16
 	192.168.1.0/24
 	FE80::/10
 	::1/128
 	127.0.0.1
 cors_domains = 
-	http://192.168.1.172
-	http://192.168.1.172/LDO300Kit/ldo300kit.html
-	http://*.lan
-	http://*.local
-	https://my.mainsail.xyz
-	http://my.mainsail.xyz
-	https://app.fluidd.xyz
-	http://app.fluidd.xyz
-	http://192,168.1.154:7990
-	http://192.168.1.154:7991
-	http://192.168.1.154:7136
-
-[database]
-
-[file_manager]
+	*://192.168.1.172
+	*://192.168.1.172/LDO300Kit
+	*://192.168.1.172:86
+	*://192,168.1.154:7991
+	*://192,168.1.154:7992
+	*.local
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
 
 [octoprint_compat]
 enable_ufp = True
@@ -104,22 +102,12 @@ type = klipper_device
 object_name = output_pin reset_line_RP2040
 timer = 0.5
 
-[wled Chamber_Lights]
-type = http
-address = 192.168.1.160
-initial_preset = 1
-chain_count = 92
-
-[wled Bottom_Lights]
-type = http
-address = 192.168.1.161
-initial_preset = 1
-chain_count = 126
-
 [update_manager]
-channel = dev
-refresh_interval = 168
 enable_auto_refresh = True
+refresh_interval = 24
+enable_system_updates = True
+enable_packagekit = True
+channel = dev
 
 [update_manager client mainsail]
 type = web
@@ -173,8 +161,6 @@ path = ~/kiauh
 origin = https://github.com/th33xitus/kiauh.git
 is_system_service = False
 
-[secrets]
-
 [mqtt]
 address = 192.168.1.172
 port = 1883
@@ -183,4 +169,19 @@ password = {secrets.mqtt_credentials.password}
 mqtt_protocol = v3.1.1
 enable_moonraker_api = True
 instance_name = printer/ldo300kit
+default_qos = 0
+
+[wled Chamber_Lights]
+type = http
+address = 192.168.1.160
+initial_preset = 1
+chain_count = 92
+
+[wled Bottom_Lights]
+type = http
+address = 192.168.1.161
+initial_preset = 1
+chain_count = 126
+
+[secrets]
 
