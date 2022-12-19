@@ -44,58 +44,120 @@ enable_ufp = True
 [history]
 
 [power tasmota_plug_RGB]
-type = tasmota
-address = 192.168.1.166
-output_id = 1
+type = mqtt
+qos = 0
+command_topic = cmnd/WLED1_15Amp_PSU/POWER
+command_payload = {command}
+retain_command_state = True
+state_topic = stat/WLED1_15Amp_PSU/RESULT
+state_response_template = 
+	{% set resp = payload|fromjson %}
+	{resp["POWER"]}
+state_timeout = 3
+query_topic = cmnd/WLED1_15Amp_PSU/POWER
+query_payload = 
+query_after_command = False
 off_when_shutdown = False
 on_when_job_queued = False
 locked_while_printing = False
 restart_klipper_when_powered = False
 
 [power tasmota_plug_RGB2]
-type = tasmota
-address = 192.168.1.167
-output_id = 1
+type = mqtt
+qos = 0
+command_topic = cmnd/WLED2_10Amp_PSU/POWER
+command_payload = {command}
+retain_command_state = True
+state_topic = stat/WLED2_10Amp_PSU/RESULT
+state_response_template = 
+	{% set resp = payload|fromjson %}
+	{resp["POWER"]}
+state_timeout = 3
+query_topic = cmnd/WLED2_10Amp_PSU/POWER
+query_payload = 
+query_after_command = False
 off_when_shutdown = False
 on_when_job_queued = False
 locked_while_printing = False
 restart_klipper_when_powered = False
 
 [power tasmota_plug_ESP]
-type = tasmota
-address = 192.168.1.149
-output_id = 1
+type = mqtt
+qos = 0
+command_topic = cmnd/ESP1_PSU/POWER
+command_payload = {command}
+retain_command_state = True
+state_topic = stat/ESP1_PSU/RESULT
+state_response_template = 
+	{% set resp = payload|fromjson %}
+	{resp["POWER"]}
+state_timeout = 3
+query_topic = cmnd/ESP1_PSU/POWER
+query_payload = 
+query_after_command = False
 off_when_shutdown = False
 on_when_job_queued = False
-locked_while_printing = False
+locked_while_printing = True
 restart_klipper_when_powered = False
 
 [power tasmota_plug_ESP2]
-type = tasmota
-address = 192.168.1.150
-output_id = 1
+type = mqtt
+qos = 0
+command_topic = cmnd/ESP2_PSU/POWER
+command_payload = {command}
+retain_command_state = True
+state_topic = stat/ESP2_PSU/RESULT
+state_response_template = 
+	{% set resp = payload|fromjson %}
+	{resp["POWER"]}
+state_timeout = 3
+query_topic = cmnd/ESP2_PSU/POWER
+query_payload = 
+query_after_command = False
 off_when_shutdown = False
 on_when_job_queued = False
-locked_while_printing = False
+locked_while_printing = True
 restart_klipper_when_powered = False
 
 [power tasmota_plug_IR]
-type = tasmota
-address = 192.168.1.151
-output_id = 1
+type = mqtt
+qos = 0
+command_topic = cmnd/IR_PSU/POWER
+command_payload = {command}
+retain_command_state = True
+state_topic = stat/IR_PSU/RESULT
+state_response_template = 
+	{% set resp = payload|fromjson %}
+	{resp["POWER"]}
+state_timeout = 3
+query_topic = cmnd/IR_PSU/POWER
+query_payload = 
+query_after_command = False
 off_when_shutdown = False
 on_when_job_queued = False
 locked_while_printing = False
 restart_klipper_when_powered = False
 
 [power tasmota_plug_Pi]
-type = tasmota
-address = 192.168.1.168
-output_id = 1
+type = mqtt
+qos = 0
+command_topic = cmnd/Raspberry_Pi/POWER
+command_payload = {command}
+retain_command_state = True
+state_topic = stat/Raspberry_Pi/RESULT
+state_response_template = 
+	{% set resp = payload|fromjson %}
+	{resp["POWER"]}
+state_timeout = 3
+query_topic = cmnd/Raspberry_Pi/POWER
+query_payload = 
+query_after_command = False
 off_when_shutdown = False
 on_when_job_queued = False
-locked_while_printing = False
-restart_klipper_when_powered = False
+locked_while_printing = True
+restart_klipper_when_powered = True
+restart_delay = 2
+bound_service = klipper
 
 [power rp2040]
 type = klipper_device
