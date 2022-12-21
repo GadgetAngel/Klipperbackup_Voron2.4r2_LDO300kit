@@ -1,0 +1,371 @@
+pi@LDO300kit:~ $ lsusb
+Bus 002 Device 003: ID 174c:55aa ASMedia Technology Inc. ASM1051E SATA 6Gb/s bridge, ASM1053E SATA 6Gb/s bridge, ASM1153 SATA 3Gb/s bridge, ASM1153E SATA 6Gb/s bridge
+Bus 002 Device 004: ID 0b95:1790 ASIX Electronics Corp. AX88179 Gigabit Ethernet
+Bus 002 Device 002: ID 05e3:0626 Genesys Logic, Inc. USB3.1 Hub
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 019: ID 1d50:614e OpenMoko, Inc. rp2040
+Bus 001 Device 004: ID 1d50:614e OpenMoko, Inc. stm32f446xx
+Bus 001 Device 028: ID 1d50:614e OpenMoko, Inc. rp2040
+Bus 001 Device 008: ID 0c45:6376 Microdia USB 2.0 1080P Camera
+Bus 001 Device 003: ID 05e3:0610 Genesys Logic, Inc. Hub
+Bus 001 Device 002: ID 2109:3431 VIA Labs, Inc. Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+pi@LDO300kit:~ $ ls /dev/serial/by-id/*
+/dev/serial/by-id/usb-Klipper_rp2040_E0C9125B0D9B-if00      /dev/serial/by-id/usb-Klipper_stm32f446xx_0F003E00095053424E363420-if00
+/dev/serial/by-id/usb-Klipper_rp2040_E66138935F916E28-if00
+pi@LDO300kit:~ $ cd ~/klipper
+pi@LDO300kit:~/klipper $ ./update-all.sh
+Already up to date.
+Klipper's GitHub repo is downloaded, please check above for any errors. Press [Enter] to compile for Octopus Pro board, or [Ctrl+C] to abort
+  Creating symbolic link out/board
+Loaded configuration 'config.octopus-pro-f446'
+No changes to save (for 'config.octopus-pro-f446')
+  Building out/autoconf.h
+  Compiling out/src/sched.o
+  Compiling out/src/command.o
+  Compiling out/src/basecmd.o
+  Compiling out/src/debugcmds.o
+  Compiling out/src/initial_pins.o
+  Compiling out/src/gpiocmds.o
+  Compiling out/src/stepper.o
+  Compiling out/src/endstop.o
+  Compiling out/src/trsync.o
+  Compiling out/src/adccmds.o
+  Compiling out/src/spicmds.o
+  Compiling out/src/thermocouple.o
+  Compiling out/src/i2ccmds.o
+  Compiling out/src/pwmcmds.o
+  Compiling out/src/spi_software.o
+  Compiling out/src/sensor_adxl345.o
+  Compiling out/src/sensor_angle.o
+  Compiling out/src/sensor_mpu9250.o
+  Compiling out/src/lcd_st7920.o
+  Compiling out/src/lcd_hd44780.o
+  Compiling out/src/buttons.o
+  Compiling out/src/tmcuart.o
+  Compiling out/src/neopixel.o
+  Compiling out/src/pulse_counter.o
+  Compiling out/src/stm32/watchdog.o
+  Compiling out/src/stm32/gpio.o
+  Compiling out/src/stm32/clockline.o
+  Compiling out/src/stm32/dfu_reboot.o
+  Compiling out/src/generic/crc16_ccitt.o
+  Compiling out/src/generic/armcm_boot.o
+  Compiling out/src/generic/armcm_irq.o
+  Compiling out/src/generic/armcm_reset.o
+  Compiling out/src/../lib/stm32f4/system_stm32f4xx.o
+  Compiling out/src/stm32/stm32f4.o
+  Compiling out/src/generic/armcm_timer.o
+  Compiling out/src/stm32/gpioperiph.o
+  Compiling out/src/stm32/adc.o
+  Compiling out/src/stm32/i2c.o
+  Compiling out/src/stm32/spi.o
+  Compiling out/src/stm32/usbotg.o
+  Compiling out/src/stm32/chipid.o
+  Compiling out/src/generic/usb_cdc.o
+  Compiling out/src/stm32/hard_pwm.o
+  Preprocessing out/src/generic/armcm_link.ld
+  Building out/compile_time_request.o
+Version: v0.11.0-40-gaac613bf
+  Linking out/klipper.elf
+  Creating hex file out/klipper.bin
+Octopus Pro (F446) firmware had been built, please check above for any errors. Press [Enter] to flash the Octopus Pro, or [Ctrl+C] to abort
+  Flashing out/klipper.bin to /dev/serial/by-id/usb-Klipper_stm32f446xx_0F003E00095053424E363420-if00
+Entering bootloader on /dev/serial/by-id/usb-Klipper_stm32f446xx_0F003E00095053424E363420-if00
+Device reconnect on /sys/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1.3/1-1.3:1.0
+sudo dfu-util -p 1-1.3 -R -a 0 -s 0x8008000:leave -D out/klipper.bin
+
+dfu-util 0.9
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2016 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+dfu-util: Invalid DFU suffix signature
+dfu-util: A valid DFU suffix will be required in a future dfu-util release!!!
+Opening DFU capable USB device...
+ID 0483:df11
+Run-time device DFU version 011a
+Claiming USB DFU Interface...
+Setting Alternate Setting #0 ...
+Determining device status: state = dfuERROR, status = 10
+dfuERROR, clearing status
+Determining device status: state = dfuIDLE, status = 0
+dfuIDLE, continuing
+DFU mode device DFU version 011a
+Device returned transfer size 2048
+DfuSe interface name: "Internal Flash  "
+Downloading to address = 0x08008000, size = 26396
+Download        [=========================] 100%        26396 bytes
+Download done.
+File downloaded successfully
+Transitioning to dfuMANIFEST state
+dfu-util: can't detach
+Resetting USB to switch back to runtime mode
+Octopus Pro firmware has been flashed, please check above for any errors (IGNORE dfu-util: can't detach message). Press [Enter] to compile for EBB36v1.2 board, or [Ctrl+C] to abort
+  Creating symbolic link out/board
+Loaded configuration 'config.ebb36v1.2'
+No changes to save (for 'config.ebb36v1.2')
+  Building out/autoconf.h
+  Compiling out/src/sched.o
+  Compiling out/src/command.o
+  Compiling out/src/basecmd.o
+  Compiling out/src/debugcmds.o
+  Compiling out/src/initial_pins.o
+  Compiling out/src/gpiocmds.o
+  Compiling out/src/stepper.o
+  Compiling out/src/endstop.o
+  Compiling out/src/trsync.o
+  Compiling out/src/adccmds.o
+  Compiling out/src/spicmds.o
+  Compiling out/src/thermocouple.o
+  Compiling out/src/i2ccmds.o
+  Compiling out/src/pwmcmds.o
+  Compiling out/src/spi_software.o
+  Compiling out/src/sensor_adxl345.o
+  Compiling out/src/sensor_angle.o
+  Compiling out/src/sensor_mpu9250.o
+  Compiling out/src/lcd_st7920.o
+  Compiling out/src/lcd_hd44780.o
+  Compiling out/src/buttons.o
+  Compiling out/src/tmcuart.o
+  Compiling out/src/neopixel.o
+  Compiling out/src/pulse_counter.o
+  Compiling out/src/stm32/watchdog.o
+  Compiling out/src/stm32/gpio.o
+  Compiling out/src/stm32/clockline.o
+  Compiling out/src/stm32/dfu_reboot.o
+  Compiling out/src/generic/crc16_ccitt.o
+  Compiling out/src/generic/armcm_boot.o
+  Compiling out/src/generic/armcm_irq.o
+  Compiling out/src/generic/armcm_reset.o
+  Compiling out/src/generic/timer_irq.o
+  Compiling out/src/stm32/stm32f0_timer.o
+  Compiling out/src/stm32/stm32g0.o
+  Compiling out/src/stm32/gpioperiph.o
+  Compiling out/src/stm32/stm32f0_adc.o
+  Compiling out/src/stm32/stm32f0_i2c.o
+  Compiling out/src/stm32/spi.o
+  Compiling out/src/generic/canserial.o
+  Compiling out/src/../lib/fast-hash/fasthash.o
+  Compiling out/src/stm32/fdcan.o
+  Compiling out/src/generic/canbus.o
+  Compiling out/src/stm32/chipid.o
+  Compiling out/src/stm32/hard_pwm.o
+  Preprocessing out/src/generic/armcm_link.ld
+  Building out/compile_time_request.o
+Version: v0.11.0-40-gaac613bf
+  Linking out/klipper.elf
+  Creating hex file out/klipper.bin
+EBB36v1.2 Klipper firmware had been built, please check above for any errors. Press [Enter] to flash EBB36 via the CAN bus, or [Ctrl+C] to abort
+Sending bootloader jump command...
+Resetting all bootloader node IDs...
+Checking for canboot nodes...
+Detected UUID: befe3bd16119, Application: CanBoot
+Attempting to connect to bootloader
+CanBoot Connected
+Protocol Version: 1.0.0
+Block Size: 64 bytes
+Application Start: 0x8002000
+MCU type: stm32g0b1xx
+Verifying canbus connection
+Flashing '/home/pi/klipper/out/klipper.bin'...
+
+[##################################################]
+
+Write complete: 13 pages
+Verifying (block count = 414)...
+
+[ERROR:root:Can Read Error
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/pi/CanBoot/scripts/flash_can.py", line 137, in send_command
+    ret = await self.node.readuntil()
+  File "/home/pi/CanBoot/scripts/flash_can.py", line 287, in readuntil
+    return await asyncio.wait_for(self._reader.readuntil(sep), timeout)
+  File "/usr/lib/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+##################################################]
+
+Verification Complete: SHA = 5F0ACB276808AA18068C195419A1AD2F21ADE7AA
+CAN Flash Success
+EBB36v1.2 firmware has been flashed via the CAN Bus, please check above for any errors. Press [Enter] to compile for RP2040 board, or [Ctrl+C] to abort
+  Creating symbolic link out/board
+Loaded configuration 'config.rp240_withBootloader'
+No changes to save (for 'config.rp240_withBootloader')
+  Building out/autoconf.h
+  Compiling out/src/sched.o
+  Compiling out/src/command.o
+  Compiling out/src/basecmd.o
+  Compiling out/src/debugcmds.o
+  Compiling out/src/initial_pins.o
+  Compiling out/src/gpiocmds.o
+  Compiling out/src/stepper.o
+  Compiling out/src/endstop.o
+  Compiling out/src/trsync.o
+  Compiling out/src/adccmds.o
+  Compiling out/src/spicmds.o
+  Compiling out/src/thermocouple.o
+  Compiling out/src/i2ccmds.o
+  Compiling out/src/pwmcmds.o
+  Compiling out/src/spi_software.o
+  Compiling out/src/sensor_adxl345.o
+  Compiling out/src/sensor_angle.o
+  Compiling out/src/sensor_mpu9250.o
+  Compiling out/src/lcd_st7920.o
+  Compiling out/src/lcd_hd44780.o
+  Compiling out/src/buttons.o
+  Compiling out/src/tmcuart.o
+  Compiling out/src/neopixel.o
+  Compiling out/src/pulse_counter.o
+  Compiling out/src/rp2040/main.o
+  Compiling out/src/rp2040/watchdog.o
+  Compiling out/src/rp2040/gpio.o
+  Compiling out/src/rp2040/adc.o
+  Compiling out/src/rp2040/timer.o
+  Compiling out/src/rp2040/bootrom.o
+  Compiling out/src/generic/armcm_boot.o
+  Compiling out/src/generic/armcm_irq.o
+  Compiling out/src/generic/armcm_reset.o
+  Compiling out/src/generic/timer_irq.o
+  Compiling out/src/generic/crc16_ccitt.o
+  Compiling out/src/rp2040/usbserial.o
+  Compiling out/src/generic/usb_cdc.o
+  Compiling out/src/rp2040/chipid.o
+  Compiling out/src/rp2040/hard_pwm.o
+  Compiling out/src/rp2040/spi.o
+  Compiling out/src/rp2040/i2c.o
+  Preprocessing out/src/generic/armcm_link.ld
+  Building out/compile_time_request.o
+Version: v0.11.0-40-gaac613bf
+  Linking out/klipper.elf
+  Creating bin file out/klipper.bin
+RP2040-zero firmware with CanBoot bootloader has been built, please check above for any errors. Press [Enter] to enter programming mode or [Ctrl+C] to abort
+  Flashing out/klipper.bin to /dev/serial/by-id/usb-Klipper_rp2040_E0C9125B0D9B-if00
+Entering bootloader on /dev/serial/by-id/usb-Klipper_rp2040_E0C9125B0D9B-if00
+Device reconnect on /sys/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1.2/1-1.2.4
+sudo lib/rp2040_flash/rp2040_flash out/klipper.bin 1 32
+
+Loaded UF2 image with 0 pages
+No rp2040 in BOOTSEL mode was found
+RP2040-zero firmware with CanBoot bootloader has been built, please check above for any errors. Press [Enter] to enter programming mode or [Ctrl+C] to abort
+  Flashing out/klipper.bin to /dev/serial/by-id/usb-Klipper_rp2040_E0C9125B0D9B-if00
+Entering bootloader on /dev/serial/by-id/usb-Klipper_rp2040_E0C9125B0D9B-if00
+Device reconnect on /sys/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1.2/1-1.2.4
+sudo lib/rp2040_flash/rp2040_flash out/klipper.bin 1 32
+
+Loaded UF2 image with 0 pages
+No rp2040 in BOOTSEL mode was found
+RP2040-zero has been placed into programming mode, please check above for any errors. Press [Enter] to flash RP2040 via USB, or [Ctrl+C] to abort
+Attempting to connect to bootloader
+CanBoot Connected
+Protocol Version: 1.0.0
+Block Size: 64 bytes
+Application Start: 0x10004000
+MCU type: rp2040
+Flashing '/home/pi/klipper/out/klipper.bin'...
+
+[##################################################]
+
+Write complete: 99 pages
+Verifying (block count = 395)...
+
+[##################################################]
+
+Verification Complete: SHA = 95F0153446E0B1FFCB29B2F8C59067AD59CA5B60
+CAN Flash Success
+RP2040-zero with CanBoot bootloader and Klipper firmware has been flashed, please check above for any errors. Press [Enter] to compile for Raspberry Pi 4B, or [Ctrl+C] to abort
+  Creating symbolic link out/board
+Loaded configuration 'config.rpi'
+No changes to save (for 'config.rpi')
+  Building out/autoconf.h
+  Compiling out/src/sched.o
+  Compiling out/src/command.o
+  Compiling out/src/basecmd.o
+  Compiling out/src/debugcmds.o
+  Compiling out/src/initial_pins.o
+  Compiling out/src/gpiocmds.o
+  Compiling out/src/stepper.o
+  Compiling out/src/endstop.o
+  Compiling out/src/trsync.o
+  Compiling out/src/adccmds.o
+  Compiling out/src/spicmds.o
+  Compiling out/src/thermocouple.o
+  Compiling out/src/i2ccmds.o
+  Compiling out/src/pwmcmds.o
+  Compiling out/src/spi_software.o
+  Compiling out/src/sensor_adxl345.o
+  Compiling out/src/sensor_angle.o
+  Compiling out/src/sensor_mpu9250.o
+  Compiling out/src/lcd_st7920.o
+  Compiling out/src/lcd_hd44780.o
+  Compiling out/src/buttons.o
+  Compiling out/src/tmcuart.o
+  Compiling out/src/neopixel.o
+  Compiling out/src/pulse_counter.o
+  Compiling out/src/linux/main.o
+  Compiling out/src/linux/timer.o
+  Compiling out/src/linux/console.o
+  Compiling out/src/linux/watchdog.o
+  Compiling out/src/linux/pca9685.o
+  Compiling out/src/linux/spidev.o
+  Compiling out/src/linux/analog.o
+  Compiling out/src/linux/hard_pwm.o
+  Compiling out/src/linux/i2c.o
+  Compiling out/src/linux/gpio.o
+  Compiling out/src/generic/crc16_ccitt.o
+  Compiling out/src/generic/alloc.o
+  Compiling out/src/linux/sensor_ds18b20.o
+  Building out/compile_time_request.o
+Version: v0.11.0-40-gaac613bf
+  Linking out/klipper.elf
+RPi firmware has been built, please check above for any errors. Press [Enter] to flash Raspberry Pi, or [Ctrl+C] to abort
+  Flashing
+Installing micro-controller code to /usr/local/bin/
+Attempting host MCU restart...
+The Klipper Service has been started. Ensure your printer is up and running with out errors. Press [Enter] to exit this script
+pi@LDO300kit:~/klipper $
+pi@LDO300kit:~/klipper $ lsusb
+Bus 002 Device 003: ID 174c:55aa ASMedia Technology Inc. ASM1051E SATA 6Gb/s bridge, ASM1053E SATA 6Gb/s bridge, ASM1153 SATA 3Gb/s bridge, ASM1153E SATA 6Gb/s bridge
+Bus 002 Device 004: ID 0b95:1790 ASIX Electronics Corp. AX88179 Gigabit Ethernet
+Bus 002 Device 002: ID 05e3:0626 Genesys Logic, Inc. USB3.1 Hub
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 029: ID 1d50:614e OpenMoko, Inc. rp2040
+Bus 001 Device 031: ID 1d50:614e OpenMoko, Inc. stm32f446xx
+Bus 001 Device 033: ID 1d50:614e OpenMoko, Inc. rp2040
+Bus 001 Device 008: ID 0c45:6376 Microdia USB 2.0 1080P Camera
+Bus 001 Device 003: ID 05e3:0610 Genesys Logic, Inc. Hub
+Bus 001 Device 002: ID 2109:3431 VIA Labs, Inc. Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+pi@LDO300kit:~/klipper $ ls /dev/serial/by-id/*
+/dev/serial/by-id/usb-Klipper_rp2040_E0C9125B0D9B-if00      /dev/serial/by-id/usb-Klipper_stm32f446xx_0F003E00095053424E363420-if00
+/dev/serial/by-id/usb-Klipper_rp2040_E66138935F916E28-if00
+pi@LDO300kit:~/klipper $
+
+Now will reboot the printer!
+
+
+
+
+
+
+
+
+
