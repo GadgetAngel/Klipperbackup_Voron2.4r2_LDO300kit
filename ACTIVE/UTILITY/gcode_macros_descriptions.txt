@@ -1,14 +1,9 @@
-['gcode_macro 	_bedfansfast'].description : G-Code macro
-['gcode_macro 	_bedfansfastplus_02'].description : G-Code macro
-['gcode_macro 	_bedfansoff'].description : G-Code macro
-['gcode_macro 	_bedfansslow'].description : G-Code macro
-['gcode_macro 	_cg28'].description : G-Code macro
-['gcode_macro 	_check_consitent'].description : Helper: Check that some criterias are meet in the printer.cfg
-['gcode_macro 	_check_consitent'].description : Helper: Check that some criterias are meet in the printer.cfg
-['gcode_macro 	_checkprobe'].description : G-Code macro
-['gcode_macro 	_cool_wait'].description : Cooling cycle waiting routine
-['gcode_macro 	_cool_wait'].description : Cooling cycle waiting routine
-['gcode_macro 	_current_state'].description : G-Code macro
+
+
+
+
+
+
 ['gcode_macro 	_deployklickydock'].description : Deploys Klicky servo-controlled dock
 ['gcode_macro 	_deployklickydock'].description : Deploys Klicky servo-controlled dock
 ['gcode_macro 	_disable_progress_bar'].description : G-Code macro
@@ -18,8 +13,6 @@
 ['gcode_macro 	_entry_point'].description : G-Code macro
 ['gcode_macro 	_error_if_probe_deployed'].description : G-Code macro
 ['gcode_macro 	_error_if_probe_not_deployed'].description : G-Code macro
-['gcode_macro 	_execute_at_init'].description : Helper: Everything that should run at klipper start
-['gcode_macro 	_execute_at_init'].description : Helper: Everything that should run at klipper start
 ['gcode_macro 	_exit_point'].description : G-Code macro
 ['gcode_macro 	_fan_stoppage_routine'].description : G-Code macro
 ['gcode_macro 	_filament_ready'].description : Performs filament specific purgeline and readies for print
@@ -27,8 +20,6 @@
 ['gcode_macro 	_general_debug'].description : G-Code macro
 ['gcode_macro 	_general_entry_point'].description : G-Code macro
 ['gcode_macro 	_general_exit_point'].description : G-Code macro
-['gcode_macro 	_global_vars'].description : Helper: Contains global defined printer variables
-['gcode_macro 	_global_vars'].description : Helper: Contains global defined printer variables
 ['gcode_macro 	_heat_wait'].description : Heating cycle waiting routine
 ['gcode_macro 	_heat_wait'].description : Heating cycle waiting routine
 ['gcode_macro 	_home_z'].description : G-Code macro
@@ -58,10 +49,6 @@
 ['gcode_macro 	_power_on_pi_psu'].description : G-Code macro
 ['gcode_macro 	_power_on_rgb_psu'].description : G-Code macro
 ['gcode_macro 	_power_on_rgb2'].description : G-Code macro
-['gcode_macro 	_print_ar'].description : Helper: Action response
-['gcode_macro 	_print_ar'].description : Helper: Action response
-['gcode_macro 	_print_start2'].description : Helper: Part 2 - Performs all needed moves prior to printing
-['gcode_macro 	_print_start2'].description : Helper: Part 2 - Performs all needed moves prior to printing
 ['gcode_macro 	_probe_deploy'].description : G-Code macro
 ['gcode_macro 	_probe_lock'].description : Locks Klicky Probe state
 ['gcode_macro 	_probe_lock'].description : Locks Klicky Probe state
@@ -80,8 +67,6 @@
 ['gcode_macro 	_test_probe0'].description : G-Code macro
 ['gcode_macro 	_test_probe1'].description : G-Code macro
 ['gcode_macro 	_umbilical_path'].description : G-Code macro
-['gcode_macro 	_user_variable'].description : Helper: Contains User defined printer variables
-['gcode_macro 	_user_variable'].description : Helper: Contains User defined printer variables
 ['gcode_macro 	_wait_loop'].description : G-Code macro
 ['gcode_macro 	_wait_start'].description : G-Code macro
 ['gcode_macro 	attach_probe'].description : Attaches Klicky Probe
@@ -133,8 +118,6 @@
 ['gcode_macro 	g3201'].description : Clears bed-mesh and performs G28, ATTACH_PROBE, QGL, DOCK_PROBE, CLEAN_NOZZLE, ATTACH_PROBE_LOCK, G28 Z, CALIBRATE_Z, applies bed-mesh, and DOCK_PROBE_UNLOCK
 ['gcode_macro 	g3201'].description : Clears bed-mesh and performs G28, ATTACH_PROBE, QGL, DOCK_PROBE, CLEAN_NOZZLE, ATTACH_PROBE_LOCK, G28 Z, CALIBRATE_Z, applies bed-mesh, and DOCK_PROBE_UNLOCK
 ['gcode_macro 	github_backup'].description : G-Code macro
-['gcode_macro 	hotmesh'].description : Helper: Performs a heat-soaked bed-mesh
-['gcode_macro 	hotmesh'].description : Helper: Performs a heat-soaked bed-mesh
 ['gcode_macro 	info_bedfans'].description : G-Code macro
 ['gcode_macro 	info_fan_check'].description : G-Code macro
 ['gcode_macro 	info_state_leds'].description : G-Code macro
@@ -143,8 +126,6 @@
 ['gcode_macro 	lights'].description : Example LIGHTS R=1 G=0 B=0 or LIGHTS PS=4 or e.g. LIGHTS STATUS=printing
 ['gcode_macro 	lights_off'].description : WLED lights and LCD lights off
 ['gcode_macro 	lights_off'].description : WLED lights and LCD lights off
-['gcode_macro 	lights_random'].description : Helper: Sets all leds to a random RGB value
-['gcode_macro 	lights_random'].description : Helper: Sets all leds to a random RGB value
 ['gcode_macro 	load_filament'].description : Loads filament
 ['gcode_macro 	load_filament'].description : Loads filament
 ['gcode_macro 	log_info'].description : Send a message to the Klipper screen and the UI console
@@ -153,8 +134,6 @@
 ['gcode_macro 	m106'].description : Part Cooling Fan On
 ['gcode_macro 	m107'].description : Part Cooling Fan Off
 ['gcode_macro 	m107'].description : Part Cooling Fan Off
-['gcode_macro 	m115'].description : Helper: Print host and all MCUs versions in this printer
-['gcode_macro 	m115'].description : Helper: Print host and all MCUs versions in this printer
 ['gcode_macro 	m117'].description : Display Message to Klipper Screen Status line
 ['gcode_macro 	m117'].description : Display Message to Klipper Screen Status line
 ['gcode_macro 	m140'].description : G-Code macro
@@ -164,8 +143,6 @@
 ['gcode_macro 	m401'].description : Attach (Deploy) the Euclid probe
 ['gcode_macro 	m402'].description : Stows the Euclid probe
 ['gcode_macro 	m402'].description : Stows the Euclid probe
-['gcode_macro 	m600'].description : Helper: Display Pause printer for color change
-['gcode_macro 	m600'].description : Helper: Display Pause printer for color change
 ['gcode_macro 	m601'].description : Resume print job after a color change
 ['gcode_macro 	m601'].description : Resume print job after a color change
 ['gcode_macro 	move_bed_center'].description : move toolhead to center of the bed
@@ -178,14 +155,8 @@
 ['gcode_macro 	pa_cal'].description : Prints a Pressure Advance panel to help determine correct PA
 ['gcode_macro 	park_center'].description : Parks the toolhead in the center position
 ['gcode_macro 	park_center'].description : Parks the toolhead in the center position
-['gcode_macro 	park_upperright'].description : Helper: Parks the toolhead in the upper-right position
-['gcode_macro 	park_upperright'].description : Helper: Parks the toolhead in the upper-right position
-['gcode_macro 	pause'].description : Helper: Pause the actual running print
-['gcode_macro 	pause'].description : Helper: Pause the actual running print
 ['gcode_macro 	print_end'].description : Performs all needed actions upon completion of printing
 ['gcode_macro 	print_end'].description : Performs all needed actions upon completion of printing
-['gcode_macro 	print_start'].description : Helper: Performs all needed moves prior to printing
-['gcode_macro 	print_start'].description : Helper: Performs all needed moves prior to printing
 ['gcode_macro 	probe_accuracy'].description : Probe Z-height accuracy at current XY position with klicky automount
 ['gcode_macro 	probe_accuracy'].description : Probe Z-height accuracy at current XY position with klicky automount
 ['gcode_macro 	probe_calibrate'].description : Calibrate the probes z_offset with klicky automount
@@ -201,8 +172,6 @@
 ['gcode_macro 	reset_rp2040'].description : G-Code macro
 ['gcode_macro 	resetrgb'].description : Default RGB for display and printer lights
 ['gcode_macro 	resetrgb'].description : Default RGB for display and printer lights
-['gcode_macro 	resume'].description : Helper: Resume the actual running print
-['gcode_macro 	resume'].description : Helper: Resume the actual running print
 ['gcode_macro 	search_printer_objects'].description : Dump all Klipper parameters located in printer object to terminal, helps find names and values of variables for use in macros
 ['gcode_macro 	search_printer_objects'].description : Dump all Klipper parameters located in printer object to terminal, helps find names and values of variables for use in macros
 ['gcode_macro 	set_bar_leds_by_name'].description : G-Code macro
@@ -220,8 +189,6 @@
 ['gcode_macro 	set_nozzle_leds_by_name'].description : G-Code macro
 ['gcode_macro 	set_nozzle_leds_off'].description : G-Code macro
 ['gcode_macro 	set_nozzle_leds_on'].description : G-Code macro
-['gcode_macro 	set_wled'].description : Helper: SET_LED like functionality for WLED, applies to all active segments
-['gcode_macro 	set_wled'].description : Helper: SET_LED like functionality for WLED, applies to all active segments
 ['gcode_macro 	shutdown'].description : G-Code macro
 ['gcode_macro 	status_busy'].description : G-Code macro
 ['gcode_macro 	status_calibrating_z'].description : G-Code macro
@@ -235,10 +202,6 @@
 ['gcode_macro 	status_part_ready'].description : G-Code macro
 ['gcode_macro 	status_printing'].description : G-Code macro
 ['gcode_macro 	status_ready'].description : G-Code macro
-['gcode_macro 	test_control'].description : Helper: Sets brightness, intensity and speed
-['gcode_macro 	test_control'].description : Helper: Sets brightness, intensity and speed
-['gcode_macro 	test_lights_rgb'].description : Helper: Ensure full data range is sent correctly
-['gcode_macro 	test_lights_rgb'].description : Helper: Ensure full data range is sent correctly
 ['gcode_macro 	test_preset'].description : Sets to a preset
 ['gcode_macro 	test_preset'].description : Sets to a preset
 ['gcode_macro 	test_probe_accuracy'].description : G-Code macro
@@ -246,8 +209,6 @@
 ['gcode_macro 	test_range'].description : Test full range send
 ['gcode_macro 	test_set_black'].description : Sets all leds on but black
 ['gcode_macro 	test_set_black'].description : Sets all leds on but black
-['gcode_macro 	test_set_wled'].description : Helper: Seen an issue where a single pixel would not turn back on or turn on with low brightness
-['gcode_macro 	test_set_wled'].description : Helper: Seen an issue where a single pixel would not turn back on or turn on with low brightness
 ['gcode_macro 	test_wled_off'].description : WLED_OFF
 ['gcode_macro 	test_wled_off'].description : WLED_OFF
 ['gcode_macro 	test_wled_on'].description : WLED_ON (resets to moonraker defaults)
@@ -258,9 +219,5 @@
 ['gcode_macro 	wait_quit'].description : G-Code macro
 ['gcode_macro 	wled_control'].description : Control effect values and brightness
 ['gcode_macro 	wled_control'].description : Control effect values and brightness
-['gcode_macro 	wled_off'].description : Helper: Turn WLED strip off
-['gcode_macro 	wled_off'].description : Helper: Turn WLED strip off
-['gcode_macro 	wled_on'].description : Helper: Turn WLED strip on using optional preset and resets led colors
-['gcode_macro 	wled_on'].description : Helper: Turn WLED strip on using optional preset and resets led colors
 ['gcode_macro 	zdown'].description : G-Code macro
 ['gcode_macro 	zup'].description : G-Code macro

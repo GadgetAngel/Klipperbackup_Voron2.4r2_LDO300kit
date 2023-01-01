@@ -1,0 +1,6 @@
+// The following params where specified:
+// STOP_CFG = 0
+// DESC = 1
+// This combination of parameters will not produce a result because printer.configfile has been totally removed from the search!
+// Please change the STOP_CFG parameter to a 1 or 2
+// Nothing found for "DUMP_DICTIONARY DESC=1 GCODE=0 STOP_CFG=0"

@@ -1,0 +1,21 @@
+// TURN_OFF_HEATERS renamed existing to _TURN_OFF_HEATERS
+// QUAD_GANTRY_LEVEL renamed existing to _QUAD_GANTRY_LEVEL
+// CALIBRATE_Z renamed existing to CALIBRATE_Z_BASE
+// M117 renamed existing to M117.1
+// M106 renamed existing to M106.1
+// M140 renamed existing to M99140
+// PAUSE renamed existing to PAUSE_BASE
+// PROBE_ACCURACY renamed existing to _PROBE_ACCURACY
+// CANCEL_PRINT renamed existing to CANCEL_PRINT_BASE
+// BED_MESH_CALIBRATE renamed existing to _BED_MESH_CALIBRATE
+// M190 renamed existing to M99190
+// M115 renamed existing to M115.1
+// RESUME renamed existing to RESUME_BASE
+// M107 renamed existing to M107.1
+// An MACRO exists for [idle_timeout].gcode:
+// TURN_OFF_HEATERS
+// SET_HEATER_TEMPERATURE renamed existing to _SET_HEATER_TEMPERATURE
+// PROBE_CALIBRATE renamed existing to _PROBE_CALIBRATE
+// G28 {X,Y,Z} is being overriden by [homing_override]
+// 
+// DUMP_DICTIONARY found a TOTAL of 18 renamed macro(s)
