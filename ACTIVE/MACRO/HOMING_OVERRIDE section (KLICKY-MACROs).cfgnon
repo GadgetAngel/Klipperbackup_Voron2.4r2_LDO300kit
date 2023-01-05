@@ -1,5 +1,53 @@
-#################
-# Homing Override
+#.................................................................................................................
+# homing_override - No additional options / Usage: NONE
+#
+#  Homing override for X,Y,Z axes
+#
+#.................................................................................................................
+# Required variable(s) to be set. Add the following to your global variable dictionary block as:
+#
+# [gcode_macro _USER_VARIABLE]
+#  variable_run
+#  variable_klicky.verbose
+#  variable_klicky.safe_z
+#  variable_klicky.enable_z_hop
+#  variable_klicky.dock_on_zhome
+#  variable_klicky.attachmove_x
+#  variable_klicky.attachmove_y
+#  variable_klicky.attachmove_z
+#  variable_klicky.z_drop_speed
+#  variable_klicky.travel_speed
+#  variable_klicky.home_backoff_x
+#  variable_klicky.home_backoff_y
+#  variable_klicky.override_homing
+#
+#.................................................................................................................
+# Required external macro(s) used by this macro.
+#
+# _KlickyDebug
+# _USER_VARIABLE
+# _klicky_check_variables_version
+# _CheckProbe
+# _Homing_Variables
+# _entry_point
+# _KLICKY_STATUS_HOMING
+# _HOME_Y
+# _HOME_X
+# Attach_Probe
+# _Probe_Lock
+# Dock_Probe
+# _Home_Z
+# _Park_Toolhead
+# _exit_point
+# _KLICKY_STATUS_READY
+#
+#.................................................................................................................
+
+#.................................................................................................................
+#
+## URL Resources: https://github.com/jlas1/Klicky-Probe/blob/main/Klipper_macros/klicky-macros.cfg#L566
+#      
+#.................................................................................................................
 [homing_override]
 axes: xyz
 gcode:

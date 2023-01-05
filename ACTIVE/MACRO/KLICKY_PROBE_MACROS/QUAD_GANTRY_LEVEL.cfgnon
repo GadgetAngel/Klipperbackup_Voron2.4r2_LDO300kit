@@ -30,7 +30,7 @@
 # Quad Gantry Level
 [gcode_macro QUAD_GANTRY_LEVEL]
 rename_existing: _QUAD_GANTRY_LEVEL
-description: Conform a moving, twistable gantry to the shape of a stationary bed with klicky automount
+description: Helper: Klicky Probe;  Conform a moving, twistable gantry to the shape of a stationary bed with klicky automount
 gcode:
     {% set user = printer['gcode_macro _USER_VARIABLE'] %}
     {% set V = user.klicky.verbose %}

@@ -7,8 +7,8 @@
 # Required variable(s) to be set. Add the following to your global variable dictionary block as:
 #
 # [gcode_macro _GLOBAL_VARS]
-# variable_z_endstop_x
-# variable_z_endstop_y
+# variable_probe_variables.z_endstop_x
+# variable_probe_variables.z_endstop_y
 #
 # [gcode_macro _USER_VARIABLE]
 # variable_klicky.safe_z
@@ -35,11 +35,12 @@
 
 # Home Z Routine
 [gcode_macro _Home_Z]
+description: Helper: Klicky Probe macro; Home the Z Axis
 gcode:
     {% set user = printer['gcode_macro _USER_VARIABLE'] %}
     {% set global = printer['gcode_macro _GLOBAL_VARS'] %}
-    {% set z_endstop_x = global.z_endstop_x %}
-    {% set z_endstop_y = global.z_endstop_y %}
+    {% set z_endstop_x = global.probe_variables.z_endstop_x %}
+    {% set z_endstop_y = global.probe_variables.z_endstop_y %}
     {% set safe_z = user.klicky.safe_z|float %}
     {% set travel_feedrate = user.klicky.travel_speed * 60 %}    
     {% set z_drop_feedrate = user.klicky.z_drop_speed * 60 %}
