@@ -1,0 +1,89 @@
+#.................................................................................................................
+# PROBE_CALIBRATE - required parameters: back{1} / Usage: PROBE_CALIBRATE
+#
+#     Rename PROBE_CALIBRATE to _PROBE_CALIBRATE so we can ensure that the user is not going to probe the bed outside the bed size and 
+#     this macro adds the ability to automatically attach the probe before running the klipper probe_calibrate routine.
+#
+#.................................................................................................................
+# Required variable(s) to be set. Add the following to your global variable dictionary block as:
+#
+# [gcode_macro _USER_VARIABLE]
+#  variable_klicky.safe_z
+#  variable_klicky.z_drop_speed
+#  variable_klicky.max_bed_x
+#  variable_klicky.max_bed_y
+#  variable_klicky.bypass_probe_docking
+#
+#.................................................................................................................
+# Required external macro(s) used by this macro.
+#
+# _general_Debug
+# _KlickyDebug
+# _CheckProbe
+# Attach_Probe
+# _KLICKY_STATUS_CALIBRATING_Z
+# _KLICKY_STATUS_READY
+# _USER_VARIABLE
+#
+#.................................................................................................................
+
+#.................................................................................................................
+#
+## URL Resources: https://github.com/jlas1/Klicky-Probe/tree/main/Klipper_macros
+#      
+#.................................................................................................................
+
+#################
+# Probe Calibrate
+[gcode_macro PROBE_CALIBRATE]
+rename_existing: _PROBE_CALIBRATE
+description: Helper: Klicky Probe;  Calibrate the probes z_offset with klicky automount
+gcode:
+    {% set user = printer['gcode_macro _USER_VARIABLE'] %}
+    {% set safe_z = user.klicky.safe_z|float %}
+    {% set z_drop_feedrate = user.klicky.z_drop_speed * 60 %}
+    {% set max_x = user.klicky.max_bed_x|float %}
+    {% set max_y = user.klicky.max_bed_y|float %}
+    {% set probe_offset_x = printer.configfile.config.probe.x_offset|float %}
+    {% set probe_offset_y = printer.configfile.config.probe.y_offset|float %}
+    {% set bypass_probe_docking = user.klicky.bypass_probe_docking|default(False) %}
+
+
+    {% if not 'xyz' in printer.toolhead.homed_axes %}
+        { action_raise_error("Must Home X, Y and Z Axis First!") }
+    {% endif %}
+    _KlickyDebug msg="probe_calibrate Axis homed"
+    _KlickyDebug msg="probe_calibrate Variables max_x={max_x},max_y={max_y},probe_offset_x={probe_offset_x},probe_offset_y={probe_offset_y}"
+
+    # Protect against PROBE CALIBRATE performed from outside the bed
+    {% if printer.gcode_move.position.y > (max_y - probe_offset_y)
+          or printer.gcode_move.position.y < - probe_offset_y
+          or printer.gcode_move.position.x > (max_x - probe_offset_x)
+          or printer.gcode_move.position.x < - probe_offset_x %}
+      { action_raise_error("Must perform PROBE_CALIBRATE with the probe above the BED, check klicky_variables bed size!") }
+    {% endif %}
+
+    {% if bypass_probe_docking == False %}
+        _CheckProbe action=query
+        G90
+        Attach_Probe back=1
+        _KLICKY_STATUS_CALIBRATING_Z
+
+        _KlickyDebug msg="probe_calibrate calling klipper probe_calibrate"
+        _PROBE_CALIBRATE {% for p in params
+                %}{'%s=%s ' % (p, params[p])}{%
+               endfor %}
+
+        M118 moving the toolhead 20 mm from the bed
+        _KlickyDebug msg="probe_calibrate Moving Z up by 20mm"
+        TESTZ Z=20
+        M118 remove manually the probe and continue calibration
+        _KLICKY_STATUS_READY
+    {% else %}
+        _KLICKY_STATUS_CALIBRATING_Z
+        _KlickyDebug msg="probe_calibrate calling klipper probe_calibrate"
+        _PROBE_CALIBRATE {% for p in params
+                %}{'%s=%s ' % (p, params[p])}{%
+               endfor %}
+        _KLICKY_STATUS_READY
+    {% endif %}
