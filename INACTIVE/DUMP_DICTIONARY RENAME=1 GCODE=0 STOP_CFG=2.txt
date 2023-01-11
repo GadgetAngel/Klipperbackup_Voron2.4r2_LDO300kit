@@ -1,0 +1,32 @@
+// G0 renamed existing to G0.1
+// G1 renamed existing to G1.1
+// QUAD_GANTRY_LEVEL renamed existing to QUAD_GANTRY_LEVEL_BASE
+// CALIBRATE_Z renamed existing to CALIBRATE_Z_BASE
+// M140 renamed existing to M99140
+// PROBE_ACCURACY renamed existing to PROBE_ACCURACY_BASE
+// CANCEL_PRINT renamed existing to CANCEL_PRINT_BASE
+// M190 renamed existing to M99190
+// RESUME renamed existing to RESUME_BASE
+// QUERY_PROBE renamed existing to QUERY_PROBE_BASE
+// BED_MESH_CALIBRATE renamed existing to BED_MESH_CALIBRATE_BASE
+// M204 renamed existing to M204.1
+// M117 renamed existing to M117.1
+// M115 renamed existing to M115.1
+// SET_HEATER_TEMPERATURE renamed existing to _SET_HEATER_TEMPERATURE
+// A MACRO exists for [idle_timeout].gcode:
+// {% if printer.webhooks.state|lower == 'ready' %}
+// {% if printer.pause_resume.is_paused|lower == 'false' %}
+// {action_respond_info("TURN_OFF_HEATERS: Execute Idle Timeout")}
+// TURN_OFF_HEATERS
+// {% endif %}
+// {% endif %}
+// PROBE_CALIBRATE renamed existing to PROBE_CALIBRATE_BASE
+// TURN_OFF_HEATERS renamed existing to _TURN_OFF_HEATERS
+// M107 renamed existing to M107.1
+// PROBE renamed existing to PROBE_BASE
+// M106 renamed existing to M106.1
+// SET_FILAMENT_SENSOR renamed existing to SET_FILAMENT_SENSOR_BASE
+// PAUSE renamed existing to PAUSE_BASE
+// G28 {Z} is being overridden by [homing_override]
+// 
+// DUMP_DICTIONARY found a TOTAL of 24 renamed macro(s)
