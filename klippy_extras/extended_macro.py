@@ -50,6 +50,9 @@ class ExtendedPrinterGCodeMacro(PrinterGCodeMacro, object):     #Dummy `object` 
         for name, func in config.Functions.items():
             jinja_func = {name:func}
             self.env.globals.update(**jinja_func)
+            # enxtend jinja2 with a custom filter called "name" from python function called "func" 
+            self.env.filters[name] = func
+
 
 def load_config(config):
     return ExtendedPrinterGCodeMacro(config)

@@ -1,0 +1,38 @@
+#.................................................................................................................
+# RESTART - No additional options / Usage: RESTART
+#
+# This macro will ensure that any custom jinj2 filter are also reloaded when Klipper executes a RESTART command
+#
+#.................................................................................................................
+# Required variable(s) to be set. Add the following to your global variable dictionary block as:
+#
+# [gcode_shell_command jinja2_filter_strtodict]
+# command: sh /home/pi/klipper_config/scripts/add_jinj2_custom_filter.sh
+# timeout: 30.
+# verbose: True
+#
+# need ~/klipper/strtodict_filter.py file
+#
+#.................................................................................................................
+# Required external macro(s) used by this macro.
+#
+# _general_Debug
+# ADD_STRTODICT_FILTER
+#
+#.................................................................................................................
+
+#.................................................................................................................
+#
+## URL Resources:
+#      
+#.................................................................................................................
+
+[gcode_macro RESTART]
+description: Helper: RESTART Klipper but also ensure the custom jinja2 filters are reloaded before Klipper starts
+rename_existing: RESTART_BASE
+gcode:
+   _general_Debug msg="RESTART - entering"
+    ADD_STRTODICT_FILTER
+    RESTART_BASE 
+  _general_Debug msg="RESTART - exiting"
+  
