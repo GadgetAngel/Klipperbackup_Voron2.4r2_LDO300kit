@@ -106,7 +106,15 @@ class PythonFunction:
         self.Log = Logger(config)
         
         self.config_path = config.get('path', None)
+        
+        #setup flags so user has a choice to how they want to use the python functions
+        jfunction = config.getboolean('jinja2_function', True)
+        jfilter = config.getboolean('jinja2_filter', False)
+        
         self.Functions = self._import()
+        
+        self.J2func = jfunction
+        self.J2filter = jfilter
 
     def _import(self):
         defaults_loaded = False
@@ -133,7 +141,6 @@ class PythonFunction:
         print('All Funcs:')
         print(all_funcs)
         return all_funcs
-
         
     def _get_loader(self, ext):
         loader = None

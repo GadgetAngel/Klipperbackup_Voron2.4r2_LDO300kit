@@ -44,19 +44,23 @@ class ExtendedTemplateWrapper(TemplateWrapper):
 class ExtendedPrinterGCodeMacro(PrinterGCodeMacro, object):     #Dummy `object` required due to the Python 2 requirement for using super()
     def __init__(self, config):
         super(ExtendedPrinterGCodeMacro, self).__init__(config)
-
-        config = self.printer.load_object(config, 'extended_template')
-
+        config = self.printer.load_object(config, 'extended_template')   #load config for extended_template.py
+        
+        jinja2func = config.J2func
+        jinja2filter = config.J2filter
+        
         for name, func in config.Functions.items():
-            jinja_func = {name:func}
-            self.env.globals.update(**jinja_func)
-            # enxtend jinja2 with a custom filter called "name" from python function called "func" 
-            self.env.filters[name] = func
+            if jinja2func == True:
+                jinja_func = {name:func}
+                self.env.globals.update(**jinja_func)
+                pass
+            if jinja2filter == True:
+                # enxtend jinja2 with a custom filter called "name" from python function called "func" 
+                self.env.filters[name] = func
 
 
 def load_config(config):
     return ExtendedPrinterGCodeMacro(config)
-
 
 ######################################################################
 # Extended GCode macro

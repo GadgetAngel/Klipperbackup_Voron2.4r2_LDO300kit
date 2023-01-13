@@ -1,0 +1,10 @@
+#-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# EXTENDED_PROBE Setup 
+#-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+# Define the [extended_probe] section URL: https://github.com/droans/klipper_extras/tree/v0.2/extended_macro
+#EXTENDED_PROBE 
+
+[extended_probe]
+# extended_probe is used to define one additional parameter need for probe section
+discard_first: True
