@@ -1,3 +1,4 @@
 [Variables]
 filament_sensor = {u'runout': 0}
+print_stats = {'filament': 0.0, 'time': {'filter': 0.0, 'total': 0.0, 'service': 0.0}}
 
