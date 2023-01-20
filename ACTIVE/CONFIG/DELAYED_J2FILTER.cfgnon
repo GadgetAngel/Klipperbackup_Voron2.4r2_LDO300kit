@@ -1,9 +1,0 @@
-#-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# DELAYED_J2FILTER Setup 
-#-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-# Defines the [delayed_j2filter] section 
-#
-#DELAYED_J2FILTER
-[delayed_j2filter X]
-# delayed_j2filter is used to define the delayed_j2filter macros 
