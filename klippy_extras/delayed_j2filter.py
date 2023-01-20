@@ -6,10 +6,10 @@
 # This file may be distributed under the terms of the GNU GPLv3 license.
 #
 #
-# add [delayed_j2filter] sections to your printer.cfg file; 
+# add [delayed_j2filter <macro_name>] sections to your printer.cfg file; 
 # 
-# you use this the same way you use [delayed_gcode] but you
-# will use [delayed_j2filter] if your macro contains one of 
+# you use this the same way you use [delayed_gcode <macro_name>] but you
+# will use [delayed_j2filter <macro_name>] if your macro contains one of 
 # your custom jinja2 filters in the macro definition area (i.e. after gcode:)
 #     
 #
@@ -25,17 +25,16 @@ import delayed_gcode
 ######################################################################
 # J2Filter Delayed GCode macro
 ######################################################################
-
+#
 # Inherits DelayedGcode from delayed_gcode.py
 # Only changes the template objects
-
 class J2FiltrDelayedGcode(delayed_gcode.DelayedGcode):
     def __init__(self, config):
         self.printer = config.get_printer()
         self.reactor = self.printer.get_reactor()
         self.name = config.get_name().split()[1]
         self.gcode = self.printer.lookup_object('gcode')
-        gcode_macro = self.printer.load_object(config, 'delayed_j2filter')
+        gcode_macro = self.printer.load_object(config, 'j2filter_macro')
         self.timer_gcode = gcode_macro.load_template(config, 'gcode')
         self.duration = config.getfloat('initial_duration', 0., minval=0.)
         self.timer_handler = None
