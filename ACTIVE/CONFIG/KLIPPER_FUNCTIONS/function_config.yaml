@@ -1,7 +1,0 @@
-functions:
-  str_json_todict:                                                                   # The name which will be used in the GCode to call the function. Must be unique.
-    path: /home/pi/klipper_config/ACTIVE/CONFIG/KLIPPER_FUNCTIONS/strjson_to_dict.py # Location of Python script. Must be an absolute path
-    function: strjson_to_dict                                                        # The actual name of the Python function
-  str_to_dict:                                                                       # The name which will be used in the GCode to call the function. Must be unique.
-    path: /home/pi/klipper_config/ACTIVE/CONFIG/KLIPPER_FUNCTIONS/string_to_dict.py  # Location of Python script. Must be an absolute path
-    function: string_to_dict                                                         # The actual name of the Python function
