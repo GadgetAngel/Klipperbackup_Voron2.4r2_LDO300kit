@@ -1,0 +1,10 @@
+#-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# SETTLING_Z_CALIBRATION Setup 
+#-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#SETTLING_Z_CALIBRATION
+[settling_z_calibration]
+# settling_z_calibration can be found in file 'settling_probe.py' and uses the following items:
+#    1. settling_probe which has one option parameter called 'settling_sample' and the code can be found in settling_probe.py file
+#    2. settling_z_calibration does not have any additional option parameters
+
+
