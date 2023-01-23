@@ -1,9 +1,9 @@
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# SETTLING_PROBE Setup 
+# V2SETTLING_PROBE Setup 
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-#SETTLING_PROBE
-[settling_probe]
-# settling_probe has code and the code can be found in the file 'settling_probe.py'; settling_probe 
+#V2SETTLING_PROBE
+[v2settling_probe]
+# v2settling_probe has code and the code can be found in the file 'v2settling_probe.py'; v2settling_probe 
 # also has one additional option parameter called 'settling_sample'
 settling_sample = True
 
