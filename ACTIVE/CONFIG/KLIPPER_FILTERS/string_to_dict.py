@@ -1,12 +1,12 @@
 import json
   
 def string_to_dict(dic_string): 
-    """
-    Custom Jinja2 filter - str_todict
-
-    :param dic_string: string to be converted to dictionary structure
-    :return: dict_out - python dictionary data type
-    """
+    
+    # Custom Jinja2 filter - str_todict
+    #
+    #:param dic_string: string to be converted to dictionary structure
+    #:return: dict_out - python dictionary data type
+    #
 
     # remove the curly braces from the string
     dic_string = dic_string.strip('{}')
