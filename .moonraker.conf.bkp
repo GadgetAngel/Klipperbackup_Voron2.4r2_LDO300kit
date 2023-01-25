@@ -247,6 +247,13 @@ chain_count = 126
 
 [secrets]
 
+[update_manager gcode_shell_command]
+type = git_repo
+path = ~/voron-klipper-extensions
+origin = https://github.com/voidtrance/voron-klipper-extensions.git
+install_script = ./../voron-klipper-extensions.sh
+managed_services = klipper
+
 [update_manager j2filter_macro]
 type = git_repo
 path = ~/j2filter_macro
