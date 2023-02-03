@@ -223,14 +223,14 @@ path = ~/kiauh
 origin = https://github.com/th33xitus/kiauh.git
 is_system_service = False
 
-[update_manager extended_macro]
+[update_manager extended_template]
 type = git_repo
 primary_branch = main
 path = ~/klipper_extras
 origin = https://github.com/droans/klipper_extras.git
 env = ~/klippy-env/bin/python
-requirements = extended_macro/requirements3.txt
-install_script = ./../extended_macro_install.sh
+requirements = extended_macro/requirements.txt
+install_script = install.sh
 is_system_service = False
 managed_services = klipper
 
@@ -258,11 +258,11 @@ chain_count = 126
 
 [secrets]
 
-[update_manager gcode_shell_command]
+[update_manager voron-klipper-extensions]
 type = git_repo
 path = ~/voron-klipper-extensions
 origin = https://github.com/voidtrance/voron-klipper-extensions.git
-install_script = ./../voron-klipper-extensions.sh
+install_script = install-extensions.sh
 managed_services = klipper
 
 [update_manager j2filter_macro]
@@ -280,6 +280,14 @@ type = git_repo
 path = ~/voron2_settling_probe
 origin = https://github.com/GadgetAngel/voron2_settling_probe.git
 install_script = install-v2settling_probe.sh
+is_system_service = False
+managed_services = klipper
+
+[update_manager zero_overshoot]
+type = git_repo
+path = ~/Zero_Overshoot
+origin = https://github.com/GadgetAngel/Zero_Overshoot.git
+install_script = install_zero_overshoot.sh
 is_system_service = False
 managed_services = klipper
 
