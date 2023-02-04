@@ -225,7 +225,7 @@ is_system_service = False
 
 [update_manager extended_template]
 type = git_repo
-primary_branch = main
+primary_branch = shell-install
 path = ~/klipper_extras
 origin = https://github.com/droans/klipper_extras.git
 env = ~/klippy-env/bin/python

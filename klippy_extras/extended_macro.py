@@ -1,1 +1,1 @@
-/home/pi/work/extended_macro/extended_macro.py
+/home/pi/klipper_extras/extended_macro/extended_macro.py
