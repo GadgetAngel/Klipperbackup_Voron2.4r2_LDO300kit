@@ -1,1 +1,0 @@
-/home/pi/j2filter_macro/j2filter_macro.py
